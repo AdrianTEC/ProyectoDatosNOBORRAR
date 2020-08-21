@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 89785c0107eb56540ab69e9be1addce2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - canva: {fileID: 792344602778547812, guid: 960127f852fb252438ba198d80779562, type: 3}
+  - item: {fileID: 2907911247685340723, guid: 985c827cc487bda4b8c0ba7d8bf3cf38, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
