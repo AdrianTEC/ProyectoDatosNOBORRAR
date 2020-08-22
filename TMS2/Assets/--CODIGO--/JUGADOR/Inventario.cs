@@ -12,11 +12,16 @@ public class Inventario : MonoBehaviour
     public GameObject item;
     private GameObject contenido;
     private GameObject menu;
-
-
+	private Animator Anim;
+    
+    private GameObject manoderecha;
+    private GameObject manoizquierda;
     private void Start() 
         {
-                
+            manoderecha  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
+            manoizquierda  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(4).gameObject;
+    	    Anim=gameObject.GetComponent<Animator>();
+
         }
     public void mostrarLista()
         {
@@ -61,14 +66,71 @@ public class Inventario : MonoBehaviour
                     por_agregar.transform.GetChild(0).gameObject.GetComponent<Text>().text= data.nombre;
                     por_agregar.transform.GetChild(1).gameObject.GetComponent<Image>().sprite=data.icon;
                     por_agregar.transform.SetParent(contenido.transform);
-
+                    Button btn = por_agregar.GetComponent<Button>();
+                    btn.onClick.AddListener(() => {equipar(thing); });
 
                 }
             Time.timeScale = 0.0f;
         }
+
+
+    void equipar(GameObject thing){
+		//Debug.Log (data.nombre);
+            thing.SetActive(true);
+            Pickable data=thing.GetComponent<Pickable>();
+            Vector3 posicion =data.localPosition;
+            Vector3 rotacion = data.localRotation;
+            
+            if(data.lugar.Equals("md"))
+                {
+                    if(manoderecha.transform.childCount!=0)
+                        {
+                            manoderecha.transform.GetChild(0).gameObject.SetActive(false);
+                            manoderecha.transform.GetChild(0).gameObject.transform.SetParent(null);
+                        }
+                    thing.transform.SetParent(manoderecha.transform);
+                    thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
+                    thing.transform.localEulerAngles=rotacion;
+                    Anim.SetInteger("tipo",thing.GetComponent<Weapon>().tipo);
+                }
+
+
+            if(data. lugar.Equals("mi"))
+                {
+                    if(manoizquierda.transform.childCount!=0)
+                        {
+                            manoizquierda.transform.GetChild(0).gameObject.SetActive(false);
+                            manoizquierda.transform.GetChild(0).gameObject.transform.SetParent(null);
+                        }
+                    thing.transform.SetParent(manoizquierda.transform);
+                    thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
+                    thing.transform.localEulerAngles=rotacion;
+                }
+
+
+
+	}    
     private void cerrarInventario()
         {   
             Destroy(menu);
             Time.timeScale = 1.0f;
         }
+
+    public void RecogerObjeto(GameObject thing,Vector3 posicion,Vector3 rotacion,string lugar)
+        {
+
+            add(thing);
+         
+            thing.SetActive(false);        
+
+
+            if(lugar.Equals("inventario")||lugar==null)
+                {
+
+                }
+
+
+            //thing.transform.position= manoderecha.transform.position;
+
+        }    
 }

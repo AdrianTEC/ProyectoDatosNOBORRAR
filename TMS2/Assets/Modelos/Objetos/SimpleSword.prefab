@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2108341809775890289}
   - component: {fileID: 2108341809775890291}
   - component: {fileID: 2968547430307949293}
+  - component: {fileID: 6161318874201359935}
   m_Layer: 0
   m_Name: SimpleSword
   m_TagString: Player
@@ -133,7 +134,7 @@ MonoBehaviour:
   description: "una peque\xF1a espadita"
   localPosition: {x: 0.02073, y: 0.00528, z: -0.00734}
   localRotation: {x: 0, y: -180, z: 0}
-  lugar: mderecha
+  lugar: md
   icon: {fileID: 21300000, guid: 6863dca646356b0498d50cff94a726fd, type: 3}
   picked: 0
 --- !u!222 &2968547430307949293
@@ -144,3 +145,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108341809775890288}
   m_CullTransparentMesh: 0
+--- !u!114 &6161318874201359935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108341809775890288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 0
+  tipo: 1

@@ -127,6 +127,6 @@ MonoBehaviour:
   description: por lo menos bloquea la luz solar
   localPosition: {x: 0.006726503, y: 0.009079994, z: -0.001676566}
   localRotation: {x: 81.398, y: -207.401, z: -162.537}
-  lugar: mizquierda
+  lugar: mi
   icon: {fileID: 21300000, guid: 150bdee3714a9664ba705498dc4c3faf, type: 3}
   picked: 0

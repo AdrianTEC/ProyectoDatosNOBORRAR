@@ -5,5 +5,5 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
     {
         public int dano;
-        public string tipo;
+        public int  tipo; // 1 es liviana 2 es pesada 3 lanza
     }

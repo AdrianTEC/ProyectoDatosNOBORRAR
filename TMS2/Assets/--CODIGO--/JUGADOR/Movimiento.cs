@@ -14,7 +14,7 @@ public class Movimiento : MonoBehaviour
     private float  VelocidadMaximaActual;
     private string ultimaTeclaPresionada;
 	private Animator Anim;
-
+	private bool usingShield=false;
 	private int constanteSaltos=3;
 	private int actualSaltos=0;
 	//Reproduce un sonido
@@ -40,7 +40,7 @@ public class Movimiento : MonoBehaviour
 		{
 
             // Debug.Log("me muevo a " + rb.velocity);
-			if (Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d"))
+			if (!usingShield &&(Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
 				{
 					if (Input.GetKey("w"))
 						{
@@ -49,19 +49,21 @@ public class Movimiento : MonoBehaviour
 						}
 					if(Input.GetKey("a"))
 						{
-
-							//rb.AddForce(transform.right*-FuerzaActual, ForceMode.VelocityChange);
-							rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
+			
+									rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
+						
 						}  
 					if(Input.GetKey("s"))
 						{
-							rb.AddForce(-transform.forward*FuerzaActual , ForceMode.VelocityChange);
+										rb.AddForce(-transform.forward*FuerzaActual , ForceMode.VelocityChange);
+								
 
 						}      
 					if(Input.GetKey("d"))
 						{
-							//rb.AddForce(transform.right*FuerzaActual, ForceMode.VelocityChange);
-							rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, constanteRotacion, 0) * Time.deltaTime));
+								
+										rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, constanteRotacion, 0) * Time.deltaTime));
+					
 						}
 			        Anim.SetBool("caminando",true);
 				}
@@ -78,7 +80,25 @@ public class Movimiento : MonoBehaviour
 				    }
 
                 }
+	        if(Input.GetMouseButtonDown(0))
+				{
+						Anim.SetBool("ataque",true);
+						Anim.SetInteger("combo",Anim.GetInteger("combo")+1);
+ 						Invoke("stopAttack", 0.5f);
+				}
 
+	        if(Input.GetMouseButton(1))
+				{
+						Anim.SetBool("escudo",true);
+						usingShield=true;
+				}
+			else
+				{
+						Anim.SetBool("escudo",false);
+						usingShield=false;
+
+
+				}
 			//REGULADOR VELOCIDAD
 			rb.velocity = Vector3.ClampMagnitude(rb.velocity, VelocidadMaximaActual);
 		
@@ -98,5 +118,13 @@ public class Movimiento : MonoBehaviour
 				}
 
 		}	
+
+	void stopAttack()
+		{
+			Anim.SetBool("ataque",false);
+			Anim.SetInteger("combo",0);
+
+		}
+
 
 }

@@ -7,7 +7,6 @@ public class Pickable : MonoBehaviour
 {
 
     public  string tipo;
-
     public string nombre;
     public string description;
     public  Vector3 localPosition;
@@ -36,18 +35,16 @@ public class Pickable : MonoBehaviour
                 if(other.gameObject.tag=="Player" &&!picked)
                     {
                         picked=true;
-                        other.gameObject.GetComponent<Equipamiento>().EquiparObjeto(gameObject,localPosition,localRotation,lugar);
-
                         Inventario inventario= other.gameObject.GetComponent<Inventario>();
-                        inventario.add(this.gameObject);
-                        inventario.mostrarLista();
+
+                        inventario.RecogerObjeto(gameObject,localPosition,localRotation,lugar);
+
+                        //inventario.mostrarLista();
 
                         rb.useGravity=false;
                         rb.isKinematic=true;
-                        if(tipo.Equals("sh")|| tipo.Equals("i"))
-                        {
+                  
                             boxCollider.enabled=false;
-                        }
 
                     }
         }
