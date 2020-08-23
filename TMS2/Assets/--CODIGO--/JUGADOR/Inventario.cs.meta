@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - canva: {fileID: 792344602778547812, guid: 960127f852fb252438ba198d80779562, type: 3}
-  - item: {fileID: 2907911247685340723, guid: 985c827cc487bda4b8c0ba7d8bf3cf38, type: 3}
+  - canva: {fileID: 4632268334374733708, guid: 83c098233655f544f9bb60db48af1a8b, type: 3}
+  - item: {fileID: 8231295397910535677, guid: 4153090304c937f40a3d43076dcebd9f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

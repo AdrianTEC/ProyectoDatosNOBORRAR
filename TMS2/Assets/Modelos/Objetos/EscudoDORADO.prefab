@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipo: sh
-  nombre: Escudo Dorado
-  description: 
+  nombre: Escudo Real
+  description: Escudo pesado de la guardia real, Hecho de Bronce y Acero
   localPosition: {x: -0.00686, y: 0.01211, z: -0.01066}
   localRotation: {x: 0, y: -139.692, z: 90.00001}
   lugar: mi

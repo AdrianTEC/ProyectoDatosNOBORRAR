@@ -16,11 +16,16 @@ public class Inventario : MonoBehaviour
     
     private GameObject manoderecha;
     private GameObject manoizquierda;
+    private Movimiento movimiento;
+    private attackPoint puntoDeAtaque;
     private void Start() 
         {
             manoderecha  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
             manoizquierda  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(4).gameObject;
     	    Anim=gameObject.GetComponent<Animator>();
+            movimiento= gameObject.GetComponent<Movimiento>();
+            puntoDeAtaque=this.gameObject.transform.GetChild(1).gameObject.GetComponent<attackPoint>();
+
 
         }
     public void mostrarLista()
@@ -54,6 +59,7 @@ public class Inventario : MonoBehaviour
 
     private void abrirInventario()
         {
+            movimiento.Inventario=true;//Aviso que he abierto el inventario
             menu =Instantiate(canva);
             contenido= menu.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
 
@@ -65,6 +71,8 @@ public class Inventario : MonoBehaviour
                     Pickable data=thing.GetComponent<Pickable>();
                     por_agregar.transform.GetChild(0).gameObject.GetComponent<Text>().text= data.nombre;
                     por_agregar.transform.GetChild(1).gameObject.GetComponent<Image>().sprite=data.icon;
+                    por_agregar.transform.GetChild(2).gameObject.GetComponent<Text>().text= data.description;
+
                     por_agregar.transform.SetParent(contenido.transform);
                     Button btn = por_agregar.GetComponent<Button>();
                     btn.onClick.AddListener(() => {equipar(thing); });
@@ -83,6 +91,10 @@ public class Inventario : MonoBehaviour
             
             if(data.lugar.Equals("md"))
                 {
+
+
+
+                    Weapon weapon=  thing.GetComponent<Weapon>();              
                     if(manoderecha.transform.childCount!=0)
                         {
                             manoderecha.transform.GetChild(0).gameObject.SetActive(false);
@@ -91,7 +103,14 @@ public class Inventario : MonoBehaviour
                     thing.transform.SetParent(manoderecha.transform);
                     thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
                     thing.transform.localEulerAngles=rotacion;
-                    Anim.SetInteger("tipo",thing.GetComponent<Weapon>().tipo);
+                    Anim.SetInteger("tipo",weapon.tipo);
+
+
+                    //cambio los valores del arma
+                    puntoDeAtaque.empuje=weapon.empuje;
+                    puntoDeAtaque.dano=weapon.dano;
+    
+
                 }
 
 
@@ -114,6 +133,7 @@ public class Inventario : MonoBehaviour
         {   
             Destroy(menu);
             Time.timeScale = 1.0f;
+            movimiento.Inventario=false;
         }
 
     public void RecogerObjeto(GameObject thing,Vector3 posicion,Vector3 rotacion,string lugar)
@@ -133,4 +153,7 @@ public class Inventario : MonoBehaviour
             //thing.transform.position= manoderecha.transform.position;
 
         }    
+
+
+
 }

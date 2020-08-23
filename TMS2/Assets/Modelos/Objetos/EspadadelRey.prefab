@@ -96,7 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: sw
   nombre: Espada Del Rey
-  description: 
+  description: Espada pesada, esta hecha con un trozo de piedra lunar, de ella emerge
+    una misteriosa luz
   localPosition: {x: -0.0188, y: 0.0303571, z: -0.01332307}
   localRotation: {x: -38.926, y: 183.043, z: 90.14001}
   lugar: md
@@ -143,5 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 0
+  dano: 60
   tipo: 2
+  empuje: 10

@@ -96,7 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: sw
   nombre: Espada de Golem
-  description: Antigua espada hecha de piedra
+  description: Antigua espada hecha de piedra, cargada usualmente por los golems del
+    bosque
   localPosition: {x: 0.0152, y: 0.00582, z: 0.01932}
   localRotation: {x: 36.851, y: 0, z: 90.00001}
   lugar: md

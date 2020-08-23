@@ -17,6 +17,7 @@ public class Movimiento : MonoBehaviour
 	private bool usingShield=false;
 	private int constanteSaltos=3;
 	private int actualSaltos=0;
+	public bool Inventario=false;
 	//Reproduce un sonido
 
 	public void Playthesound()
@@ -47,7 +48,7 @@ public class Movimiento : MonoBehaviour
 							rb.AddForce(transform.forward*FuerzaActual, ForceMode.VelocityChange);
 
 						}
-					if(Input.GetKey("a"))
+					if(Input.GetKey("a")&&!Input.GetKey("space"))
 						{
 			
 									rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
@@ -59,7 +60,7 @@ public class Movimiento : MonoBehaviour
 								
 
 						}      
-					if(Input.GetKey("d"))
+					if(Input.GetKey("d")&&!Input.GetKey("space"))
 						{
 								
 										rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, constanteRotacion, 0) * Time.deltaTime));
@@ -71,23 +72,42 @@ public class Movimiento : MonoBehaviour
 				{
 					Anim.SetBool("caminando",false);
 				}
+
+
+
 			if(Input.GetKeyDown("space"))
                 {
-					if(actualSaltos>0)
-					{
-						actualSaltos--;
-						rb.AddForce(new Vector3(0,6,0) , ForceMode.VelocityChange);
-				    }
-
+					salto();
                 }
-	        if(Input.GetMouseButtonDown(0))
+
+			if(Input.GetKey("a")&&Input.GetKeyDown("space"))
+				{
+					Vector3 direccion=new Vector3(0,1,0);
+	
+							rb.AddForce(-transform.right*FuerzaActual*2+direccion, ForceMode.Impulse);
+				
+
+				}  
+			if(Input.GetKey("d")&&Input.GetKeyDown("space"))
+				{
+					
+					Vector3 direccion=new Vector3(0,1,0);
+
+							rb.AddForce(transform.right*FuerzaActual*2+direccion, ForceMode.VelocityChange);
+						
+			
+				}
+
+
+
+	        if(Input.GetMouseButtonDown(0)&&!Inventario)
 				{
 						Anim.SetBool("ataque",true);
 						Anim.SetInteger("combo",Anim.GetInteger("combo")+1);
  						Invoke("stopAttack", 0.5f);
 				}
 
-	        if(Input.GetMouseButton(1))
+	        if(Input.GetMouseButton(1)&&!Inventario)
 				{
 						Anim.SetBool("escudo",true);
 						usingShield=true;
@@ -118,7 +138,15 @@ public class Movimiento : MonoBehaviour
 				}
 
 		}	
-
+	void salto()
+		{
+			Vector3 direccion=new Vector3(0,6,0);
+			if(actualSaltos>0)
+				{
+					actualSaltos--;
+					rb.AddForce(new Vector3(0,6,0) , ForceMode.VelocityChange);
+				}
+		}
 	void stopAttack()
 		{
 			Anim.SetBool("ataque",false);
