@@ -9,6 +9,9 @@ public class Vida : MonoBehaviour
     private bool puedoRecibirDano;
     public int HP;
 
+    public Vector3 ubicacion;
+
+    public GameObject text;
     void Start()
     {
 		rb= gameObject.GetComponent<Rigidbody>();
@@ -23,13 +26,21 @@ public class Vida : MonoBehaviour
         }
 
     public void restarHP(int valor)
-        {
+        {   
+            valor=valor + Random.Range(-valor/2,valor/2);
+            GameObject NuevoTexto=Instantiate(text);
+            NuevoTexto.transform.SetParent(transform); 
+            NuevoTexto.GetComponent<TextMesh>().text=valor.ToString();
+
+            NuevoTexto.transform.position= transform.position + ubicacion;
+            NuevoTexto.transform.forward= -transform.forward;
+
             if(puedoRecibirDano)
                 {  
                     puedoRecibirDano= false;
                     Anim.SetBool("injured",true);
                     HP-=valor;
-                    Debug.Log(HP);
+                    //Debug.Log(HP);
                     if(HP<=0)
                         {
                                 Anim.SetBool("dead",true);

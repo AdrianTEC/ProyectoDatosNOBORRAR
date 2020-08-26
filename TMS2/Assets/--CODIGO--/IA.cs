@@ -33,6 +33,10 @@ public class IA : MonoBehaviour
     	}
     void Update()
     {		
+
+
+		    Debug.DrawRay(transform.position, transform.forward * 1000, Color.red);
+
             agent.speed=10;
     		float dis= Vector3.Distance(Target.transform.position,transform.position);
             transform.LookAt(Target.transform.position);

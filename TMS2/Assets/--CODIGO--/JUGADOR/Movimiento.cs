@@ -12,12 +12,13 @@ public class Movimiento : MonoBehaviour
     public float constanteRotacion=300;
 	private int  constanteVelocidad =5;
     private float  VelocidadMaximaActual;
-    private string ultimaTeclaPresionada;
 	private Animator Anim;
 	private bool usingShield=false;
 	private int constanteSaltos=3;
 	private int actualSaltos=0;
 	public bool Inventario=false;
+
+	public bool apuntando= false;
 	//Reproduce un sonido
 
 	public void Playthesound()
@@ -38,72 +39,128 @@ public class Movimiento : MonoBehaviour
 		}
 
     void Update()
+
 		{
 
             // Debug.Log("me muevo a " + rb.velocity);
-			if (!usingShield &&(Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
+			if ((Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
 				{
-					if (Input.GetKey("w"))
+/**		<-------------------------------------Para W ------------------------------------------------------> 	*/
+					if (Input.GetKey("w"))  //-->Arriba
 						{
-							rb.AddForce(transform.forward*FuerzaActual, ForceMode.VelocityChange);
+							if(!usingShield)
+									{
+										rb.AddForce(transform.forward*FuerzaActual, ForceMode.VelocityChange);
+									}
+								else
+									{
+										rb.AddForce(transform.forward*FuerzaActual/2, ForceMode.VelocityChange);
+
+									}
 
 						}
-					if(Input.GetKey("a")&&!Input.GetKey("space"))
-						{
-			
-									rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
-						
-						}  
-					if(Input.GetKey("s"))
-						{
-										rb.AddForce(-transform.forward*FuerzaActual , ForceMode.VelocityChange);
+/**		<-------------------------------------Para A ------------------------------------------------------> 	*/
+
+					if(Input.GetKeyDown("a")&&Input.GetKey(KeyCode.LeftShift))
+							{
 								
 
-						}      
-					if(Input.GetKey("d")&&!Input.GetKey("space"))
+										rb.AddForce(-transform.right*15,ForceMode.VelocityChange);
+										rb.AddForce(transform.up*3,ForceMode.VelocityChange);
+
+
+							}	
+			
+					if(Input.GetKey("a")&&!Input.GetKey(KeyCode.LeftShift))//--> izquierda
 						{
+
+							if(!apuntando)
+								{
+								if(!usingShield)
+									{
+						 				rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
+									}
+								else
+									{
+										rb.AddForce(transform.right*FuerzaActual/-2, ForceMode.VelocityChange);
+									}
+								}
+							else	
+								{
+										rb.AddForce(transform.right*FuerzaActual*-1, ForceMode.VelocityChange);
+
+								}
+
+						}  
+
+
+
+/**		<-------------------------------------Para S------------------------------------------------------> 	*/
+
+					if(Input.GetKey("s"))//-->abajo
+						{
+								if(!usingShield)
+									{
+										rb.AddForce(transform.forward*-FuerzaActual, ForceMode.VelocityChange);
+									}
+								else
+									{
+										rb.AddForce(transform.forward*-FuerzaActual/2, ForceMode.VelocityChange);
+
+									}
+						}      
+/**		<-------------------------------------Para d ------------------------------------------------------> 	*/
+					if(Input.GetKeyDown("d")&&Input.GetKey(KeyCode.LeftShift))
+						{
+										rb.AddForce(transform.right*15,ForceMode.VelocityChange);
+										rb.AddForce(transform.up*3,ForceMode.VelocityChange);
+						}
+
+					if(Input.GetKey("d")&&!Input.GetKey(KeyCode.LeftShift))//-->derecha
+						{
+							if(!apuntando)
+								{
+
 								
-										rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, constanteRotacion, 0) * Time.deltaTime));
+									if(!usingShield)
+										{ 
+											rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, constanteRotacion, 0) * Time.deltaTime));
+										}
+									else
+										{
+											rb.AddForce(transform.right*FuerzaActual/2, ForceMode.VelocityChange);
+										}
+								}
+							else	
+								{
+										rb.AddForce(transform.right*FuerzaActual, ForceMode.VelocityChange);
+								}
 					
 						}
 			        Anim.SetBool("caminando",true);
 				}
+
 			else
 				{
 					Anim.SetBool("caminando",false);
 				}
 
 
+/**		<-------------------------------------Para ESPACIO ------------------------------------------------------> 	*/
 
-			if(Input.GetKeyDown("space"))
+			if(Input.GetKeyDown("space")&&!Input.GetKey("a"))
                 {
 					salto();
                 }
 
-			if(Input.GetKey("a")&&Input.GetKeyDown("space"))
-				{
-					Vector3 direccion=new Vector3(0,1,0);
-	
-							rb.AddForce(-transform.right*FuerzaActual*2+direccion, ForceMode.Impulse);
-				
 
-				}  
-			if(Input.GetKey("d")&&Input.GetKeyDown("space"))
-				{
-					
-					Vector3 direccion=new Vector3(0,1,0);
 
-							rb.AddForce(transform.right*FuerzaActual*2+direccion, ForceMode.VelocityChange);
-						
-			
-				}
-
+			////////////////////////////////////////////////////////////////////////
 
 
 	        if(Input.GetMouseButtonDown(0)&&!Inventario)
 				{
 						Anim.SetBool("ataque",true);
-						Anim.SetInteger("combo",Anim.GetInteger("combo")+1);
  						Invoke("stopAttack", 0.5f);
 				}
 
@@ -119,6 +176,7 @@ public class Movimiento : MonoBehaviour
 
 
 				}
+
 			//REGULADOR VELOCIDAD
 			rb.velocity = Vector3.ClampMagnitude(rb.velocity, VelocidadMaximaActual);
 		
@@ -138,15 +196,16 @@ public class Movimiento : MonoBehaviour
 				}
 
 		}	
+
 	void salto()
 		{
-			Vector3 direccion=new Vector3(0,6,0);
 			if(actualSaltos>0)
 				{
 					actualSaltos--;
 					rb.AddForce(new Vector3(0,6,0) , ForceMode.VelocityChange);
 				}
 		}
+
 	void stopAttack()
 		{
 			Anim.SetBool("ataque",false);
