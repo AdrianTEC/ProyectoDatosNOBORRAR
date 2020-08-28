@@ -41,6 +41,7 @@ public class Movimiento : MonoBehaviour
     void Update()
 
 		{
+			#region  WASD
 
             // Debug.Log("me muevo a " + rb.velocity);
 			if ((Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
@@ -144,7 +145,7 @@ public class Movimiento : MonoBehaviour
 				{
 					Anim.SetBool("caminando",false);
 				}
-
+		#endregion 
 
 /**		<-------------------------------------Para ESPACIO ------------------------------------------------------> 	*/
 
