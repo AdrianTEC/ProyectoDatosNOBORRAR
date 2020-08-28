@@ -54,7 +54,7 @@ public class Movimiento : MonoBehaviour
 									}
 								else
 									{
-										rb.AddForce(transform.forward*FuerzaActual/2, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*FuerzaActual*2/3, ForceMode.VelocityChange);
 
 									}
 
@@ -76,14 +76,14 @@ public class Movimiento : MonoBehaviour
 
 							if(!apuntando)
 								{
-								if(!usingShield)
-									{
-						 				rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
-									}
-								else
-									{
-										rb.AddForce(transform.right*FuerzaActual/-2, ForceMode.VelocityChange);
-									}
+										if(!usingShield)
+											{
+												rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, -constanteRotacion, 0) * Time.deltaTime));
+											}
+										else
+											{
+												rb.AddForce(transform.right*FuerzaActual*2/-3, ForceMode.VelocityChange);
+											}
 								}
 							else	
 								{
@@ -105,7 +105,7 @@ public class Movimiento : MonoBehaviour
 									}
 								else
 									{
-										rb.AddForce(transform.forward*-FuerzaActual/2, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*-FuerzaActual*2/3, ForceMode.VelocityChange);
 
 									}
 						}      
@@ -128,7 +128,7 @@ public class Movimiento : MonoBehaviour
 										}
 									else
 										{
-											rb.AddForce(transform.right*FuerzaActual/2, ForceMode.VelocityChange);
+											rb.AddForce(transform.right*FuerzaActual*2/3, ForceMode.VelocityChange);
 										}
 								}
 							else	

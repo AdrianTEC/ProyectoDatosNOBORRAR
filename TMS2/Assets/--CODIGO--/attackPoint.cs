@@ -9,14 +9,14 @@ public class attackPoint : MonoBehaviour
     public int empuje;
 
     private Animator anim;
-
+    public bool enemigo;
     void Start()
     {
         anim= gameObject.transform.parent.GetComponent<Animator>();        
     }
     void OnTriggerEnter(Collider otro)
         {
-            if(otro.gameObject.tag=="enemy")
+            if(otro.gameObject.tag=="enemy"&&!enemigo)
                 {
 
                         Vida vida=otro.gameObject.GetComponent<Vida>();
@@ -30,6 +30,19 @@ public class attackPoint : MonoBehaviour
                             {
                                  vida.restarHP(dano);
                             }
+
+                }
+
+            else
+                {
+                    if(otro.gameObject.tag=="Player")
+                        {   
+                            Debug.Log("asd");
+                            Vida vida=otro.gameObject.GetComponent<Vida>();
+                            vida.restarHP(dano);
+
+
+                        }
                 }
             try 
                 {

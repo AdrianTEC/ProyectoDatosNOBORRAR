@@ -5,13 +5,10 @@ using UnityEngine;
 public class RotacionCamara : MonoBehaviour
 {   
     private GameObject myGameObj;
-    private int speed=5;
-     private Vector3 offset;
     private GameObject mycam;
     public int altura=5;
     public int velocidad;
     private Camera myCamComponent;
-    public GameObject cosa;
     void Start()
         {
             myGameObj= GameObject.Find("PATO");
@@ -22,6 +19,7 @@ public class RotacionCamara : MonoBehaviour
     void Update()
     {   
 
+            /*
             if(cosa==null)
                 {
                     mycam.transform.RotateAround(myGameObj.transform.position, this.transform.up,Input.GetAxis("Mouse X")*speed);
@@ -34,6 +32,10 @@ public class RotacionCamara : MonoBehaviour
                         mycam.transform.LookAt(cosa.transform);
                         
                     }
+
+*/          
+
+            mycam.transform.LookAt(myGameObj.transform.position);
 
 
             if(Input.GetAxis("Mouse ScrollWheel") < 0)
