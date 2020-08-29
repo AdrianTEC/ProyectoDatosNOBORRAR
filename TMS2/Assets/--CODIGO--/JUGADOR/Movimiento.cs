@@ -41,7 +41,7 @@ public class Movimiento : MonoBehaviour
     void Update()
 
 		{
-			#region  WASD
+			# region  WASD
 
             // Debug.Log("me muevo a " + rb.velocity);
 			if ((Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
@@ -191,7 +191,7 @@ public class Movimiento : MonoBehaviour
 				}
 			else
 				{
-				//	Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.red);
+				Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.red);
 						Anim.SetBool("volando",true);
 					
 				}

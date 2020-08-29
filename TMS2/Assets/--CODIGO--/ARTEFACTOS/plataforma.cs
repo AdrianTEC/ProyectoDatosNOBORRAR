@@ -9,7 +9,6 @@ public class plataforma : MonoBehaviour
 
     private puzzles manager;
 
-    private bool activo=false;
 
 
         void Start()
@@ -27,7 +26,6 @@ public class plataforma : MonoBehaviour
                 
                 if(other.gameObject.tag=="bloque")
                     {
-                        activo=true;
                             manager.decrement();
 
                     }
@@ -40,7 +38,6 @@ public class plataforma : MonoBehaviour
         {
                    if(other.gameObject.tag=="bloque")
                     {
-                        activo=false;
                             manager.increment();
 
                     }

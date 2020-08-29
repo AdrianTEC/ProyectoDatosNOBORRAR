@@ -98,8 +98,10 @@ MonoBehaviour:
   nombre: Espada Del Rey
   description: Espada pesada, esta hecha con un trozo de piedra lunar, de ella emerge
     una misteriosa luz
-  localPosition: {x: -0.0188, y: 0.0303571, z: -0.01332307}
+  localPosition: {x: -0.0045, y: 0.0136, z: 0.0013}
   localRotation: {x: -38.926, y: 183.043, z: 90.14001}
+  localPosition2: {x: -0.01123, y: -0.01154, z: -0.01183}
+  localRotation2: {x: 71.22501, y: 183.451, z: 90.33801}
   lugar: md
   icon: {fileID: 21300000, guid: 89ad130441255d941817e77360cb9bb8, type: 3}
   picked: 0
@@ -114,8 +116,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.035895817, y: 0.0029999986, z: 0.014}
-  m_Center: {x: -0.00094784505, y: 0.01749998, z: -0.025999893}
+  m_Size: {x: 0.035000008, y: 0.003000001, z: 0.014}
+  m_Center: {x: 0.00640566, y: 0.000005658842, z: 0.00006794432}
 --- !u!54 &8081847409864193668
 Rigidbody:
   m_ObjectHideFlags: 0

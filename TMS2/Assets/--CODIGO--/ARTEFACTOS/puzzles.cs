@@ -27,10 +27,13 @@ public class puzzles : MonoBehaviour
         }
         public void increment()
         {
-                cantidadObjetos+=1;
-                if(cantidadObjetos>0)
-                    {
 
+            bool yacumpliaanteslacondicion =cantidadObjetos<=0;
+
+                cantidadObjetos+=1;
+                if(yacumpliaanteslacondicion)
+                    {
+                        target.alternar();
                     }
         }
     public void write(string letra)

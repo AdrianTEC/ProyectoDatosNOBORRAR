@@ -13,7 +13,7 @@ public class Vida : MonoBehaviour
     
     public Sprite icon;
     public Vector3 ubicacion;
-    public bool player;
+    public bool player=false;
     public GameObject text;
 
     public GameObject  estatusPREFAB;
@@ -50,7 +50,6 @@ public class Vida : MonoBehaviour
         {   
             valor=valor + Random.Range(-valor/2,valor/2);
 
-            barraVida.localScale= new Vector3(constanteOriginal*HP,barraVida.localScale.y,barraVida.localScale.z);
 
             if(!player)
                 {
@@ -62,7 +61,10 @@ public class Vida : MonoBehaviour
                     NuevoTexto.transform.forward= -transform.forward;
               
                 }
-      
+            else
+                {
+                    barraVida.localScale= new Vector3(constanteOriginal*HP,barraVida.localScale.y,barraVida.localScale.z);
+                }
             if(puedoRecibirDano)
                 {  
                     puedoRecibirDano= false;
@@ -75,8 +77,9 @@ public class Vida : MonoBehaviour
                                 if(this.gameObject.tag=="enemy")
                                     {
                                         gameObject.GetComponent<IA>().enabled=false;
+                                        puedoRecibirDano=false;
                                     }
-                                if(!player)
+                                if(player)
                                 {Invoke("dead",4);}
                         }
 

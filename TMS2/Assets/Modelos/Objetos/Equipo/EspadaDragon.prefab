@@ -97,8 +97,10 @@ MonoBehaviour:
   tipo: sw
   nombre: Espada de dragon
   description: Espada fabricada a partir de un colmillo de dragon
-  localPosition: {x: -0.02088, y: -0.00387, z: -0.013}
+  localPosition: {x: -0.00555, y: 0.0111, z: -0.00996}
   localRotation: {x: 0, y: 90, z: 0}
+  localPosition2: {x: -0.00984, y: 0.01149, z: -0.00991}
+  localRotation2: {x: 90, y: 90, z: 0}
   lugar: md
   icon: {fileID: 21300000, guid: c27ed4e6d3e68b249b67a1d131d4685f, type: 3}
   picked: 0
@@ -116,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 0
   tipo: 1
+  empuje: 0
 --- !u!54 &5584882741239999990
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,5 +146,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.023000004, y: 0.0059999977, z: 0.012000003}
-  m_Center: {x: -0.006500001, y: 0.017999997, z: 0.023000007}
+  m_Size: {x: 0.023000004, y: 0.0059999987, z: 0.012000003}
+  m_Center: {x: 0.0029444436, y: 0.00034615395, z: -0.000000027474023}

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: 1535b7c4b81ab1b498e9780a43648cdf, type: 3}
+  - {fileID: 2100000, guid: c83fa46bb6dd2b642894ed912b578eb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.008000001, y: 0.003, z: 0.012000004}
-  m_Center: {x: -0.018000001, y: 0.0014999995, z: -0.011000002}
+  m_Size: {x: 0.008000002, y: 0.0030000003, z: 0.012000002}
+  m_Center: {x: -3.893564e-10, y: -0.00026923107, z: -0.0026538477}
 --- !u!54 &4192154031100369250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,8 +126,10 @@ MonoBehaviour:
   tipo: sw
   nombre: Martillo
   description: En las caricaturas hace cosas divertidas
-  localPosition: {x: -0.006459992, y: 0.01912, z: 0.03009}
+  localPosition: {x: -0.0049, y: 0.01912, z: 0.0037}
   localRotation: {x: -113.524, y: -180, z: 89.99999}
+  localPosition2: {x: -0.00148, y: 0.02553, z: 0.00178}
+  localRotation2: {x: -46.653, y: 180, z: 90}
   lugar: md
   icon: {fileID: 21300000, guid: e1860f38e9d8f5042bd79631a8e7c3f7, type: 3}
   picked: 0
@@ -145,3 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dano: 2
   tipo: 2
+  empuje: 0

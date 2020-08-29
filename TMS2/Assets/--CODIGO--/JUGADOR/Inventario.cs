@@ -13,7 +13,7 @@ public class Inventario : MonoBehaviour
     private GameObject contenido;
     private GameObject menu;
 	private Animator Anim;
-    
+    public bool needCorrection;
     private GameObject manoderecha;
     private GameObject manoizquierda;
     private Movimiento movimiento;
@@ -22,6 +22,7 @@ public class Inventario : MonoBehaviour
         {
             manoderecha  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
             manoizquierda  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(4).gameObject;
+ 
     	    Anim=gameObject.GetComponent<Animator>();
             movimiento= gameObject.GetComponent<Movimiento>();
             puntoDeAtaque=this.gameObject.transform.GetChild(1).gameObject.GetComponent<attackPoint>();
@@ -88,7 +89,8 @@ public class Inventario : MonoBehaviour
             Pickable data=thing.GetComponent<Pickable>();
             Vector3 posicion =data.localPosition;
             Vector3 rotacion = data.localRotation;
-            
+             Vector3 posicion2 =data.localPosition2;
+            Vector3 rotacion2 = data.localRotation2;           
             if(data.lugar.Equals("md"))
                 {
 
@@ -101,8 +103,17 @@ public class Inventario : MonoBehaviour
                             manoderecha.transform.GetChild(0).gameObject.transform.SetParent(null);
                         }
                     thing.transform.SetParent(manoderecha.transform);
-                    thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
-                    thing.transform.localEulerAngles=rotacion;
+                    if(!needCorrection)
+                        {
+                            thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
+                            thing.transform.localEulerAngles=rotacion;
+                        }
+                    else       
+                        {
+                            thing.transform.localPosition= new Vector3( posicion2.x,posicion2.y,posicion2.z);
+                            thing.transform.localEulerAngles=rotacion2;
+                        }
+
                     Anim.SetInteger("tipo",weapon.tipo);
 
 
@@ -122,8 +133,16 @@ public class Inventario : MonoBehaviour
                             manoizquierda.transform.GetChild(0).gameObject.transform.SetParent(null);
                         }
                     thing.transform.SetParent(manoizquierda.transform);
-                    thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
-                    thing.transform.localEulerAngles=rotacion;
+               if(!needCorrection)
+                        {
+                            thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
+                            thing.transform.localEulerAngles=rotacion;
+                        }
+                    else       
+                        {
+                            thing.transform.localPosition= new Vector3( posicion2.x,posicion2.y,posicion2.z);
+                            thing.transform.localEulerAngles=rotacion2;
+                        }
                 }
 
 

@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - palanca
   - bloque
+  - cofre
   layers:
   - Default
   - TransparentFX

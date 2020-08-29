@@ -11,6 +11,12 @@ public class Pickable : MonoBehaviour
     public string description;
     public  Vector3 localPosition;
     public Vector3 localRotation;
+
+
+    public  Vector3 localPosition2;
+    public Vector3 localRotation2;
+
+
     private Rigidbody rb;
     private BoxCollider boxCollider;
     public string lugar;
@@ -36,9 +42,14 @@ public class Pickable : MonoBehaviour
                     {
                         picked=true;
                         Inventario inventario= other.gameObject.GetComponent<Inventario>();
-
-                        inventario.RecogerObjeto(gameObject,localPosition,localRotation,lugar);
-
+                        if(!inventario.needCorrection)   
+                        {   
+                            inventario.RecogerObjeto(gameObject,localPosition,localRotation,lugar);
+                        }
+                        else
+                            {
+                                inventario.RecogerObjeto(gameObject,localPosition2,localRotation2,lugar);
+                            }
                         //inventario.mostrarLista();
 
                         rb.useGravity=false;

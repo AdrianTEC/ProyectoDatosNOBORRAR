@@ -9,9 +9,10 @@ public class RotacionCamara : MonoBehaviour
     public int altura=5;
     public int velocidad;
     private Camera myCamComponent;
+    public string PlayerName;
     void Start()
         {
-            myGameObj= GameObject.Find("PATO");
+            myGameObj= GameObject.Find(PlayerName);
             mycam= gameObject.transform.GetChild(0).gameObject;
             myCamComponent= mycam.GetComponent<Camera>();
             this.transform.position= myGameObj.transform.position+new Vector3(0,altura,0);

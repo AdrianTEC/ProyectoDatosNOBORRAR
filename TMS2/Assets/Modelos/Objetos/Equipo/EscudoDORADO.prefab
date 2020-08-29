@@ -98,9 +98,11 @@ MonoBehaviour:
   description: Escudo pesado de la guardia real, Hecho de Bronce y Acero
   localPosition: {x: -0.00686, y: 0.01211, z: -0.01066}
   localRotation: {x: 0, y: -139.692, z: 90.00001}
+  localPosition2: {x: -0.00708, y: 0.0027, z: -0.00744}
+  localRotation2: {x: 0, y: -141.334, z: 90.00001}
   lugar: mi
   icon: {fileID: 21300000, guid: a7d454cf64944904382e39d00f840fb5, type: 3}
-  picked: 0
+  picked: 1
 --- !u!54 &1302635169954683063
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,5 +130,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.025999999, y: 0.008999999, z: 0.018}
-  m_Center: {x: -0.00400006, y: 0.006499999, z: -0.025000118}
+  m_Size: {x: 0.025999999, y: 0.009, z: 0.017999997}
+  m_Center: {x: -0.00082187675, y: -0.0012717089, z: -0.000000012572853}

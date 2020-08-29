@@ -6,6 +6,7 @@ public class miniDetector : MonoBehaviour
 {
     
     private Palanca  palanca;
+    private cofres cofre;
 
     void Update()
     {
@@ -14,6 +15,10 @@ public class miniDetector : MonoBehaviour
                     palanca.alternar();
                     
                 }        
+            if(Input.GetKeyDown("e")&& cofre!=null)
+                {
+                    cofre.Spawnear();
+                }         
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -21,6 +26,11 @@ public class miniDetector : MonoBehaviour
                if(other.gameObject.tag=="palanca")
                 {
                         palanca= other.gameObject.GetComponent<Palanca>();
+
+                } 
+                if(other.gameObject.tag=="cofre")
+                {
+                        cofre= other.gameObject.GetComponent<cofres>();
 
                 } 
         }
@@ -32,10 +42,16 @@ public class miniDetector : MonoBehaviour
                         palanca= other.gameObject.GetComponent<Palanca>();
 
                          } 
+                        if(other.gameObject.tag=="cofre")
+                        {
+                                cofre= other.gameObject.GetComponent<cofres>();
+
+                        }  
     }
     void OnTriggerExit(Collider other)
         {
             palanca=null;
+            cofre=null;
                     
         }
 }
