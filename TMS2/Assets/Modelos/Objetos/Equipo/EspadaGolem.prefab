@@ -100,7 +100,7 @@ MonoBehaviour:
     bosque
   localPosition: {x: -0.0049, y: 0.0132, z: 0.0003}
   localRotation: {x: 36.851, y: 0, z: 90.00001}
-  localPosition2: {x: 0.01504, y: 0.01621, z: -0.00446}
+  localPosition2: {x: 0.00025, y: 0.00142, z: -0.00594}
   localRotation2: {x: -73.925, y: 0, z: 90}
   lugar: md
   icon: {fileID: 21300000, guid: d951b3928bf28a844b6ce7d8c3ce77a4, type: 3}

@@ -18,6 +18,7 @@ public class Inventario : MonoBehaviour
     private GameObject manoizquierda;
     private Movimiento movimiento;
     private attackPoint puntoDeAtaque;
+    private audioManager audiom;
     private void Start() 
         {
             manoderecha  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
@@ -26,7 +27,7 @@ public class Inventario : MonoBehaviour
     	    Anim=gameObject.GetComponent<Animator>();
             movimiento= gameObject.GetComponent<Movimiento>();
             puntoDeAtaque=this.gameObject.transform.GetChild(1).gameObject.GetComponent<attackPoint>();
-
+            audiom= gameObject.GetComponent<audioManager>();
 
         }
     public void mostrarLista()
@@ -103,10 +104,10 @@ public class Inventario : MonoBehaviour
                             manoderecha.transform.GetChild(0).gameObject.transform.SetParent(null);
                         }
                     thing.transform.SetParent(manoderecha.transform);
-                    if(!needCorrection)
-                        {
                             thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
                             thing.transform.localEulerAngles=rotacion;
+                    if(!needCorrection)
+                        {
                         }
                     else       
                         {
@@ -157,7 +158,7 @@ public class Inventario : MonoBehaviour
 
     public void RecogerObjeto(GameObject thing,Vector3 posicion,Vector3 rotacion,string lugar)
         {
-
+            audiom.PickUp();
             add(thing);
          
             thing.SetActive(false);        

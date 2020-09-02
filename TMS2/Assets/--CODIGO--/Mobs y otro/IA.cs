@@ -44,13 +44,17 @@ public class IA : MonoBehaviour
                         if( dis<distance )
                             {
                                 agent.SetDestination(Target.transform.position);
+                                Anim.SetBool("moviendose",true);
                                 agent.speed=3;
                             }
                         else
                             {
                                     agent.speed=0;
+                                Anim.SetBool("moviendose",false);
+
                                 
                             }
                 }
+ 
     }		
 }

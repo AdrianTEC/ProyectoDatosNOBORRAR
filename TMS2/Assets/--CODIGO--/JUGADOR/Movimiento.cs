@@ -5,8 +5,6 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {	
 	private Rigidbody rb;
-	private  float audioSpeed=1f;//
- 	private AudioSource Audio;
     private float FuerzaActual;
 	private float constanteFuerza=0.5f;
     public float constanteRotacion=300;
@@ -14,25 +12,18 @@ public class Movimiento : MonoBehaviour
     private float  VelocidadMaximaActual;
 	private Animator Anim;
 	private bool usingShield=false;
-	private int constanteSaltos=3;
+	public int constanteSaltos=3;
 	private int actualSaltos=0;
 	public bool Inventario=false;
 
 	public bool apuntando= false;
 	//Reproduce un sonido
 
-	public void Playthesound()
-		{
-            
-			Audio.pitch=audioSpeed*0.8f;
-	   		if (true){if (!Audio.isPlaying){Audio.Play();}}
 
-	    }
 
     void Start()
 		{
 			rb= gameObject.GetComponent<Rigidbody>();
-			Audio= GetComponent<AudioSource>();
     	    Anim=gameObject.GetComponent<Animator>();
 			VelocidadMaximaActual=constanteVelocidad;
 			FuerzaActual=constanteFuerza;

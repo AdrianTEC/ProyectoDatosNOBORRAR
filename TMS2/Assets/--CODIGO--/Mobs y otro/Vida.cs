@@ -17,27 +17,32 @@ public class Vida : MonoBehaviour
     public GameObject text;
 
     public GameObject  estatusPREFAB;
-    private GameObject  estatus;
+    public GameObject  estatus;
     private RectTransform barraVida;
     private GameObject barraestamina;
-
+    public GameObject ANIMACIONMUERTE;      
     private float constanteOriginal;
 
+
+    void Awake()
+        {
+        if(player)
+            {
+                estatus= Instantiate(estatusPREFAB);
+                barraVida= estatus.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
+                barraestamina=estatus.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
+                estatus.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite=icon;
+                constanteOriginal=barraVida.localScale.x/HP;
+
+            }
+        }
     void Start()
     {
 		rb= gameObject.GetComponent<Rigidbody>();
     	Anim=gameObject.GetComponent<Animator>();
         puedoRecibirDano=true;
 
-        if(player)
-            {
-                estatus= Instantiate(estatusPREFAB);
-                barraVida= estatus.transform.GetChild(2).gameObject.GetComponent<RectTransform>();
-                barraestamina=estatus.transform.GetChild(3).gameObject;
 
-                constanteOriginal=barraVida.localScale.x/HP;
-
-            }
     }
 
 
@@ -48,25 +53,24 @@ public class Vida : MonoBehaviour
 
     public void restarHP(int valor)
         {   
-            valor=valor + Random.Range(-valor/2,valor/2);
-
-
-            if(!player)
-                {
-                    GameObject NuevoTexto=Instantiate(text);
-                    NuevoTexto.transform.SetParent(transform); 
-                    NuevoTexto.GetComponent<TextMesh>().text=valor.ToString();
-
-                    NuevoTexto.transform.position= transform.position + ubicacion;
-                    NuevoTexto.transform.forward= -transform.forward;
-              
-                }
-            else
-                {
-                    barraVida.localScale= new Vector3(constanteOriginal*HP,barraVida.localScale.y,barraVida.localScale.z);
-                }
             if(puedoRecibirDano)
                 {  
+                    valor=valor + Random.Range(-valor/2,valor/2);
+                    if(!player)
+                        {
+                            GameObject NuevoTexto=Instantiate(text);
+                            NuevoTexto.transform.SetParent(transform); 
+                            NuevoTexto.GetComponent<TextMesh>().text=valor.ToString();
+
+                            NuevoTexto.transform.position= transform.position + ubicacion;
+                            NuevoTexto.transform.forward= -transform.forward;
+                    
+                        }
+                    else
+                        {
+                            barraVida.localScale= new Vector3(constanteOriginal*HP,barraVida.localScale.y,barraVida.localScale.z);
+                        }
+                
                     puedoRecibirDano= false;
                     Anim.SetBool("injured",true);
                     HP-=valor;
@@ -76,15 +80,19 @@ public class Vida : MonoBehaviour
                                 Anim.SetBool("dead",true);
                                 if(this.gameObject.tag=="enemy")
                                     {
-                                        gameObject.GetComponent<IA>().enabled=false;
-                                        puedoRecibirDano=false;
+                                        GameObject nube= Instantiate(ANIMACIONMUERTE);
+                                        nube.transform.position= transform.position;
+                                        nube.transform.SetParent(null);
+                                        Destroy(gameObject);
                                     }
                                 if(player)
-                                {Invoke("dead",4);}
+                                    {
+                                        Invoke("dead",4);
+                                    }
                         }
 
                     Invoke("capacitarParaRecibirdano",0.5f);    
-                    
+                            
                 }
 
         }
@@ -93,7 +101,11 @@ public class Vida : MonoBehaviour
         {
 
         SceneManager.LoadScene("GameOver");
-
+        }
+    private void desaparecer()
+        {
+            gameObject.transform.position=new Vector3(1000,-1000,-1000);
+            Destroy(gameObject);
 
         }
     public void capacitarParaRecibirdano()

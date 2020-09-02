@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class RotacionCamara : MonoBehaviour
 {   
-    private GameObject myGameObj;
+    public GameObject target;
     private GameObject mycam;
     public int altura=5;
     public int velocidad;
     private Camera myCamComponent;
-    public string PlayerName;
     void Start()
         {
-            myGameObj= GameObject.Find(PlayerName);
             mycam= gameObject.transform.GetChild(0).gameObject;
             myCamComponent= mycam.GetComponent<Camera>();
-            this.transform.position= myGameObj.transform.position+new Vector3(0,altura,0);
+            this.transform.position= target.transform.position+new Vector3(0,altura,0);
         }
     void Update()
     {   
@@ -23,8 +21,8 @@ public class RotacionCamara : MonoBehaviour
             /*
             if(cosa==null)
                 {
-                    mycam.transform.RotateAround(myGameObj.transform.position, this.transform.up,Input.GetAxis("Mouse X")*speed);
-                    mycam.transform.LookAt(myGameObj.transform);
+                    mycam.transform.RotateAround(target.transform.position, this.transform.up,Input.GetAxis("Mouse X")*speed);
+                    mycam.transform.LookAt(target.transform);
 
                 }
                 else
@@ -36,7 +34,7 @@ public class RotacionCamara : MonoBehaviour
 
 */          
 
-            mycam.transform.LookAt(myGameObj.transform.position);
+            mycam.transform.LookAt(target.transform.position);
 
 
             if(Input.GetAxis("Mouse ScrollWheel") < 0)

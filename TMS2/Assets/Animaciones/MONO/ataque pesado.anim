@@ -717,7 +717,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: 0.04597455
+        value: 0.07020212
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -745,7 +745,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: -0.0035987545
+        value: -0.0035153893
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -801,7 +801,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: 0.019826723
+        value: 0.03194051
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -812,6 +812,34 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Center.z
+    path: AttackArea
+    classID: 65
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.03922903
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.53333336
+        value: 0.052464288
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Size.x
     path: AttackArea
     classID: 65
     script: {fileID: 0}
@@ -930,6 +958,13 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 201734376
+      attribute: 605858901
+      script: {fileID: 0}
+      typeID: 65
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 201734376
       attribute: 3390229881
       script: {fileID: 0}
       typeID: 65
@@ -937,7 +972,7 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 201734376
-      attribute: 605858901
+      attribute: 4197328169
       script: {fileID: 0}
       typeID: 65
       customType: 0
@@ -3002,7 +3037,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: 0.04597455
+        value: 0.07020212
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3030,7 +3065,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: -0.0035987545
+        value: -0.0035153893
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3086,7 +3121,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
-        value: 0.019826723
+        value: 0.03194051
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3183,6 +3218,34 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: AttackArea
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.03922903
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.53333336
+        value: 0.052464288
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Size.x
+    path: AttackArea
+    classID: 65
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

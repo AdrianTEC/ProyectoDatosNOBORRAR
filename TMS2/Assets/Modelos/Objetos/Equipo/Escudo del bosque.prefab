@@ -125,10 +125,10 @@ MonoBehaviour:
   tipo: sh
   nombre: Escudo del bosque
   description: Escudo magico hecho de madera
-  localPosition: {x: 0.00541, y: 0.01217, z: -0.00214}
+  localPosition: {x: 0.00481, y: 0.01217, z: -0.0037}
   localRotation: {x: 2.065, y: -131.863, z: 88.15}
-  localPosition2: {x: -0.0009, y: 0.00388, z: -0.00168}
+  localPosition2: {x: 0.00211, y: 0.00396, z: -0.00224}
   localRotation2: {x: 0, y: -150.633, z: 90}
   lugar: mi
   icon: {fileID: 21300000, guid: 3af0dbdc07c20c64eb73b3e4d78db6d4, type: 3}
-  picked: 1
+  picked: 0

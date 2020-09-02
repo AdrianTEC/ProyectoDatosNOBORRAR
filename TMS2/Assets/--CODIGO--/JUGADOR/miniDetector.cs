@@ -17,7 +17,7 @@ public class miniDetector : MonoBehaviour
                 }        
             if(Input.GetKeyDown("e")&& cofre!=null)
                 {
-                    cofre.Spawnear();
+                    cofre.abrir();
                 }         
     }
 

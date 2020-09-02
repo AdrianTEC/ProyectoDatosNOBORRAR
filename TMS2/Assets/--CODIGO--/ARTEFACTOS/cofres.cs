@@ -20,10 +20,7 @@ public class cofres : MonoBehaviour
 
     public void Spawnear()
         {
-            if(!abierto)
-            {
-                abierto=true;
-                anim.SetBool("open",true);
+
                     for (int i =0; i<cantidad; i++)
                     {
                         GameObject thing=Instantiate(objecto);
@@ -36,10 +33,16 @@ public class cofres : MonoBehaviour
                         catch{}
 
                     }
-            }
-
         }
+    public void abrir()
+        {
+            if(!abierto)
+            {
+                abierto=true;
+                anim.SetBool("open",true);
 
+            }
+        }
     void Update()
         {
             

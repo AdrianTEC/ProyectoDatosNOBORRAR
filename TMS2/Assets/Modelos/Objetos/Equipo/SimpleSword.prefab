@@ -128,11 +128,11 @@ MonoBehaviour:
   description: "una peque\xF1a espadita"
   localPosition: {x: -0.00382, y: 0.0091, z: -0.0073}
   localRotation: {x: 0, y: -180, z: 0}
-  localPosition2: {x: -0.00284, y: -0.02063, z: -0.00489}
+  localPosition2: {x: -0.00045, y: -0.00157, z: -0.00489}
   localRotation2: {x: 0, y: 180, z: 90}
   lugar: md
   icon: {fileID: 21300000, guid: 6863dca646356b0498d50cff94a726fd, type: 3}
-  picked: 1
+  picked: 0
 --- !u!114 &6161318874201359935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 23
+  dano: 20
   tipo: 1
   empuje: 4

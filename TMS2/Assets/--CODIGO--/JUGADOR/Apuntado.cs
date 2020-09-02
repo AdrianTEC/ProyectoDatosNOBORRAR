@@ -7,19 +7,21 @@ public class Apuntado : MonoBehaviour
 
     private List<GameObject> lista;
 
-    private GameObject objetoMasCercano;
+    public GameObject objetoMasCercano;
     private Movimiento movimiento;
     private Transform ptransform;
-
     void Start()
         {
             lista=new List<GameObject>();
             movimiento=gameObject.transform.parent.gameObject.GetComponent<Movimiento>();
             ptransform=gameObject.transform.parent.transform;
+
         }   
 
     void Update()
         {
+
+
             if(Input.GetKeyDown("q"))
                 {
                     if(objetoMasCercano!=null)
@@ -54,15 +56,23 @@ public class Apuntado : MonoBehaviour
                 }
           
 
+        }   
+    public GameObject getMasCercano()
+        {
+            if(objetoMasCercano==null)
+                {
+                    return calcularMasCercano();
+
+                }
+            else
+                {return objetoMasCercano;}
         }
-    private void apuntar()
-        {       
-                float distancia=10000;
-
-                lista.RemoveAll(item => item == null);
-
-                if(lista.Count>0)
+    public GameObject calcularMasCercano()
+        {
+            if(lista.Count>0)
                     {
+                        float distancia=10000;
+
                         foreach( GameObject objeto in lista)
                             {   
                             
@@ -77,7 +87,20 @@ public class Apuntado : MonoBehaviour
                                     }
                                 
 
-                            }
+                            } 
+                            return objetoMasCercano;
+                    }
+                    else {return null; }
+        }
+    private void apuntar()
+        {       
+
+                lista.RemoveAll(item => item == null);
+
+                if(lista.Count>0)
+                    {
+                        calcularMasCercano();
+
                         if(objetoMasCercano.GetComponent<Vida>().HP > 0)    
                             {
                                 objetoMasCercano.GetComponent<Apuntable>().alternar(true);
@@ -102,14 +125,15 @@ public class Apuntado : MonoBehaviour
         }
     private void OnTriggerEnter(Collider other) 
         {
-            
-                if(other.gameObject.tag=="enemy")
-                    {       
-                            if(!lista.Contains(other.gameObject))
-                                {
-                                     lista.Add(other.gameObject);
-                                }
-                    }
+
+                    if(other.gameObject.tag=="enemy")
+                        {       
+                                if(!lista.Contains(other.gameObject))
+                                    {
+                                        lista.Add(other.gameObject);
+                                    }
+                        }
+             
 
 
 
