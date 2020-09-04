@@ -13,7 +13,6 @@ public class RotacionCamara : MonoBehaviour
         {
             mycam= gameObject.transform.GetChild(0).gameObject;
             myCamComponent= mycam.GetComponent<Camera>();
-            this.transform.position= target.transform.position+new Vector3(0,altura,0);
         }
     void Update()
     {   
@@ -33,7 +32,7 @@ public class RotacionCamara : MonoBehaviour
                     }
 
 */          
-
+        if(target!=null)    {
             mycam.transform.LookAt(target.transform.position);
 
 
@@ -47,7 +46,7 @@ public class RotacionCamara : MonoBehaviour
                     
                             mycam.transform.Translate(Vector3.forward *velocidad* Time.deltaTime, Space.Self);
                 }
-
+        }
 
 
     }

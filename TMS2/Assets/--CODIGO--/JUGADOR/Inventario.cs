@@ -5,43 +5,35 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
     public List<GameObject> ArmasyHerramientas= new List<GameObject>();
-    public List<GameObject> items= new List<GameObject>(); 
     public List<GameObject> coleccionables= new List<GameObject>(); 
+    public List<GameObject> items= new List<GameObject>(); 
     public bool inventarioAbierto=false;
-    public GameObject canva;
-    public GameObject item;
-    private GameObject contenido;
-    private GameObject menu;
-	private Animator Anim;
-    public bool needCorrection;
-    private GameObject manoderecha;
-    private GameObject manoizquierda;
-    private Movimiento movimiento;
     private attackPoint puntoDeAtaque;
+    private GameObject CurrentPlayer;
+    private GameObject manoizquierda;
+    private GameObject manoderecha;
+    private Movimiento movimiento;
+    private GameObject contenido;
     private audioManager audiom;
+    private PlayerManager admin;
+    public GameObject canva;
+    private GameObject menu;
+    public GameObject item;
+	private Animator Anim;
+
+
+
     private void Start() 
         {
-            manoderecha  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
-            manoizquierda  = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(4).gameObject;
- 
     	    Anim=gameObject.GetComponent<Animator>();
             movimiento= gameObject.GetComponent<Movimiento>();
-            puntoDeAtaque=this.gameObject.transform.GetChild(1).gameObject.GetComponent<attackPoint>();
             audiom= gameObject.GetComponent<audioManager>();
-
-        }
-    public void mostrarLista()
-        {
-            foreach( GameObject x in ArmasyHerramientas)
-            {
-                Debug.Log(x); 
-            }
+            admin=gameObject.GetComponent<PlayerManager>();
         }
     public void add(GameObject thing)
         {
             ArmasyHerramientas.Add(thing);
         }
-
     private void Update() 
         {
 		    if(Input.GetKeyDown(KeyCode.Escape))
@@ -58,10 +50,15 @@ public class Inventario : MonoBehaviour
                             }
                 }
         }
-
     private void abrirInventario()
         {
-            movimiento.Inventario=true;//Aviso que he abierto el inventario
+
+            CurrentPlayer = admin.jugadorActual;
+
+                manoderecha    = CurrentPlayer.transform.GetChild(0).gameObject.transform.GetChild(3).gameObject;
+                manoizquierda  = CurrentPlayer.transform.GetChild(0).gameObject.transform.GetChild(4).gameObject;
+
+            admin.Stop(true);//Aviso que he abierto el inventario
             menu =Instantiate(canva);
             contenido= menu.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
 
@@ -82,41 +79,33 @@ public class Inventario : MonoBehaviour
                 }
             Time.timeScale = 0.0f;
         }
-
-
     void equipar(GameObject thing){
 		//Debug.Log (data.nombre);
             thing.SetActive(true);
             Pickable data=thing.GetComponent<Pickable>();
-            Vector3 posicion =data.localPosition;
-            Vector3 rotacion = data.localRotation;
-             Vector3 posicion2 =data.localPosition2;
-            Vector3 rotacion2 = data.localRotation2;           
+
+                Vector3[] posRot= CurrentPlayer.GetComponent<HandlerDefinitions>(). PosAndRotaOf(data.nombre);
+
+                Vector3 posicion = posRot[0];
+                Vector3 rotacion = posRot[1];
+   
             if(data.lugar.Equals("md"))
                 {
 
+                    Weapon weapon=  thing.GetComponent<Weapon>();          
 
-
-                    Weapon weapon=  thing.GetComponent<Weapon>();              
                     if(manoderecha.transform.childCount!=0)
                         {
                             manoderecha.transform.GetChild(0).gameObject.SetActive(false);
                             manoderecha.transform.GetChild(0).gameObject.transform.SetParent(null);
                         }
                     thing.transform.SetParent(manoderecha.transform);
+               
+         
                             thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
                             thing.transform.localEulerAngles=rotacion;
-                    if(!needCorrection)
-                        {
-                        }
-                    else       
-                        {
-                            thing.transform.localPosition= new Vector3( posicion2.x,posicion2.y,posicion2.z);
-                            thing.transform.localEulerAngles=rotacion2;
-                        }
 
-                    Anim.SetInteger("tipo",weapon.tipo);
-
+                    puntoDeAtaque=CurrentPlayer.transform.GetChild(1).gameObject.GetComponent<attackPoint>();
 
                     //cambio los valores del arma
                     puntoDeAtaque.empuje=weapon.empuje;
@@ -134,16 +123,8 @@ public class Inventario : MonoBehaviour
                             manoizquierda.transform.GetChild(0).gameObject.transform.SetParent(null);
                         }
                     thing.transform.SetParent(manoizquierda.transform);
-               if(!needCorrection)
-                        {
-                            thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
-                            thing.transform.localEulerAngles=rotacion;
-                        }
-                    else       
-                        {
-                            thing.transform.localPosition= new Vector3( posicion2.x,posicion2.y,posicion2.z);
-                            thing.transform.localEulerAngles=rotacion2;
-                        }
+   
+    
                 }
 
 
@@ -153,10 +134,11 @@ public class Inventario : MonoBehaviour
         {   
             Destroy(menu);
             Time.timeScale = 1.0f;
-            movimiento.Inventario=false;
+            admin.Stop(false);//Aviso que he abierto el inventario
+
         }
 
-    public void RecogerObjeto(GameObject thing,Vector3 posicion,Vector3 rotacion,string lugar)
+    public void RecogerObjeto(GameObject thing,string lugar)
         {
             audiom.PickUp();
             add(thing);

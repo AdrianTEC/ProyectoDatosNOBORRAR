@@ -37,7 +37,12 @@ public class PlayerManager : MonoBehaviour
 
         }   
 
+    public void Stop(bool estado)
+        {
+            pato.GetComponent< Movimiento>().Inventario=estado;
+            mono.GetComponent< Movimiento>().Inventario=estado;
 
+        }
     public void currentPlayer(GameObject jugador)
         {       
                 // Se desactivan las principales caracteristicas y se convierte en un bot

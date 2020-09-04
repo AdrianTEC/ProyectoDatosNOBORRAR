@@ -16,6 +16,8 @@ public class Movimiento : MonoBehaviour
 	private int actualSaltos=0;
 	public bool Inventario=false;
 
+	private Vector3 before_position;
+
 	public bool apuntando= false;
 	//Reproduce un sonido
 
@@ -33,7 +35,8 @@ public class Movimiento : MonoBehaviour
 
 		{
 			# region  WASD
-
+			before_position=transform.position;
+			Debug.Log(before_position);
             // Debug.Log("me muevo a " + rb.velocity);
 			if ((Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
 				{
@@ -42,6 +45,7 @@ public class Movimiento : MonoBehaviour
 						{
 							if(!usingShield)
 									{
+
 										rb.AddForce(transform.forward*FuerzaActual, ForceMode.VelocityChange);
 									}
 								else
@@ -186,7 +190,7 @@ public class Movimiento : MonoBehaviour
 						Anim.SetBool("volando",true);
 					
 				}
-
+			Debug.Log("posicion despues: "+gameObject.transform.position);
 		}	
 
 	void salto()

@@ -5,19 +5,18 @@ using UnityEngine.AI;
 
 public class ModoBOT : MonoBehaviour
 {	
-	public GameObject companero;
-    public GameObject target;
     private GameObject currentFollowing;
-	public NavMeshAgent agent;
-	
-	public float AttackDistance;
-    public float STOP_distance;
-    public bool enBuscaDePelea;
-	private Animator Anim;
-    private bool quieto=false;
+    public float constanteDeAlejamiento;
     private TAMANO controlDeBarra;
-    private Apuntado apuntado;
     private bool puedoAtacar=true;
+	public GameObject companero;
+	public float AttackDistance;
+    public bool enBuscaDePelea;
+    private bool quieto=false;
+	public NavMeshAgent agent;
+    private Apuntado apuntado;
+    public GameObject target;
+	private Animator Anim;
     private int estado=1;
     void Start()
         {
@@ -26,7 +25,7 @@ public class ModoBOT : MonoBehaviour
             controlDeBarra= gameObject.GetComponent<Vida>().estatus.transform.GetChild(0).gameObject.GetComponent<TAMANO>();
             StopAttack();
 
-            agent.stoppingDistance=STOP_distance;
+            agent.stoppingDistance=AttackDistance;
         }
 
 
@@ -66,7 +65,7 @@ public class ModoBOT : MonoBehaviour
     void Update()
         {		
 
-            if(Input.GetKeyDown("v"))
+            if(Input.GetKeyDown("f"))
                 {   
                     aumentarEstado();
                     if(estado==0)
@@ -111,7 +110,7 @@ public class ModoBOT : MonoBehaviour
                                                 {
                                                     agent.speed=0;
                                                     Anim.SetBool("caminando",false);
-                                                     Debug.Log("en zona de ataque");
+                                                     //Debug.Log("en zona de ataque");
                                                     if(enBuscaDePelea&&puedoAtacar)
                                                         {
                                                             puedoAtacar=false;
@@ -121,22 +120,22 @@ public class ModoBOT : MonoBehaviour
 
                                                 }
                                             if(enBuscaDePelea)
-                                            {
-                                                if(dis<=AttackDistance-1)//si está demasiado cerca alejese
-                                                    {
-                                                        Anim.SetBool("caminando",true);
+                                                {
+                                                    if(dis<=AttackDistance-constanteDeAlejamiento)//si está demasiado cerca alejese
+                                                        {
+                                                            Anim.SetBool("caminando",true);
 
-                                                        int constante= 5;
-                                                        Vector3 posicion= transform.position*(1+constante)- constante*currentFollowing.transform.position;
+                                                            int constante= 3;
+                                                            Vector3 posicion= transform.position*(1+constante)- constante*currentFollowing.transform.position;
 
-                                                        //Debug.DrawLine(gameObject.transform.position,posicion ,Color.red);
-                                                        //Debug.Log("alejandose");
+                                                            //Debug.DrawLine(gameObject.transform.position,posicion ,Color.red);
+                                                            //Debug.Log("alejandose");
 
-                                                        agent.SetDestination(posicion);
-                                                        agent.speed=5;
+                                                            agent.SetDestination(posicion);
+                                                            agent.speed=3;
 
-                                                    }
-                                            }
+                                                        }
+                                                }
                                             else
                                                 {
                                                     Anim.SetBool("caminando",false);

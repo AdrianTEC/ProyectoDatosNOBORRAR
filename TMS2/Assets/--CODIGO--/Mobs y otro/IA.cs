@@ -14,6 +14,8 @@ public class IA : MonoBehaviour
     void Start()
     {
         Anim= gameObject.GetComponent<Animator>();
+        agent.stoppingDistance=AttackDistance;
+
     }
 
     void SetTrue()

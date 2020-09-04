@@ -9,12 +9,8 @@ public class Pickable : MonoBehaviour
     public  string tipo;
     public string nombre;
     public string description;
-    public  Vector3 localPosition;
-    public Vector3 localRotation;
 
 
-    public  Vector3 localPosition2;
-    public Vector3 localRotation2;
 
 
     private Rigidbody rb;
@@ -41,15 +37,9 @@ public class Pickable : MonoBehaviour
                 if(other.gameObject.tag=="Player" &&!picked)
                     {
                         picked=true;
-                        Inventario inventario= other.gameObject.GetComponent<Inventario>();
-                        if(!inventario.needCorrection)   
-                        {   
-                            inventario.RecogerObjeto(gameObject,localPosition,localRotation,lugar);
-                        }
-                        else
-                            {
-                                inventario.RecogerObjeto(gameObject,localPosition2,localRotation2,lugar);
-                            }
+                        Inventario inventario= other.gameObject.transform.parent.gameObject.GetComponent<Inventario>();
+
+                         inventario.RecogerObjeto(gameObject,lugar);
                         //inventario.mostrarLista();
 
                         rb.useGravity=false;

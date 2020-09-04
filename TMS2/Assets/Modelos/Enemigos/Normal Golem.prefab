@@ -221,7 +221,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   agent: {fileID: 5495902117356557420}
   distance: 6
-  AttackDistance: 3.39
+  AttackDistance: 1
 --- !u!195 &5495902117356557420
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -281,6 +281,8 @@ MonoBehaviour:
   player: 0
   text: {fileID: 7129969335667180613, guid: 9a0e4ead7f06deb4ba975dbd20157f85, type: 3}
   estatusPREFAB: {fileID: 0}
+  estatus: {fileID: 0}
+  ANIMACIONMUERTE: {fileID: 0}
 --- !u!114 &8435051786178138608
 MonoBehaviour:
   m_ObjectHideFlags: 0

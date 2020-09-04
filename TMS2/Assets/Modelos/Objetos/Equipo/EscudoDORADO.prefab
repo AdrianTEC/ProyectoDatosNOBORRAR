@@ -102,7 +102,7 @@ MonoBehaviour:
   localRotation2: {x: 0, y: -141.334, z: 90.00001}
   lugar: mi
   icon: {fileID: 21300000, guid: a7d454cf64944904382e39d00f840fb5, type: 3}
-  picked: 1
+  picked: 0
 --- !u!54 &1302635169954683063
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -222,13 +222,12 @@ GameObject:
   - component: {fileID: 7798209735485730490}
   - component: {fileID: 3691150071986665333}
   - component: {fileID: 3691150071986665332}
-  - component: {fileID: 3691150071986664587}
-  - component: {fileID: 3691150071986664591}
   - component: {fileID: 3691150071986664584}
   - component: {fileID: 3691150071986664585}
   - component: {fileID: 3691150071986664586}
   - component: {fileID: 3691150071986664590}
   - component: {fileID: 8966957927569349406}
+  - component: {fileID: 1602378776455709873}
   m_Layer: 0
   m_Name: MONO 1
   m_TagString: Player
@@ -335,13 +334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83518c2466de5564f939e2508c84df94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constanteDeAlejamiento: 0.5
   companero: {fileID: 0}
-  target: {fileID: 0}
-  agent: {fileID: 7798209735485730490}
-  distance: 100
   AttackDistance: 3
-  STOP_distance: 2
   enBuscaDePelea: 0
+  agent: {fileID: 7798209735485730490}
+  target: {fileID: 0}
 --- !u!114 &3691150071986665332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,121 +356,6 @@ MonoBehaviour:
   constanteSaltos: 3
   Inventario: 0
   apuntando: 0
---- !u!114 &3691150071986664587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691150071986665334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89785c0107eb56540ab69e9be1addce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArmasyHerramientas: []
-  items: []
-  coleccionables: []
-  inventarioAbierto: 0
-  canva: {fileID: 4632268334374733708, guid: 83c098233655f544f9bb60db48af1a8b, type: 3}
-  item: {fileID: 8231295397910535677, guid: 4153090304c937f40a3d43076dcebd9f, type: 3}
-  needCorrection: 1
---- !u!82 &3691150071986664591
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691150071986665334}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a2c466078f659b446a4c452a51dfa289, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &3691150071986664584
 AudioSource:
   m_ObjectHideFlags: 0
@@ -485,7 +368,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 00603aafe6ed9bd4bb4519962c30bc67, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.13
+  m_Volume: 0.045
   m_Pitch: 1.78
   Loop: 0
   Mute: 0
@@ -581,7 +464,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: af55b887651f125489f115761a27aa61, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.539
+  m_Volume: 0.204
   m_Pitch: 1.2
   Loop: 0
   Mute: 0
@@ -678,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caminar: {fileID: 3691150071986664584}
-  pickUpItem: {fileID: 3691150071986664591}
+  pickUpItem: {fileID: 0}
   pain: {fileID: 3691150071986664585}
 --- !u!114 &3691150071986664590
 MonoBehaviour:
@@ -700,6 +583,7 @@ MonoBehaviour:
   estatusPREFAB: {fileID: 6752160118609199197, guid: 6558f14ea43a38747b38d8dd623e4f77,
     type: 3}
   estatus: {fileID: 0}
+  ANIMACIONMUERTE: {fileID: 0}
 --- !u!114 &8966957927569349406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +602,49 @@ MonoBehaviour:
   bot: {fileID: 0}
   nav: {fileID: 0}
   inv: {fileID: 0}
+  handlerDefinitions: {fileID: 0}
   apuntado: {fileID: 0}
+--- !u!114 &1602378776455709873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691150071986665334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562e54c0fa53f5f4498244eb81357255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsCorrection: 0
+  LISTA:
+  - posicion: {x: -0.00045, y: -0.00157, z: -0.00489}
+    rotacion: {x: 0, y: 180, z: 0}
+    objeto: espada simple
+  - posicion: {x: 0.00082, y: 0.0014, z: -0.00161}
+    rotacion: {x: 81.398, y: -207.401, z: -162.537}
+    objeto: escudo de juguete
+  - posicion: {x: 0.00073, y: 0.00544, z: -0.00627}
+    rotacion: {x: -46.653, y: 180, z: 89.99999}
+    objeto: Martillo
+  - posicion: {x: 0.00025, y: 0.00142, z: -0.00594}
+    rotacion: {x: -73.925, y: 0, z: 90.00001}
+    objeto: Espada de Golem
+  - posicion: {x: 0.00045, y: -0.00131, z: -0.00454}
+    rotacion: {x: 90, y: 90, z: 0}
+    objeto: Espada de dragon
+  - posicion: {x: -0.00024, y: 0.00081, z: -0.00488}
+    rotacion: {x: 71.22501, y: 183.043, z: 90.14001}
+    objeto: Espada Del Rey
+  - posicion: {x: 0.0024, y: 0.00377, z: -0.0027}
+    rotacion: {x: 0, y: -141.334, z: 90.00001}
+    objeto: Escudo de dragon
+  - posicion: {x: 0.0013, y: 0.0021, z: -0.00195}
+    rotacion: {x: 0, y: -139.692, z: 90.00001}
+    objeto: Escudo Real
+  - posicion: {x: 0.00211, y: 0.00396, z: -0.00224}
+    rotacion: {x: 0, y: -150.633, z: 90}
+    objeto: Escudo del bosque
 --- !u!1 &4127230802620178094
 GameObject:
   m_ObjectHideFlags: 0
