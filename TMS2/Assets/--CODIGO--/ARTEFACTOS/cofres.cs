@@ -24,11 +24,12 @@ public class cofres : MonoBehaviour
                     for (int i =0; i<cantidad; i++)
                     {
                         GameObject thing=Instantiate(objecto);
-                        thing.transform.position= this.transform.position;
+                        thing.transform.position= this.transform.position+ new Vector3(0,2,0);
+                        thing.transform.up=transform.up;
                         
                         try 
                             {
-                                    thing.GetComponent<Rigidbody>().AddForce(new Vector3(0,2,0) , ForceMode.VelocityChange);;
+                                    thing.GetComponent<Rigidbody>().AddForce(thing.transform.up , ForceMode.VelocityChange);;
                             }   
                         catch{}
 
@@ -42,6 +43,11 @@ public class cofres : MonoBehaviour
                 anim.SetBool("open",true);
 
             }
+            else
+                {
+                    anim.SetBool("open",true);
+                    cantidad=0;
+                }
         }
     void Update()
         {

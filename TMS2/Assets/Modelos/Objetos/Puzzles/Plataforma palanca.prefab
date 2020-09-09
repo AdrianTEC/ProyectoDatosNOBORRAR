@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 5726804974940527866}
   m_Layer: 0
   m_Name: Plataforma palanca
-  m_TagString: Untagged
+  m_TagString: palanca
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

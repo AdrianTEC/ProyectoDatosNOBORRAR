@@ -1,42 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Movimiento : MonoBehaviour
 {	
 	private Rigidbody rb;
+	private  float audioSpeed=1f;//
+ 	private AudioSource Audio;
     private float FuerzaActual;
-	private float constanteFuerza=0.5f;
+	public float constanteFuerza=0.5f;
     public float constanteRotacion=300;
 	private int  constanteVelocidad =5;
     private float  VelocidadMaximaActual;
 	private Animator Anim;
 	private bool usingShield=false;
-	public int constanteSaltos=3;
+	private int constanteSaltos=3;
 	private int actualSaltos=0;
 	public bool Inventario=false;
-
-	private Vector3 before_position;
 
 	public bool apuntando= false;
 	//Reproduce un sonido
 
+	public void Playthesound()
+		{
+            
+			Audio.pitch=audioSpeed*0.8f;
+	   		if (true){if (!Audio.isPlaying){Audio.Play();}}
 
+	    }
 
     void Start()
 		{
+
 			rb= gameObject.GetComponent<Rigidbody>();
+			Audio= GetComponent<AudioSource>();
     	    Anim=gameObject.GetComponent<Animator>();
 			VelocidadMaximaActual=constanteVelocidad;
 			FuerzaActual=constanteFuerza;
 		}
 
+
+
     void Update()
 
 		{
-			# region  WASD
-			before_position=transform.position;
-			Debug.Log(before_position);
+			#region  WASD
+
             // Debug.Log("me muevo a " + rb.velocity);
 			if ((Input.GetKey("w")||Input.GetKey("a")||Input.GetKey("s")||Input.GetKey("d")))
 				{
@@ -45,12 +53,11 @@ public class Movimiento : MonoBehaviour
 						{
 							if(!usingShield)
 									{
-
-										rb.AddForce(transform.forward*FuerzaActual, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*FuerzaActual, ForceMode.Impulse);
 									}
 								else
 									{
-										rb.AddForce(transform.forward*FuerzaActual*2/3, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*FuerzaActual*2/3, ForceMode.Impulse);
 
 									}
 
@@ -61,8 +68,8 @@ public class Movimiento : MonoBehaviour
 							{
 								
 
-										rb.AddForce(-transform.right*15,ForceMode.VelocityChange);
-										rb.AddForce(transform.up*3,ForceMode.VelocityChange);
+										rb.AddForce(-transform.right*15,ForceMode.Impulse);
+										rb.AddForce(transform.up*3,ForceMode.Impulse);
 
 
 							}	
@@ -78,12 +85,12 @@ public class Movimiento : MonoBehaviour
 											}
 										else
 											{
-												rb.AddForce(transform.right*FuerzaActual*2/-3, ForceMode.VelocityChange);
+												rb.AddForce(transform.right*FuerzaActual*2/-3, ForceMode.Impulse);
 											}
 								}
 							else	
 								{
-										rb.AddForce(transform.right*FuerzaActual*-1, ForceMode.VelocityChange);
+										rb.AddForce(transform.right*FuerzaActual*-1, ForceMode.Impulse);
 
 								}
 
@@ -97,19 +104,19 @@ public class Movimiento : MonoBehaviour
 						{
 								if(!usingShield)
 									{
-										rb.AddForce(transform.forward*-FuerzaActual, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*-FuerzaActual, ForceMode.Impulse);
 									}
 								else
 									{
-										rb.AddForce(transform.forward*-FuerzaActual*2/3, ForceMode.VelocityChange);
+										rb.AddForce(transform.forward*-FuerzaActual*2/3, ForceMode.Impulse);
 
 									}
 						}      
 /**		<-------------------------------------Para d ------------------------------------------------------> 	*/
 					if(Input.GetKeyDown("d")&&Input.GetKey(KeyCode.LeftShift))
 						{
-										rb.AddForce(transform.right*15,ForceMode.VelocityChange);
-										rb.AddForce(transform.up*3,ForceMode.VelocityChange);
+										rb.AddForce(transform.right*15,ForceMode.Impulse);
+										rb.AddForce(transform.up*3,ForceMode.Impulse);
 						}
 
 					if(Input.GetKey("d")&&!Input.GetKey(KeyCode.LeftShift))//-->derecha
@@ -124,12 +131,12 @@ public class Movimiento : MonoBehaviour
 										}
 									else
 										{
-											rb.AddForce(transform.right*FuerzaActual*2/3, ForceMode.VelocityChange);
+											rb.AddForce(transform.right*FuerzaActual*2/3, ForceMode.Impulse);
 										}
 								}
 							else	
 								{
-										rb.AddForce(transform.right*FuerzaActual, ForceMode.VelocityChange);
+										rb.AddForce(transform.right*FuerzaActual, ForceMode.Impulse);
 								}
 					
 						}
@@ -186,11 +193,13 @@ public class Movimiento : MonoBehaviour
 				}
 			else
 				{
-				Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.red);
+				//	Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.red);
 						Anim.SetBool("volando",true);
 					
 				}
-			Debug.Log("posicion despues: "+gameObject.transform.position);
+
+
+
 		}	
 
 	void salto()
@@ -208,6 +217,37 @@ public class Movimiento : MonoBehaviour
 			Anim.SetInteger("combo",0);
 
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

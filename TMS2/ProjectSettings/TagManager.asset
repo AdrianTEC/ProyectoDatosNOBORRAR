@@ -11,6 +11,8 @@ TagManager:
   - bloque
   - cofre
   - moneda
+  - PLAYER_MANAGER
+  - ACTIVABLE
   layers:
   - Default
   - TransparentFX

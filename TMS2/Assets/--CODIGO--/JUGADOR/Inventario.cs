@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
-    public List<GameObject> ArmasyHerramientas= new List<GameObject>();
     public List<GameObject> coleccionables= new List<GameObject>(); 
     public List<GameObject> items= new List<GameObject>(); 
+    public List<string> weapons= new List<string>();
+    private ManejadorDeEquipos instanceManager;
     public bool inventarioAbierto=false;
     private attackPoint puntoDeAtaque;
     private GameObject CurrentPlayer;
@@ -29,11 +30,12 @@ public class Inventario : MonoBehaviour
             movimiento= gameObject.GetComponent<Movimiento>();
             audiom= gameObject.GetComponent<audioManager>();
             admin=gameObject.GetComponent<PlayerManager>();
+            instanceManager=gameObject.GetComponent<ManejadorDeEquipos>();
         }
-    public void add(GameObject thing)
-        {
-            ArmasyHerramientas.Add(thing);
-        }
+    
+
+ 
+
     private void Update() 
         {
 		    if(Input.GetKeyDown(KeyCode.Escape))
@@ -61,28 +63,33 @@ public class Inventario : MonoBehaviour
             admin.Stop(true);//Aviso que he abierto el inventario
             menu =Instantiate(canva);
             contenido= menu.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+                      foreach(string nombre in weapons)
+                        {
 
-            foreach(GameObject thing in ArmasyHerramientas)
-                {
+                            GameObject por_agregar = Instantiate(item);//SE INSTANCIA UNA CASILLA
 
-                    GameObject por_agregar = Instantiate(item);
+                            GameObject thing = instanceManager.dame(nombre);
 
-                    Pickable data=thing.GetComponent<Pickable>();
-                    por_agregar.transform.GetChild(0).gameObject.GetComponent<Text>().text= data.nombre;
-                    por_agregar.transform.GetChild(1).gameObject.GetComponent<Image>().sprite=data.icon;
-                    por_agregar.transform.GetChild(2).gameObject.GetComponent<Text>().text= data.description;
+                            Pickable data=thing.GetComponent<Pickable>();//SE OBTIENE SU INFORMACION
 
-                    por_agregar.transform.SetParent(contenido.transform);
-                    Button btn = por_agregar.GetComponent<Button>();
-                    btn.onClick.AddListener(() => {equipar(thing); });
+                            por_agregar.transform.GetChild(0).gameObject.GetComponent<Text>().text= data.nombre;
+                            por_agregar.transform.GetChild(1).gameObject.GetComponent<Image>().sprite=data.icon;
+                            por_agregar.transform.GetChild(2).gameObject.GetComponent<Text>().text= data.description;
 
-                }
+                            por_agregar.transform.SetParent(contenido.transform);
+                            Button btn = por_agregar.GetComponent<Button>();
+                            btn.onClick.AddListener(() => {equipar(thing); });
+
+                        }
+
             Time.timeScale = 0.0f;
         }
-    void equipar(GameObject thing){
-		//Debug.Log (data.nombre);
-            thing.SetActive(true);
+    void equipar(GameObject prefab){
+
+            GameObject thing=Instantiate(prefab);
+
             Pickable data=thing.GetComponent<Pickable>();
+                data.modoEQUIPADO();
 
                 Vector3[] posRot= CurrentPlayer.GetComponent<HandlerDefinitions>(). PosAndRotaOf(data.nombre);
 
@@ -96,8 +103,7 @@ public class Inventario : MonoBehaviour
 
                     if(manoderecha.transform.childCount!=0)
                         {
-                            manoderecha.transform.GetChild(0).gameObject.SetActive(false);
-                            manoderecha.transform.GetChild(0).gameObject.transform.SetParent(null);
+                           Destroy( manoderecha.transform.GetChild(0).gameObject);
                         }
                     thing.transform.SetParent(manoderecha.transform);
                
@@ -119,11 +125,11 @@ public class Inventario : MonoBehaviour
                 {
                     if(manoizquierda.transform.childCount!=0)
                         {
-                            manoizquierda.transform.GetChild(0).gameObject.SetActive(false);
-                            manoizquierda.transform.GetChild(0).gameObject.transform.SetParent(null);
+                             Destroy( manoizquierda.transform.GetChild(0).gameObject);
                         }
                     thing.transform.SetParent(manoizquierda.transform);
-   
+                            thing.transform.localPosition= new Vector3( posicion.x,posicion.y,posicion.z);
+                            thing.transform.localEulerAngles=rotacion;
     
                 }
 
@@ -137,14 +143,15 @@ public class Inventario : MonoBehaviour
             admin.Stop(false);//Aviso que he abierto el inventario
 
         }
-
     public void RecogerObjeto(GameObject thing,string lugar)
         {
             audiom.PickUp();
-            add(thing);
-         
-            thing.SetActive(false);        
+            //add(thing);
+            Pickable  picker = thing.GetComponent<Pickable>();
 
+            weapons.Add(picker.nombre);
+
+            Destroy(thing);
 
             if(lugar.Equals("inventario")||lugar==null)
                 {

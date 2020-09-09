@@ -14,16 +14,31 @@ public class PlayerManager : MonoBehaviour
     public bool isTheDuck;
     public RotacionCamara camara;
     
+
+    public void Load(Vector3 pos1, Vector3 pos2)
+        {
+            pato.transform.position= pos1;
+            mono.transform.position= pos2;
+        }
+    public Vector3[] CurrentPositions()
+        {
+            return new [] {pato.transform.position , mono.transform.position};
+        }
     void Start()
         {   
             pato  =gameObject.transform.GetChild(0).gameObject;
             mono  =gameObject.transform.GetChild(1).gameObject;
-
-            pato.GetComponent<ScriptManager>().establecerCompanero(mono);
-            mono.GetComponent<ScriptManager>().establecerCompanero(pato);
-
+            if(mono.activeSelf&&pato.activeSelf)
+                {
+                    pato.GetComponent<ScriptManager>().establecerCompanero(mono);
+          
+                    mono.GetComponent<ScriptManager>().establecerCompanero(pato);
+                }
+            if(!pato.activeSelf)
+                {
+                    isTheDuck=false;
+                }
             camara=gameObject.transform.GetChild(2).gameObject.GetComponent<RotacionCamara>();
-
             if(isTheDuck)
                 {
                     jugadorActual=mono;
@@ -48,7 +63,10 @@ public class PlayerManager : MonoBehaviour
                 // Se desactivan las principales caracteristicas y se convierte en un bot
                 if(jugadorActual!=null)
                     {
-                       jugadorActual.GetComponent<ScriptManager>().setToBot();
+                        if(jugadorActual.activeSelf) 
+                            {
+                               jugadorActual.GetComponent<ScriptManager>().setToBot();
+                            }
 
                     }
 

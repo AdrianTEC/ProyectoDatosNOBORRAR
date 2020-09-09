@@ -23,7 +23,9 @@ public class ScriptManager : MonoBehaviour
                 barra=vida.estatus.transform.GetChild(0).gameObject.GetComponent<TAMANO>();
                 apuntado= gameObject.transform.GetChild(2).gameObject.GetComponent<Apuntado>();
                 handlerDefinitions=gameObject.GetComponent<HandlerDefinitions>();
+                inv =gameObject.transform.parent.gameObject.GetComponent<Inventario>();
         }
+
     public void setToBot()
         {
             movimiento.enabled=false;
@@ -31,6 +33,11 @@ public class ScriptManager : MonoBehaviour
             bot.enabled=true;
             barra.ToBack();
         }
+
+
+
+
+        
     public void establecerCompanero(GameObject target)
         {
             bot.companero=target;

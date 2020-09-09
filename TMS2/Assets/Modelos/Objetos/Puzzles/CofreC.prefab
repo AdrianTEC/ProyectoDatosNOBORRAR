@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549399564980227154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0028, z: 0}
+  m_LocalPosition: {x: 0.00061, y: 0.0082, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7578212166293805279}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4644501829370878260}
   m_Layer: 0
   m_Name: CofreC
-  m_TagString: Untagged
+  m_TagString: cofre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 9147509642606686176}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 46.00081, y: 46.02842, z: 46.02842}
   m_Children:
   - {fileID: 4964204030123454372}
   m_Father: {fileID: 0}

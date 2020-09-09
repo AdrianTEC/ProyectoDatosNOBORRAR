@@ -10,6 +10,8 @@ public class Palanca : MonoBehaviour
     private puzzles manager;
     private bool anteriormenteManipulado= false;
 
+    public  bool RealmenteManipulada=false;
+
     public bool activo;
     public activable target;
     public bool fijo;
@@ -20,30 +22,34 @@ public class Palanca : MonoBehaviour
                         manager=gameObject.transform.parent.GetComponent<puzzles>();
                 }
             anim= gameObject.GetComponent<Animator>();
-            anim.SetBool("estado",activo);
 
 
         }
 
     public void informar()
         {
-            if(target!=null)
+            if (RealmenteManipulada)
                 {
-                    target.alternar();
-                }
-            else
-                {
-                    if(anteriormenteManipulado)
+                    if(target!=null)
                         {
-                            manager.decrement();
+                            target.alternar();
+                        }
+                    else
+                        {
+                            if(anteriormenteManipulado)
+                                {
+                                    manager.decrement();
+                                }
                         }
                 }
+        
                     
 
         }
 
     public void alternar()
     {
+      
         if(!fijo)
             {
                 if(target!=null)

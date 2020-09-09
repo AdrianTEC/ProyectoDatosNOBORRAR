@@ -126,13 +126,9 @@ MonoBehaviour:
   tipo: sw
   nombre: Martillo
   description: En las caricaturas hace cosas divertidas
-  localPosition: {x: -0.0049, y: 0.01912, z: 0.0037}
-  localRotation: {x: -113.524, y: -180, z: 89.99999}
-  localPosition2: {x: 0.00073, y: 0.00544, z: -0.00627}
-  localRotation2: {x: -46.653, y: 180, z: 90}
   lugar: md
   icon: {fileID: 21300000, guid: e1860f38e9d8f5042bd79631a8e7c3f7, type: 3}
-  picked: 1
+  picked: 0
 --- !u!114 &4192154031100369248
 MonoBehaviour:
   m_ObjectHideFlags: 0

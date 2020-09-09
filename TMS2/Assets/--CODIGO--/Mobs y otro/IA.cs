@@ -11,16 +11,20 @@ public class IA : MonoBehaviour
 	public float AttackDistance;
 	private Animator Anim;
     private RaycastHit hit;
+    private Vida vida;
+    public Vector3 posicionOriginal;
     void Start()
     {
         Anim= gameObject.GetComponent<Animator>();
         agent.stoppingDistance=AttackDistance;
-
+        vida=gameObject.GetComponent<Vida>();
+        posicionOriginal=transform.position;
     }
 
-    void SetTrue()
+    public void devolver()
         {
-
+                transform.position= posicionOriginal;
+                vida.reset();
         }
 
     void Attack()

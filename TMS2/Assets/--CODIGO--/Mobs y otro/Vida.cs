@@ -21,6 +21,8 @@ public class Vida : MonoBehaviour
     private RectTransform barraVida;
     private GameObject barraestamina;
     public GameObject ANIMACIONMUERTE;      
+
+    private int VidaOriginal;
     private float constanteOriginal;
 
 
@@ -41,11 +43,14 @@ public class Vida : MonoBehaviour
 		rb= gameObject.GetComponent<Rigidbody>();
     	Anim=gameObject.GetComponent<Animator>();
         puedoRecibirDano=true;
-
+        VidaOriginal=HP;
 
     }
 
-
+    public void reset()
+        {
+            HP=VidaOriginal;
+        }
     public void propulsar(Vector3 direccion, int empuje)
         {
                 rb.AddForce(direccion*empuje,ForceMode.VelocityChange);
@@ -74,7 +79,7 @@ public class Vida : MonoBehaviour
                     puedoRecibirDano= false;
                     Anim.SetBool("injured",true);
                     HP-=valor;
-                    Debug.Log(HP );
+                    //Debug.Log(HP );
                     if(HP<=0)
                         {
                                 Anim.SetBool("dead",true);
@@ -83,7 +88,7 @@ public class Vida : MonoBehaviour
                                         GameObject nube= Instantiate(ANIMACIONMUERTE);
                                         nube.transform.position= transform.position;
                                         nube.transform.SetParent(null);
-                                        Destroy(gameObject);
+                                        desaparecer();
                                     }
                                 if(player)
                                     {
@@ -104,8 +109,8 @@ public class Vida : MonoBehaviour
         }
     private void desaparecer()
         {
-            gameObject.transform.position=new Vector3(1000,-1000,-1000);
-            Destroy(gameObject);
+           // Destroy(gameObject);
+           gameObject.SetActive(false);
 
         }
     public void capacitarParaRecibirdano()

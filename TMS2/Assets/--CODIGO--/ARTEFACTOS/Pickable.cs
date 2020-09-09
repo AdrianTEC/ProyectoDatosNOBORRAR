@@ -22,32 +22,39 @@ public class Pickable : MonoBehaviour
     //tipos pueden ser
     // sw sh l k i
     // espada escudo lanza llave item
+    
     void Start()
         {
 
-            picked=false;
-
-            rb  =gameObject.GetComponent<Rigidbody>();
-            boxCollider=gameObject.GetComponent<BoxCollider>();
-            
+       
         }
     void OnCollisionEnter(Collision other)
         {
         
                 if(other.gameObject.tag=="Player" &&!picked)
                     {
-                        picked=true;
                         Inventario inventario= other.gameObject.transform.parent.gameObject.GetComponent<Inventario>();
-
                          inventario.RecogerObjeto(gameObject,lugar);
-                        //inventario.mostrarLista();
-
-                        rb.useGravity=false;
-                        rb.isKinematic=true;
-                  
-                            boxCollider.enabled=false;
 
                     }
         }
-
+    public void modoEQUIPADO()
+        {
+            rb  =gameObject.GetComponent<Rigidbody>();
+            boxCollider=gameObject.GetComponent<BoxCollider>();
+                            picked=true;
+                            rb.useGravity=false;
+                            rb.isKinematic=true;
+                            boxCollider.enabled=false;
+            
+        }
+    public void modoPickable()
+        {
+            rb  =gameObject.GetComponent<Rigidbody>();
+            boxCollider=gameObject.GetComponent<BoxCollider>();
+                            picked=false;
+                            rb.useGravity=true;
+                            rb.isKinematic=false;
+                            boxCollider.enabled=true;
+        }
 }

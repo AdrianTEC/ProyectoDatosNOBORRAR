@@ -12,6 +12,7 @@ public class miniDetector : MonoBehaviour
     {
             if(Input.GetKeyDown("e")&& palanca!=null)
                 {
+                    palanca.RealmenteManipulada=true;
                     palanca.alternar();
                     
                 }        
@@ -50,7 +51,12 @@ public class miniDetector : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
         {
-            palanca=null;
+            if(palanca!=null)
+                {
+                    palanca.RealmenteManipulada=false;
+                    palanca=null;
+                    
+                }
             cofre=null;
                     
         }

@@ -6,7 +6,6 @@ public class RotacionCamara : MonoBehaviour
 {   
     public GameObject target;
     private GameObject mycam;
-    public int altura=5;
     public int velocidad;
     private Camera myCamComponent;
     void Start()

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4119184485350411470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0027, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 285249779887302122}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8974790076623225029}
   m_Layer: 0
   m_Name: CofreG
-  m_TagString: Untagged
+  m_TagString: cofre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 6212945332693968904}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 46.00081, y: 46.02842, z: 46.02842}
   m_Children:
   - {fileID: 6290016664440024708}
   m_Father: {fileID: 0}
@@ -172,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0139999995, y: 0.009999999, z: 0.019999998}
-  m_Center: {x: 0.0049999994, y: 0.009999999, z: 0.043999996}
+  m_Size: {x: 0.014, y: 0.01, z: 0.02}
+  m_Center: {x: 0.0007499971, y: -0.00095192296, z: -0.000000018626451}
 --- !u!95 &2080698093218149826
 Animator:
   serializedVersion: 3
