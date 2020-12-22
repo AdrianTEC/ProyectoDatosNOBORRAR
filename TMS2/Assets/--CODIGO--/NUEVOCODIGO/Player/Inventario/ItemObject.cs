@@ -4,9 +4,8 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Weapon,
-    Shield,
-    Key,
+    Food,
+    Equipment,
     Default
 }
 
@@ -22,7 +21,6 @@ public abstract class ItemObject : ScriptableObject
     public int Id;
     public Sprite uiDisplay;
     public ItemType type;
-    public GameObject prefab;
     [TextArea(15, 20)]
     public string description;
     public ItemBuff[] buffs;
@@ -44,6 +42,14 @@ public class Item
     {
         Name = item.name;
         Id = item.Id;
+        buffs = new ItemBuff[item.buffs.Length];
+        for (int i = 0; i < buffs.Length; i++)
+        {
+            buffs[i] = new ItemBuff(item.buffs[i].min, item.buffs[i].max)
+            {
+                attribute = item.buffs[i].attribute
+            };
+        }
     }
 }
 

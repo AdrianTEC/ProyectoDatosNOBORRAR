@@ -16,24 +16,36 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: d1f565b918444184b90a7a64ccffaa65, type: 2}
   Container:
     Items:
-    - ID: -1
+    - ID: 2
       item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0
-    - ID: -1
+        Name: RifleLaser
+        Id: 2
+        buffs:
+        - attribute: 0
+          value: 0
+          min: 0
+          max: 0
+      amount: 1
+    - ID: 2
       item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0
-    - ID: -1
+        Name: RifleLaser
+        Id: 2
+        buffs:
+        - attribute: 0
+          value: 0
+          min: 0
+          max: 0
+      amount: 1
+    - ID: 2
       item:
-        Name: 
-        Id: 0
-        buffs: []
-      amount: 0
+        Name: RifleLaser
+        Id: 2
+        buffs:
+        - attribute: 0
+          value: 0
+          min: 0
+          max: 0
+      amount: 1
     - ID: -1
       item:
         Name: 

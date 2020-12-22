@@ -37,7 +37,7 @@ public class InventoryObject : ScriptableObject
     {
         for (int i = 0; i < Container.Items.Length; i++)
         {
-            if(Container.Items[i].ID <= -1)
+            if(Container.Items[i].ID <= 0)
             {
                 Container.Items[i].UpdateSlot(_item.Id, _item, _amount);
                 return Container.Items[i];
