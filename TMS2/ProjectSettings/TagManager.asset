@@ -13,6 +13,8 @@ TagManager:
   - moneda
   - PLAYER_MANAGER
   - ACTIVABLE
+  - flecha
+  - mapa
   layers:
   - Default
   - TransparentFX

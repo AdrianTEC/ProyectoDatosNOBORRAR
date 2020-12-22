@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8419678280473484263}
   - component: {fileID: 7527884131112455235}
   - component: {fileID: 7527884131112455232}
-  - component: {fileID: 7527884131112455233}
   m_Layer: 0
   m_Name: Escudo del bosque
   m_TagString: Untagged
@@ -57,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &7527884131112455235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,25 +112,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021, y: 0.006, z: 0.018}
   m_Center: {x: -0.00024953205, y: -0.0004121428, z: -0.000022429958}
---- !u!114 &7527884131112455233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7527884131112455262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sh
-  nombre: Escudo del bosque
-  description: Escudo magico hecho de madera
-  localPosition: {x: 0.00481, y: 0.01217, z: -0.0037}
-  localRotation: {x: 2.065, y: -131.863, z: 88.15}
-  localPosition2: {x: 0.00211, y: 0.00396, z: -0.00224}
-  localRotation2: {x: 0, y: -150.633, z: 90}
-  lugar: mi
-  icon: {fileID: 21300000, guid: 3af0dbdc07c20c64eb73b3e4d78db6d4, type: 3}
-  picked: 0

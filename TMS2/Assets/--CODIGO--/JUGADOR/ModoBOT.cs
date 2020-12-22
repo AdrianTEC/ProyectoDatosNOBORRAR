@@ -14,14 +14,12 @@ public class ModoBOT : MonoBehaviour
     public bool enBuscaDePelea;
     private bool quieto=false;
 	public NavMeshAgent agent;
-    private Apuntado apuntado;
     public GameObject target;
 	private Animator Anim;
     private int estado=1;
     void Start()
         {
             Anim= gameObject.GetComponent<Animator>();
-            apuntado=gameObject.transform.GetChild(2).gameObject.GetComponent<Apuntado>();
             controlDeBarra= gameObject.GetComponent<Vida>().estatus.transform.GetChild(0).gameObject.GetComponent<TAMANO>();
             StopAttack();
 
@@ -29,22 +27,6 @@ public class ModoBOT : MonoBehaviour
         }
 
 
-    public void Attack()
-    	{
-            GameObject thing = apuntado.getMasCercano();
-            if(thing!=null)
-                {
-                    enBuscaDePelea=true;
-                    currentFollowing=thing;
-                }
-            else
-                {
-                    StopAttack();
-                    aumentarEstado();
-                }
-             
-
-    	}
 
     void StopAttack()
     	{
@@ -70,7 +52,7 @@ public class ModoBOT : MonoBehaviour
                     aumentarEstado();
                     if(estado==0)
                         {
-                            Attack();
+                            //Attack();
                             quieto=false;
 
                         }
@@ -149,7 +131,7 @@ public class ModoBOT : MonoBehaviour
                         {
                             if(enBuscaDePelea)
                                 {
-                                    Attack();
+                                   // Attack();
                                 }
                             else
                                 {

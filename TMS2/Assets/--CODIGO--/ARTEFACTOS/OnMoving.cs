@@ -5,13 +5,13 @@ using UnityEngine;
 public class OnMoving : MonoBehaviour
 {
     Rigidbody rb;
-    AudioSource audio;
+    AudioSource audioS;
 
     public AudioClip sonido;
     void Start()
         {
             rb= gameObject.GetComponent<Rigidbody>();
-            audio= gameObject.GetComponent<AudioSource>();
+            audioS= gameObject.GetComponent<AudioSource>();
             rb.velocity = new Vector3(0,0,0);
         }
 
@@ -20,13 +20,13 @@ public class OnMoving : MonoBehaviour
         {
             float velocidad= Mathf.Sqrt( Mathf.Pow(rb.velocity.x,2)+Mathf.Pow(rb.velocity.y,2) +Mathf.Pow(rb.velocity.z,2)   );
             Debug.Log(velocidad);
-            if(velocidad>1&& !audio.isPlaying)
+            if(velocidad>1&& !audioS.isPlaying)
                 {
-                    audio.Play();
+                    audioS.Play();
                 }
             if(velocidad<1)
                 {
-                    audio.Stop();
+                    audioS.Stop();
                 }
         }
 }

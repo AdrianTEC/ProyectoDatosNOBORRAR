@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Pickable : MonoBehaviour
 {
 
-    public  string tipo;
+/*    public  string tipo;
     public string nombre;
     public string description;
 
@@ -57,4 +57,6 @@ public class Pickable : MonoBehaviour
                             rb.isKinematic=false;
                             boxCollider.enabled=true;
         }
+        
+        */
 }

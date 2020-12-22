@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3928628960983961246}
   - component: {fileID: 8534282851299752846}
   - component: {fileID: 3190481359688902426}
-  - component: {fileID: 5584882741240001032}
-  - component: {fileID: 5584882741240001033}
   - component: {fileID: 5584882741239999990}
   - component: {fileID: 5584882741239999991}
   m_Layer: 0
@@ -58,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,43 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5584882741240001032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584882741240001034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sw
-  nombre: Espada de dragon
-  description: Espada fabricada a partir de un colmillo de dragon
-  localPosition: {x: -0.00398, y: 0.0111, z: -0.00768}
-  localRotation: {x: 0, y: 90, z: 0}
-  localPosition2: {x: 0.00045, y: -0.00131, z: -0.00454}
-  localRotation2: {x: 90, y: 90, z: 0}
-  lugar: md
-  icon: {fileID: 21300000, guid: c27ed4e6d3e68b249b67a1d131d4685f, type: 3}
-  picked: 0
---- !u!114 &5584882741240001033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584882741240001034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 50
-  tipo: 1
-  empuje: 3
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &5584882741239999990
 Rigidbody:
   m_ObjectHideFlags: 0

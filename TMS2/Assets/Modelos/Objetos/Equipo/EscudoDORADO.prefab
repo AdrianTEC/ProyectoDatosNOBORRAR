@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3331571897600645344}
   - component: {fileID: 2412177478273214498}
   - component: {fileID: 5786797399164678963}
-  - component: {fileID: 1302635169954683048}
   - component: {fileID: 1302635169954683063}
   - component: {fileID: 1302635169954683062}
   m_Layer: 0
@@ -57,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,28 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1302635169954683048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302635169954683061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sh
-  nombre: Escudo Real
-  description: Escudo pesado de la guardia real, Hecho de Bronce y Acero
-  localPosition: {x: -0.00686, y: 0.01211, z: -0.01066}
-  localRotation: {x: 0, y: -139.692, z: 90.00001}
-  localPosition2: {x: 0.0013, y: 0.0021, z: -0.00195}
-  localRotation2: {x: 0, y: -141.334, z: 90.00001}
-  lugar: mi
-  icon: {fileID: 21300000, guid: a7d454cf64944904382e39d00f840fb5, type: 3}
-  picked: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &1302635169954683063
 Rigidbody:
   m_ObjectHideFlags: 0

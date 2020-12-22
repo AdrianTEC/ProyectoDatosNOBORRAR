@@ -6,8 +6,7 @@ using TigerForge;
 public class GUARDADO : MonoBehaviour
 {
 
-    public PlayerManager playerManager;
-    private Inventario inventario;
+    //private Inventario inventario;
     public List<activable> puzzles;
     public List<bool> puzzles_bool;    
     public List<cofres> cofrecitos;
@@ -16,7 +15,7 @@ public class GUARDADO : MonoBehaviour
 
     public List<GameObject> enemigos;
     public List<bool> enemigosVivos;
-
+/*
 
     EasyFileSave myFile;
     void Start()
@@ -150,4 +149,5 @@ public class GUARDADO : MonoBehaviour
                 }
 
         }
+        */
 }

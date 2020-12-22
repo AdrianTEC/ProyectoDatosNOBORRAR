@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 5887145003133325733}
   - component: {fileID: 4642202597693555516}
   - component: {fileID: 2108341809775890290}
-  - component: {fileID: 2108341809775890289}
-  - component: {fileID: 2108341809775890291}
-  - component: {fileID: 6161318874201359935}
   m_Layer: 0
   m_Name: SimpleSword
   m_TagString: Player
@@ -31,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2108341809775890288}
   m_LocalRotation: {x: 0.00000007928649, y: -0.22947879, z: 0.000000018693424, w: 0.9733137}
   m_LocalPosition: {x: -3.4889317, y: 11.389148, z: -38.028}
-  m_LocalScale: {x: 27.940784, y: 27.940784, z: 27.940784}
+  m_LocalScale: {x: 51.38869, y: 51.38869, z: 51.38869}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,6 +55,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &2108341809775890290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,49 +98,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!65 &2108341809775890289
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108341809775890288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.008999999, y: 0.0029999998, z: 0.023999996}
-  m_Center: {x: -0.000000010695308, y: 0.0000000044819894, z: -0.00049988175}
---- !u!114 &2108341809775890291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108341809775890288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sw
-  nombre: espada simple
-  description: "una peque\xF1a espadita"
-  lugar: md
-  icon: {fileID: 21300000, guid: 6863dca646356b0498d50cff94a726fd, type: 3}
-  picked: 0
---- !u!114 &6161318874201359935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108341809775890288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 20
-  tipo: 1
-  empuje: 4

@@ -5,6 +5,11 @@ using UnityEngine;
 public class MapBehavior : MonoBehaviour
 {
     public List<  MeshRenderer  > objetos;
+
+    void Start()
+        {
+           ocultar(); 
+        }
     public void ocultar()
         {
             foreach(MeshRenderer x in objetos)

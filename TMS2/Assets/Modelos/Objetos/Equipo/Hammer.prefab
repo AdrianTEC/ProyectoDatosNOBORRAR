@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 7335197110546032861}
   - component: {fileID: 4192154031100369253}
   - component: {fileID: 4192154031100369250}
-  - component: {fileID: 4192154031100369251}
-  - component: {fileID: 4192154031100369248}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -58,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4192154031100369253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,36 +112,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4192154031100369251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4192154031100369249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sw
-  nombre: Martillo
-  description: En las caricaturas hace cosas divertidas
-  lugar: md
-  icon: {fileID: 21300000, guid: e1860f38e9d8f5042bd79631a8e7c3f7, type: 3}
-  picked: 0
---- !u!114 &4192154031100369248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4192154031100369249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 30
-  tipo: 2
-  empuje: 5

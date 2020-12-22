@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 5660108394375176397}
   - component: {fileID: 7635394418857688489}
   - component: {fileID: 526156884733748843}
-  - component: {fileID: 8081847409864193670}
   - component: {fileID: 8081847409864193669}
   - component: {fileID: 8081847409864193668}
-  - component: {fileID: -8989966690736268096}
   m_Layer: 0
   m_Name: EspadadelRey
   m_TagString: Untagged
@@ -58,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,29 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8081847409864193670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8081847409864193659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f44fdb9cc5a39f4d94a176a285dd4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipo: sw
-  nombre: Espada Del Rey
-  description: Espada pesada, esta hecha con un trozo de piedra lunar, de ella emerge
-    una misteriosa luz
-  localPosition: {x: -0.0045, y: 0.0136, z: 0.0013}
-  localRotation: {x: -38.926, y: 183.043, z: 90.14001}
-  localPosition2: {x: -0.00024, y: 0.00081, z: -0.00488}
-  localRotation2: {x: 71.22501, y: 183.451, z: 90.33801}
-  lugar: md
-  icon: {fileID: 21300000, guid: 89ad130441255d941817e77360cb9bb8, type: 3}
-  picked: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &8081847409864193669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,18 +112,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8989966690736268096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8081847409864193659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217d9fda8c5e7374b95812ce20b14416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dano: 130
-  tipo: 2
-  empuje: 5
