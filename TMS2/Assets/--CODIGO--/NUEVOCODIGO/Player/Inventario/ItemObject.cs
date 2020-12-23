@@ -1,25 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ItemType
 {
-    Food,
-    Equipment,
+    Shield,
+    Weapon,
     Default
 }
 
 public enum Attributes
 {
-    Agility,
-    Intellect,
-    Stamina,
-    Strength
+    Damage,
+    Protection,
+    Capacity
 }
 public abstract class ItemObject : ScriptableObject
 {
     public int Id;
     public Sprite uiDisplay;
+    public GameObject prefab;
     public ItemType type;
     [TextArea(15, 20)]
     public string description;
@@ -37,11 +35,13 @@ public class Item
 {
     public string Name;
     public int Id;
+    public ItemType type;
     public ItemBuff[] buffs;
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.Id;
+        type = item.type;
         buffs = new ItemBuff[item.buffs.Length];
         for (int i = 0; i < buffs.Length; i++)
         {

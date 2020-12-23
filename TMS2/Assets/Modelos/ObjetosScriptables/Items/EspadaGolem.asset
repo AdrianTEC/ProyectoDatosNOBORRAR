@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead4a0ba98439224b90af0c640716479, type: 3}
   m_Name: EspadaGolem
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1
   uiDisplay: {fileID: 0}
-  type: 3
   prefab: {fileID: 8624721540855641344, guid: 415f04c979662104da086fe8b1c486a9, type: 3}
+  type: 1
   description: 
   buffs: []

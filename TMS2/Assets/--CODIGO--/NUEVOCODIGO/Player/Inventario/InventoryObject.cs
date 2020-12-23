@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using UnityEditor;
 using System.Runtime.Serialization;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
@@ -13,15 +10,15 @@ public class InventoryObject : ScriptableObject
     public ItemDatabaseObject database;
     public Inventory Container;
 
-
     public void AddItem(Item _item, int _amount)
     {
+        //?Verifico que si tengo un arma o escudo no este repetido
+        if((_item.type == ItemType.Weapon ||_item.type == ItemType.Shield )&& Container.contains(_item.Id)) return;
         if (_item.buffs.Length > 0)
         {
             SetEmptySlot(_item, _amount);
             return;
         }
-
         for (int i = 0; i < Container.Items.Length; i++)
         {
             if (Container.Items[i].ID == _item.Id)
@@ -31,8 +28,8 @@ public class InventoryObject : ScriptableObject
             }
         }
         SetEmptySlot(_item, _amount);
-
     }
+
     public InventorySlot SetEmptySlot(Item _item, int _amount)
     {
         for (int i = 0; i < Container.Items.Length; i++)
@@ -43,7 +40,6 @@ public class InventoryObject : ScriptableObject
                 return Container.Items[i];
             }
         }
-        //set up functionality for full inventory
         return null;
     }
 
@@ -109,6 +105,19 @@ public class InventoryObject : ScriptableObject
 public class Inventory
 {
     public InventorySlot[] Items = new InventorySlot[28];
+
+    public bool contains(int Id)
+    {
+        var resp = false;
+        foreach (var item in Items)
+        {
+            if(item.ID==Id)
+                return true;
+        }
+
+        return resp;
+    }
+    
 }
 [System.Serializable]
 public class InventorySlot

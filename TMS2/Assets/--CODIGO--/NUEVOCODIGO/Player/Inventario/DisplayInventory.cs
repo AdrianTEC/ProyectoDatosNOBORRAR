@@ -8,8 +8,8 @@ using UnityEngine.Events;
 
 public class DisplayInventory : MonoBehaviour
 {
+    private InventoryController ic;
     public MouseItem mouseItem = new MouseItem();
-
     public GameObject inventoryPrefab;
     public InventoryObject inventory;
     public int X_START;
@@ -17,32 +17,38 @@ public class DisplayInventory : MonoBehaviour
     public int X_SPACE_BETWEEN_ITEM;
     public int NUMBER_OF_COLUMN;
     public int Y_SPACE_BETWEEN_ITEMS;
+    
+    
     Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
     void Start()
     {
+        ic = GameObject.FindWithTag("PLAYER_MANAGER").GetComponent<InventoryController>();
         CreateSlots();
     }
-
-    // Update is called once per frame
     void Update()
     {
         UpdateSlots();
     }
-    public void CreateSlots()
+    
+    
+    
+    #region creation
+
+    private void CreateSlots()
     {
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
         for (int i = 0; i < inventory.Container.Items.Length; i++)
         {
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+            var id = inventory.Container.Items[i];
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-/*
+            
             AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
             AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
-*/
-
+            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(id.ID); });
             itemsDisplayed.Add(obj, inventory.Container.Items[i]);
         }
     }
@@ -72,7 +78,14 @@ public class DisplayInventory : MonoBehaviour
         eventTrigger.callback.AddListener(action);
         trigger.triggers.Add(eventTrigger);
     }
+    #endregion
+    #region Events
 
+    public void OnClick(int obj)
+    {
+        ic.Equip(obj);
+    }
+    
     public void OnEnter(GameObject obj)
     {
         mouseItem.hoverObj = obj;
@@ -117,12 +130,11 @@ public class DisplayInventory : MonoBehaviour
         if (mouseItem.obj != null)
             mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
     }
-
-
     public Vector3 GetPosition(int i)
     {
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
     }
+    #endregion
 }
 public class MouseItem
 {

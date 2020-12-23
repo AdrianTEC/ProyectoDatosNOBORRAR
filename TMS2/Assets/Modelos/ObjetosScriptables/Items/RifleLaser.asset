@@ -15,7 +15,8 @@ MonoBehaviour:
   Id: 2
   uiDisplay: {fileID: -4815496558520672093, guid: 27229d7664d2e584e84a0ffb7dad88a3,
     type: 3}
-  type: 0
+  prefab: {fileID: 2563404468271661514, guid: 64a212ab454981e4483ac6ce951978e8, type: 3}
+  type: 1
   description: "Rifle laser de la armada espacial de patitos, lanza cargas el\xE9ctricas"
   buffs:
   - attribute: 0
