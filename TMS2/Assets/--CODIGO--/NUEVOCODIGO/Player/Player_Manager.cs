@@ -5,11 +5,15 @@ using UnityEngine;
 public class Player_Manager : MonoBehaviour
 {
     public List<GameObject> Players; 
-    public List<Equipment>  PlayersEQUIPMENT; 
+    public List<Equipment>  PlayersEQUIPMENT;
+
+    public InventoryController InvControl;
+    
     void Start()
     {
         Players= GameObject.FindGameObjectsWithTag("Player").ToList();
         PlayersEQUIPMENT = getComponentInList<Equipment>(Players);
+        InvControl = GetComponent<InventoryController>();
     }
 
     public List<T> getComponentInList<T>(List<GameObject> list)

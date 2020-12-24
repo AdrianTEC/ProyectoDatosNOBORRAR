@@ -9,7 +9,6 @@ public class GUARDADO : MonoBehaviour
     //private Inventario inventario;
     public List<activable> puzzles;
     public List<bool> puzzles_bool;    
-    public List<cofres> cofrecitos;
     public List<bool> cofrecitos_bool;
 
 

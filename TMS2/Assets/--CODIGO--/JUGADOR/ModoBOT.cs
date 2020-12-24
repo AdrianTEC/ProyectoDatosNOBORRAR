@@ -20,7 +20,6 @@ public class ModoBOT : MonoBehaviour
     void Start()
         {
             Anim= gameObject.GetComponent<Animator>();
-            controlDeBarra= gameObject.GetComponent<Vida>().estatus.transform.GetChild(0).gameObject.GetComponent<TAMANO>();
             StopAttack();
 
             agent.stoppingDistance=AttackDistance;

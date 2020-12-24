@@ -79,7 +79,8 @@ public class Movement : Player
         var A = Input.GetKey(KeyCode.A);
         var S = Input.GetKey(KeyCode.S);
         var D = Input.GetKey(KeyCode.D);
-            
+        var E = Input.GetKey(KeyCode.E);
+
             
         if (W||A||S||D)
         {    
@@ -93,6 +94,8 @@ public class Movement : Player
         else
             _animator.SetBool(MOVING, false);
 
+        if (E) Interactuar();
+        
     }
     #endregion
     #region Gravedad

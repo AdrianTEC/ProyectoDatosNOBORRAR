@@ -24,7 +24,6 @@ public class IA : MonoBehaviour
     public void devolver()
         {
                 transform.position= posicionOriginal;
-                vida.reset();
         }
 
     void Attack()

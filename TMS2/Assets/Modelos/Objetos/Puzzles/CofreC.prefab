@@ -54,6 +54,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9147509642606686176
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,10 +92,10 @@ GameObject:
   - component: {fileID: 7578212166293805279}
   - component: {fileID: 1551452501075901885}
   - component: {fileID: 731344652310721650}
-  - component: {fileID: 5085100465450940320}
   - component: {fileID: 2686819853064954163}
   - component: {fileID: 3416747237702380319}
   - component: {fileID: 4644501829370878260}
+  - component: {fileID: 4486917330711165926}
   m_Layer: 0
   m_Name: CofreC
   m_TagString: cofre
@@ -137,6 +140,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -161,21 +166,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5085100465450940320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9147509642606686176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a9d37b9a5f6e046ade9e6078b84898, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objecto: {fileID: 0}
-  abierto: 0
-  cantidad: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2686819853064954163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -304,3 +295,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4486917330711165926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9147509642606686176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645931121d39f0b488d44a00315cb199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
