@@ -194,7 +194,7 @@ public class PlayerFlightControl : MonoBehaviour
 			var value= _camera.fieldOfView;
 
 			if (value > normalF - amplification)
-				_camera.fieldOfView -= 1;
+				_camera.fieldOfView -= aceleracion;
 			if (currentSpeed < afterburner_speed)
 				currentSpeed+=aceleracion;
 			currentMag = Mathf.Lerp(currentMag, currentSpeed, thrust_transition_speed * Time.deltaTime);
@@ -214,7 +214,7 @@ public class PlayerFlightControl : MonoBehaviour
 			var value= _camera.fieldOfView;
 				
 			if (value < normalF )
-				_camera.fieldOfView += 1;
+				_camera.fieldOfView += aceleracion;
 		}
 
 		var rspeed = 20;
@@ -252,22 +252,24 @@ public class PlayerFlightControl : MonoBehaviour
 		RaycastHit hit;
 		
 		//If we make contact with something in the world, we'll make the shot actually go to that point.
-		if (Physics.Raycast(vRay, out hit)) {
-			shot1.transform.LookAt(hit.point);
-			shot1.GetComponent<Rigidbody>().AddForce((shot1.transform.forward) * 900f,ForceMode.VelocityChange);
+		Bullet bulletInfo = shot1.GetComponent<Bullet>();
 		
-		//Otherwise, since the ray didn't hit anything, we're just going to guess and shoot the projectile in the general direction.
+		if (Physics.Raycast(vRay, out hit)) {
+			bulletInfo.Propulse(hit);
 		} else {
-			shot1.GetComponent<Rigidbody>().AddForce((vRay.direction) * 900f,ForceMode.VelocityChange);
+			bulletInfo.Propulse(vRay.direction);
 		}
 	
 	}
 
 	private void OnCollisionEnter(Collision other)
 	{
+		
+		if(other.gameObject.CompareTag("Bullet")) return;
 		int multiplier;
 		if (currentSpeed > normal)
 		{
+			
 			if (other.gameObject.CompareTag("enemy"))
 				multiplier = 10;
 			else

@@ -108,6 +108,8 @@ GameObject:
   - component: {fileID: 2426543042672608686}
   - component: {fileID: 2426543042672608685}
   - component: {fileID: 4767036950931659522}
+  - component: {fileID: -8942242595299312267}
+  - component: {fileID: 3499563819715270798}
   m_Layer: 0
   m_Name: enemy
   m_TagString: enemy
@@ -147,10 +149,7 @@ MonoBehaviour:
   type: 1
   weapon_hardpoint_1: {fileID: 4559083631168878486}
   bullet: {fileID: 6290161075070343072, guid: 75e4f41b6eb6f2d44b324b7ce343e5cf, type: 3}
-  life: 1
-  explosion: {fileID: 7820004801563581161, guid: b4d10a5381edf3944b112318d43b835b,
-    type: 3}
-  senal: {fileID: 0}
+  life: {fileID: 0}
 --- !u!54 &2426543042672608686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,6 +195,37 @@ MonoBehaviour:
   senalador: {fileID: 8780868661014763571, guid: 066ce447709a501429506e44648ebbe2,
     type: 3}
   texto: {fileID: 0}
+--- !u!114 &-8942242595299312267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426543042672608684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ae96ea73399f64e95405a14108ece8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximunHp: 1
+  currentHp: 1
+  canReceiveDamage: 1
+  displayer: {fileID: 0}
+  death: {fileID: 3499563819715270798}
+  timeOfInmunity: 0
+--- !u!114 &3499563819715270798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426543042672608684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bdc1dcaebd5e14d993d8031ab7e65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cadaver: {fileID: 7820004801563581161, guid: b4d10a5381edf3944b112318d43b835b, type: 3}
 --- !u!1 &3605283582328643325
 GameObject:
   m_ObjectHideFlags: 0

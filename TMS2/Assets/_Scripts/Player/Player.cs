@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+
+public abstract class Player : MonoBehaviour
 {
     protected CharacterController controller;
     protected Animator _animator;
@@ -31,7 +32,9 @@ public class Player : MonoBehaviour
             Debug.Log(hit.collider.name);
             hit.collider.SendMessage("interactuar");
         }
-
+    
+        
     }
+    
 }
 

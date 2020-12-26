@@ -5878,17 +5878,17 @@ MonoBehaviour:
   Velocidad: {fileID: 0}
   VelocidadRelativa: {fileID: 0}
   aceleracion: 0.5
-  Normalspeed: 20
-  afterburner_speed: 180
+  Normalspeed: 0
+  afterburner_speed: 500
   thrust_transition_speed: 5
   turnspeed: 15
   rollSpeedModifier: 7
   pitchYaw_strength: 0.5
-  use_banking: 1
-  bank_angle_clamp: 360
-  bank_rotation_speed: 2
-  bank_rotation_multiplier: 1
-  screen_clamp: 400
+  useBanking: 1
+  bankAngleClamp: 360
+  bankRotationSpeed: 3
+  bankRotationMultiplier: 1
+  screenClamp: 500
   roll: 0
   yaw: 0
   pitch: 0
@@ -5924,9 +5924,9 @@ MonoBehaviour:
   maximunHp: 100
   currentHp: 100
   canReceiveDamage: 1
-  displayer: {fileID: 0}
-  death: {fileID: 0}
-  timeOfInmunity: 0
+  displayer: {fileID: 7104758483008173437}
+  death: {fileID: 5290093611587939129}
+  timeOfInmunity: 0.2
 --- !u!136 &4532189613449529545
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ public class EnemyImageInRadar : MonoBehaviour
         senalador = PrefabObj.GetComponent<Image>();
         texto = PrefabObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         
-        GetComponent<enemySpaceAttack>().senal = senalador;
+        
 
     }
 
@@ -36,9 +37,15 @@ public class EnemyImageInRadar : MonoBehaviour
             texto.text = "";
         }
         
+    
 
 
 
+    }
 
+    private void OnDestroy()
+    {
+        if(senalador!=null)
+        Destroy(senalador.gameObject);
     }
 }

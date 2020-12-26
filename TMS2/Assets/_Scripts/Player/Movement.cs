@@ -45,7 +45,8 @@ public class Movement : Player
 
         void Move(Vector3 dir)
         {
-            _animator.SetBool(MOVING, true);
+            //_animator.SetBool(MOVING, true);
+            _animator.SetFloat("Walking",1);
             IsometricMove(dir);
         }
         
@@ -92,8 +93,8 @@ public class Movement : Player
             Move(direction);
         }
         else
-            _animator.SetBool(MOVING, false);
-
+            //_animator.SetBool(MOVING, false);
+            _animator.SetFloat("Walking",0);
         if (E) Interactuar();
         
     }

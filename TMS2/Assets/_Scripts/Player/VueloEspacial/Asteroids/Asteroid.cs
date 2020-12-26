@@ -22,7 +22,7 @@ public class Asteroid : MonoBehaviour , BulletInteractuable
 
     }
 
-    public void recibeImpact()
+    public void recibeImpact(int damage)
     {
         BreakRock();
     }

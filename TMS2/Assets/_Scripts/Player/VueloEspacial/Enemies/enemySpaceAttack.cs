@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public enum SpaceEnemyType
 {
     torreta,
     nave,
-    nodriza
 }
 
-public class enemySpaceAttack : MonoBehaviour,BulletInteractuable
+public class enemySpaceAttack : MonoBehaviour
 {
     private GameObject player;
     public int mindist;
@@ -20,25 +16,19 @@ public class enemySpaceAttack : MonoBehaviour,BulletInteractuable
     private float velocity;
     private Rigidbody rb;
 
-    public int life=1;
-    public GameObject explosion;
-    public Image senal;
     
     private bool canIshoot=true;
 
     void Start()
     {
-        if(type== SpaceEnemyType.nodriza) return;
         if(type!= SpaceEnemyType.torreta)
             rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
         velocity = 80;
-        
     }
 
     void Update()
     {
-        if(type== SpaceEnemyType.nodriza) return;
         
         if(type== SpaceEnemyType.nave) 
             transform.LookAt(player.transform);
@@ -57,7 +47,6 @@ public class enemySpaceAttack : MonoBehaviour,BulletInteractuable
 
     private void fireShot() {
 
-        if(type== SpaceEnemyType.nodriza) return;
 
         if(!canIshoot) return;
 
@@ -75,18 +64,7 @@ public class enemySpaceAttack : MonoBehaviour,BulletInteractuable
         canIshoot = true;
     }
 
-    public void recibeImpact()
-    {
-        life--;
-        if(life<=0)
-            explotar();
-    }
+ 
 
-    private void explotar()
-    {
-        Destroy(senal.gameObject);
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
     
 }
