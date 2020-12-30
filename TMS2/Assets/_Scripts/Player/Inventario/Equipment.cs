@@ -6,6 +6,7 @@ public class Equipment : MonoBehaviour
 {
     private InventoryController ic;
     public GameObject WEAPON;
+    private Weapon weaponClass;
     public int WEAPONID;
     public Transform  ManoDerecha;
 
@@ -20,7 +21,7 @@ public class Equipment : MonoBehaviour
         WEAPON.transform.position = ManoDerecha.position;
         WEAPON.transform.parent = ManoDerecha.parent;
         WEAPON.transform.rotation=ManoDerecha.rotation;
-
+        weaponClass = WEAPON.GetComponent<Weapon>();
     }
     public  void Equipar(ItemObject objeto)
     {

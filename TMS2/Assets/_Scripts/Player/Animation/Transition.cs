@@ -6,13 +6,16 @@ public class Transition : StateMachineBehaviour
 {
     public bool confirmedNext;
     public string parameter;
+    private int value;
+    public int setValue;
     
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         confirmedNext = false;
-        CombatManager.instance.canReceiveInput = true;
-        
+        value = animator.GetInteger(parameter);
+        animator.SetInteger(parameter, 0);
+
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,7 +23,7 @@ public class Transition : StateMachineBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if( !confirmedNext)
-                animator.SetInteger(parameter, animator.GetInteger(parameter) + 1);
+                animator.SetInteger(parameter, setValue);
             confirmedNext = true;
         }
      

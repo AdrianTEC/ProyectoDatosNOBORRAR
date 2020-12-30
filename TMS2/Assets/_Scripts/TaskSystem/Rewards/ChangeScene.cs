@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.TaskSystem.Tasks;
 using UnityEngine;
 
-public class ChangeScene : MonoBehaviour
+public class ChangeScene : IReward
 {
-    // Start is called before the first frame update
-    void Start()
+    public string sceneTarget;
+    
+    public override void Act()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LevelLoader.LoadLevel(sceneTarget);
     }
 }

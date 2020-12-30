@@ -241,7 +241,8 @@ public class PlayerFlightControl : MonoBehaviour
 	public void FireShot()
 	{
 
-		_manager.One();
+		_manager.PlaySoundFor(SoundType.attack);
+		
 		GameObject shot1 = Instantiate(bullet, weapon_hardpoint_1.position, Quaternion.identity);
 		
 		Ray vRay;

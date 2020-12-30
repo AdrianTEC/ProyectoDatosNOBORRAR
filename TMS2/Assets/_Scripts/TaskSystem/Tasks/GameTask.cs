@@ -11,23 +11,27 @@ namespace _Scripts.TaskSystem.Tasks
         public string definition= "That is what the mision is about";
         public int participants;
         protected int participantsLen;
-        public IReward reward;
+        public IReward[] reward;
 
-        public TaskManager taskManager;
+        private TaskManager taskManager;
 
 
 
 
         private void Start()
         {
+            taskManager = transform.parent.GetComponent<TaskManager>();
             participantsLen = participants;
             taskManager = GameObject.FindWithTag("TaskManager").GetComponent<TaskManager>();
         }
 
         public void CompleteTask()
         {
+            foreach (var recompensa in reward)
+            {
+                recompensa.Act();
+            }
             taskManager.Next();
-            reward.Act();
         }
 
         public abstract void TellSomething();

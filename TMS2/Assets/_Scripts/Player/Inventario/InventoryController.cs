@@ -26,7 +26,16 @@ public class InventoryController : MonoBehaviour
 
     public void OpenOrCloseInventory()
     {
-        inventoryDisplay.SetBool(Open,!inventoryDisplay.GetBool(Open));
+        bool newstate = !inventoryDisplay.GetBool(Open);
+        inventoryDisplay.SetBool(Open,newstate);
+        //! hay que considerar el current player, solo para pruebas!!!
+        if(!newstate) 
+            PM.PlayersANIMATOR[0].speed=1;
+        else 
+            PM.PlayersANIMATOR[0].speed=0;
+    
+        
+        
     }
     
     public void Equip(int id)

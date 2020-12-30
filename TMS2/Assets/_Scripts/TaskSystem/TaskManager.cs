@@ -19,8 +19,9 @@ public class TaskManager : MonoBehaviour
 
     public void Next()
     {
+        Debug.Log("siguienteTarea");
         currentTask = tareas[0];
-        tareas.Remove(currentTask);
+        tareas.RemoveAt(0);
         Visualize();
     }
 

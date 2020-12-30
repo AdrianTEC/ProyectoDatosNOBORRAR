@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject slash;
+    protected override void Attack(bool state)
     {
-        
+        slash.SetActive(state);
     }
+    
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

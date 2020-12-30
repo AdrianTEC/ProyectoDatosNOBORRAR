@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
+
 using UnityEngine;
 
-public class FireWeapon : MonoBehaviour
+public class FireWeapon :Weapon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject bullet;
+
+    protected override void Attack(bool state)
     {
-        
+        Instantiate(bullet);
     }
 }

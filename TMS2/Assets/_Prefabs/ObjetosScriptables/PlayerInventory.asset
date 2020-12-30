@@ -27,12 +27,16 @@ MonoBehaviour:
           min: 0
           max: 0
       amount: 1
-    - ID: -1
+    - ID: 1
       item:
-        Name: 
-        Id: 0
-        type: 0
-        buffs: []
+        Name: EspadaSimple
+        Id: 1
+        type: 1
+        buffs:
+        - attribute: 0
+          value: 10
+          min: 0
+          max: 0
       amount: 0
     - ID: -1
       item:
