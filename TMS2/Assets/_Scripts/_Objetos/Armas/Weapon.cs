@@ -2,7 +2,7 @@
 
 public abstract class Weapon : MonoBehaviour
 {
-    protected abstract void Attack(bool state);
+    public abstract void Attack();
     protected int damage;
    
 }

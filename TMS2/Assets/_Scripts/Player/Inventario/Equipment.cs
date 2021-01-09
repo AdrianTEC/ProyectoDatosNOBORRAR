@@ -6,7 +6,8 @@ public class Equipment : MonoBehaviour
 {
     private InventoryController ic;
     public GameObject WEAPON;
-    private Weapon weaponClass;
+    [HideInInspector]
+    public Weapon weaponClass;
     public int WEAPONID;
     public Transform  ManoDerecha;
 

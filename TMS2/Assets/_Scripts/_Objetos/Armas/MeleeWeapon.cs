@@ -1,14 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class MeleeWeapon : Weapon
+namespace _Scripts._Objetos.Armas
 {
-    public GameObject slash;
-    protected override void Attack(bool state)
+    public class MeleeWeapon : Weapon
     {
-        slash.SetActive(state);
+        public GameObject slash;
+        private Collider _collider;
+        public Transform hitPosition;
+        
+        
+        private void Start()
+        {
+        }
+
+        public override void Attack()
+        {
+            GameObject tempSlash=Instantiate(slash);
+
+            tempSlash.transform.position = hitPosition.position;
+            tempSlash.transform.rotation = hitPosition.rotation;
+
+        }
+    
+    
+
+
     }
-    
-    
-
-
 }

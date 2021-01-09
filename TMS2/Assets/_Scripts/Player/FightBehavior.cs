@@ -12,6 +12,11 @@ public class FightBehavior : MonoBehaviour
         _equipment = GetComponent<Equipment>();
     }
 
+    public void produceSlash()
+    {
+        _equipment.weaponClass.Attack();
+
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0)&& _anim.GetInteger(Attack)==0)
