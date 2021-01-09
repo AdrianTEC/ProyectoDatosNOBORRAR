@@ -7,14 +7,12 @@ TagManager:
   - Pickable
   - FxTemporaire
   - enemy
-  - palanca
-  - bloque
-  - cofre
-  - moneda
   - PLAYER_MANAGER
   - ACTIVABLE
-  - flecha
   - mapa
+  - TareaDisplayer
+  - Bullet
+  - TaskManager
   layers:
   - Default
   - TransparentFX
