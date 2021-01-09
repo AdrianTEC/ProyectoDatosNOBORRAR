@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7122394702478827361}
   - component: {fileID: -2206745270983061548}
   - component: {fileID: 1166349879822324625}
+  - component: {fileID: 3057544953360659849}
   m_Layer: 0
   m_Name: SimpleSword
   m_TagString: Untagged
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slash: {fileID: 1325946384517998, guid: 5780397c4f996c7459460943119cf734, type: 3}
+  hitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   hitPosition: {fileID: 2483327541985985672}
 --- !u!114 &1166349879822324625
 MonoBehaviour:
@@ -144,6 +146,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gizmoSize: 0.1
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!65 &3057544953360659849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122394702478827360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5005237, y: 0.12535393, z: 1.2856172}
+  m_Center: {x: 0.007343054, y: 0.09886402, z: -0.96794313}
 --- !u!1 &7502840812411753182
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Vida : MonoBehaviour, BulletInteractuable
+public class Vida : MonoBehaviour, DamageInteractuable
 {
     public int maximunHp;
-    public int currentHp;
+    private int currentHp;
     public bool canReceiveDamage=true;
     
     public VidaDisplayer displayer ;
     public Death death;
     public float timeOfInmunity;
-    
-    public int CurrentHP {
+
+    private void Start()
+    {
+        currentHp = maximunHp;
+    }
+
+    public int CurrentHP { 
         set
         {
             if (currentHp>value) //recibi dano
@@ -38,4 +44,9 @@ public class Vida : MonoBehaviour, BulletInteractuable
     {
         canReceiveDamage = true;
     }
+}
+public interface DamageInteractuable
+{
+	
+    void recibeImpact(int damage);
 }

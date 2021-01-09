@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4460908236828402}
   - component: {fileID: 198811530521620468}
   - component: {fileID: 199553092648809846}
+  - component: {fileID: 5662190606313097121}
   m_Layer: 0
   m_Name: Slash 3
   m_TagString: Untagged
@@ -496,7 +497,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.0508356
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1191,10 +1192,10 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1247,8 +1248,8 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 1
-      scalar: 20.94395
+      minMaxState: 0
+      scalar: -1.7453293
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1309,7 +1310,7 @@ ParticleSystem:
         m_RotationOrder: 4
     curve:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       scalar: 0
       minScalar: 0.7853982
       maxCurve:
@@ -4883,3 +4884,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5662190606313097121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325946384517998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983b87f55e0a684494a96da884ee5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 1

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Asteroid : MonoBehaviour , BulletInteractuable
+public class Asteroid : MonoBehaviour , DamageInteractuable
 {
     public GameObject residuo;
     public int expForce;

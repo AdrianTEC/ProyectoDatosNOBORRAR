@@ -17,7 +17,7 @@ public class ClickTransition : Transition
         if(confirmedNext) return;
         
         float currentPercentage = 100*(Time.time - entryTime) / stateInfo.length;
-        if (currentPercentage > 100)
+        if (currentPercentage > 90)
         {
             setValues(animator, true);
             return;

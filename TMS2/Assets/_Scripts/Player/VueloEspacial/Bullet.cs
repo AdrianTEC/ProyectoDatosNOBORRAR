@@ -62,7 +62,7 @@ public class Bullet : MonoBehaviour {
 			GameObject exp = Instantiate(explo);
 			exp.transform.position = transform.position;
 
-			BulletInteractuable interactuable = col.gameObject.GetComponent<BulletInteractuable>();
+			DamageInteractuable interactuable = col.gameObject.GetComponent<DamageInteractuable>();
 			if (interactuable != null)
 				interactuable.recibeImpact(damage);
 
@@ -85,8 +85,3 @@ public class Bullet : MonoBehaviour {
 }
 
 
-public interface BulletInteractuable
-{
-	
-	void recibeImpact(int damage);
-}
