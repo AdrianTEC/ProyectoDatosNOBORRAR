@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 2628652073385545698}
   - component: {fileID: 1611150206302323305}
   - component: {fileID: 635860335648435814}
+  - component: {fileID: 4564805066003666135}
+  - component: {fileID: 8262892589993904483}
   m_Layer: 0
   m_Name: Normal Golem
   m_TagString: enemy
@@ -331,3 +333,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cadaver: {fileID: 0}
+--- !u!114 &4564805066003666135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495902117356557421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3e1edba83735c4383f776550574348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canFollow: 0
+--- !u!114 &8262892589993904483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495902117356557421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b122e34c326928d41ad6fecdd34626fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  MaxAproach: 0
+  WalkSpeed: 0
+  canFollow: 0

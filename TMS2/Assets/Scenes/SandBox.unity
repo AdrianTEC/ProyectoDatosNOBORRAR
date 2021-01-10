@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 136e5665cf489c64c90c94e95f354c85, type: 2}
 --- !u!1001 &88032846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &191943075
 BoxCollider:
@@ -526,7 +526,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &299111378
 BoxCollider:
@@ -1187,10 +1187,35 @@ PrefabInstance:
       propertyPath: death
       value: 
       objectReference: {fileID: 2110261320}
+    - target: {fileID: 4564805066003666135, guid: 607a8777b8c51c34fa4fa9e45057d151,
+        type: 3}
+      propertyPath: MaxAproach
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5495902117356557421, guid: 607a8777b8c51c34fa4fa9e45057d151,
         type: 3}
       propertyPath: m_Name
       value: Normal Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262892589993904483, guid: 607a8777b8c51c34fa4fa9e45057d151,
+        type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1579628894}
+    - target: {fileID: 8262892589993904483, guid: 607a8777b8c51c34fa4fa9e45057d151,
+        type: 3}
+      propertyPath: WalkSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262892589993904483, guid: 607a8777b8c51c34fa4fa9e45057d151,
+        type: 3}
+      propertyPath: canFollow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262892589993904483, guid: 607a8777b8c51c34fa4fa9e45057d151,
+        type: 3}
+      propertyPath: MaxAproach
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8799475135524120190, guid: 607a8777b8c51c34fa4fa9e45057d151,
         type: 3}
@@ -1641,7 +1666,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908880140}
-  m_LocalRotation: {x: -0, y: -0, z: -0.000000014901161, w: 1}
+  m_LocalRotation: {x: -0.000000014901159, y: -0.000000029802319, z: 0.000000029802319,
+    w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1992,7 +2018,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073947124}
-  m_LocalRotation: {x: 0.25348145, y: 0.39428577, z: -0.11409957, w: 0.8759379}
+  m_LocalRotation: {x: 0.25348145, y: 0.39428574, z: -0.11409954, w: 0.87593794}
   m_LocalPosition: {x: -73.83726, y: 28.624, z: -30.842936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
