@@ -32,9 +32,21 @@ namespace _Scripts._Objetos.Armas
             {
                 dmi.recibeImpact(damage);
             }
+            pushOther(other.gameObject);
 
         }
 
+        private void pushOther(GameObject other)
+        {
+            Rigidbody rigidbody;
+
+            rigidbody = other.GetComponent<Rigidbody>();
+            if (rigidbody)
+            {
+                rigidbody.AddForce(-transform.forward*pushConstant);
+            }
+
+        }
    
     }
 }

@@ -18,12 +18,17 @@ public class EnemyIA : MonoBehaviour
 
         _following.canFollow = canFollow;
         _following.Target = Target;
-        _following.WalkSpeed = WalkSpeed;
         _following.MaxAproach = MaxAproach;
     }
 
     void Update()
     {
+        if (Vector3.Distance(transform.position, Target.transform.position) > MaxAproach) 
+            _following.WalkTo(WalkSpeed);
+        else
+        {
+            _following.WalkTo(0);
+        }
         
     }
 }
