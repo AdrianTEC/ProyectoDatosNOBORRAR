@@ -8,9 +8,9 @@ public class Movement : Player
         public int velocidad;
         public int gravity;
         private float pushPower = 2.0f;
-        public bool mePuedoMover = true;
-
-
+        private float _doubleTapTime;
+        private string lastKeyPressed="";
+        public float dodgeDistance=150;
         private Vector3 forward, right;
 
         private void Start()
@@ -24,32 +24,82 @@ public class Movement : Player
 
         void FixedUpdate()
         {
-            KeyPulsation();
+            bool doublePress=DoubleTapKey();
+            if(!doublePress) KeyPulsation();
             GravityAction();
         }
 
+
+    
+
         #endregion
     #region Movimiento
-        void IsometricMove(Vector3 dir)
+
+    private bool AuxDoubleTapKey(string keyName, Vector3 direction)
+    {
+        if (Time.time < _doubleTapTime + 1.5f&& lastKeyPressed.Equals(keyName))
         {
-            var rightMovement = right * (velocidad * Time.deltaTime *dir. x);
-            var upMovement = forward * (velocidad * Time.deltaTime *dir.z);
+            lastKeyPressed = "";
+            IsometricDodgeMove(direction);
+            return true;
+        }
+        lastKeyPressed = keyName;
+        return false;
+    }
+    public bool DoubleTapKey()
+    {
+        bool doublePressed=false;
+        var W = Input.GetKeyDown(KeyCode.W);
+        var A = Input.GetKeyDown(KeyCode.A);
+        var S = Input.GetKeyDown(KeyCode.S);
+        var D = Input.GetKeyDown(KeyCode.D);
+
+        if (W || A || S || D)
+        {
+            if      (W)doublePressed=AuxDoubleTapKey("W", Vector3.forward);
+            else if (A)doublePressed=AuxDoubleTapKey("A",-Vector3.right);
+            else if (S)doublePressed=AuxDoubleTapKey("S",-Vector3.forward);
+            else if (D)doublePressed=AuxDoubleTapKey("D", Vector3.right);
+
+            _doubleTapTime = Time.time;
+        }
+        
+        return doublePressed;
+
+    }
+
+        void IsometricDodgeMove(Vector3 dir)
+        {
+            var rightMovement = right * (dodgeDistance * Time.deltaTime *dir. x);
+            var upMovement = forward * (dodgeDistance * Time.deltaTime *dir.z);
+            var heading = Vector3.Normalize(rightMovement + upMovement);
+            transform.forward = heading;
+            //transform.Translate(Vector3.forward*4);
+            
+            controller.Move(transform.forward *  (dodgeDistance * Time.deltaTime));
+
+            
+        }
+        void IsometricMove(Vector3 dir,float speed)
+        {
+            var rightMovement = right * (speed * Time.deltaTime *dir. x);
+            var upMovement = forward * (speed * Time.deltaTime *dir.z);
             var heading = Vector3.Normalize(rightMovement + upMovement);
             
             var transform1 = transform;
        
             
             transform1.forward = heading;
-            controller.Move((rightMovement+upMovement) * (velocidad * Time.deltaTime));
+            controller.Move((rightMovement+upMovement) * (speed * Time.deltaTime));
         }
 
-        void Move(Vector3 dir)
+
+        void Move(Vector3 dir,float speed)
         {
             //_animator.SetBool(MOVING, true);
             _animator.SetFloat("Walking",1);
-            IsometricMove(dir);
+            IsometricMove(dir,speed);
         }
-        
 
         #endregion
     #region MouseRotation
@@ -90,7 +140,7 @@ public class Movement : Player
             if (A) direction += -Vector3.right;
             if (S) direction += -Vector3.forward;
             if (D) direction +=  Vector3.right;
-            Move(direction);
+            Move(direction,velocidad);
         }
         else
             //_animator.SetBool(MOVING, false);
