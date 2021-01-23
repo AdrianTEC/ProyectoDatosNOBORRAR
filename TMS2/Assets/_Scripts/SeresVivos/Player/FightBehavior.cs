@@ -1,3 +1,4 @@
+using _Scripts._Objetos.Armas;
 using UnityEngine;
 
 public class FightBehavior : MonoBehaviour
@@ -15,10 +16,21 @@ public class FightBehavior : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0)&& _anim.GetInteger(Attack)==0)
+        if (Input.GetKey(KeyCode.Mouse0 ))
         {
-            _anim.SetInteger(Attack,1);
-            _anim.Play(Attack);
+
+
+            if (_equipment.weaponClass is MeleeWeapon)
+            {
+                if(_anim.GetInteger(Attack)==0)
+                    _anim.SetInteger(Attack,1);
+                _anim.Play(Attack);
+            }
+            else
+            {
+                _equipment.weaponClass.Attack();
+            }
+        
         }
     }
 }

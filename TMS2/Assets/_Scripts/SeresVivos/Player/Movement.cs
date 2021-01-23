@@ -7,10 +7,13 @@ public class Movement : Player
 
         public int velocidad;
         public int gravity;
+        
         private float pushPower = 2.0f;
         private float _doubleTapTime;
+        
         private string lastKeyPressed="";
         public float dodgeDistance=150;
+        
         private Vector3 forward, right;
 
         private void Start()
@@ -24,8 +27,9 @@ public class Movement : Player
 
         void FixedUpdate()
         {
-            bool doublePress=DoubleTapKey();
-            if(!doublePress) KeyPulsation();
+            //bool doublePress=DoubleTapKey();
+            //if(!doublePress) 
+                KeyPulsation();
             GravityAction();
         }
 
@@ -75,11 +79,9 @@ public class Movement : Player
             var heading = Vector3.Normalize(rightMovement + upMovement);
             transform.forward = heading;
             //transform.Translate(Vector3.forward*4);
-            
             controller.Move(transform.forward *  (dodgeDistance * Time.deltaTime));
-
-            
         }
+        
         void IsometricMove(Vector3 dir,float speed)
         {
             var rightMovement = right * (speed * Time.deltaTime *dir. x);
@@ -96,6 +98,17 @@ public class Movement : Player
 
         void Move(Vector3 dir,float speed)
         {
+            var SHIFT = Input.GetKey(KeyCode.LeftShift);
+            if (SHIFT)
+            {
+                speed *= 2;
+                _animator.SetFloat("Speed",2) ;
+            }
+            else
+            {
+                _animator.SetFloat("Speed",1) ;
+
+            }
             //_animator.SetBool(MOVING, true);
             _animator.SetFloat("Walking",1);
             IsometricMove(dir,speed);
@@ -140,6 +153,7 @@ public class Movement : Player
             if (A) direction += -Vector3.right;
             if (S) direction += -Vector3.forward;
             if (D) direction +=  Vector3.right;
+            
             Move(direction,velocidad);
         }
         else

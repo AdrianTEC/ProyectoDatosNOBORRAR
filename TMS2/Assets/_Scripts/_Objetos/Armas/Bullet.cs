@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum amunitionType
-{
-	mesh,
-	sprite
-}
+
 public class Bullet : MonoBehaviour {
 
 	public GameObject explo;

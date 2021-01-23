@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 6408955224502707858}
   m_Layer: 0
-  m_Name: CFX_Hit_C White
+  m_Name: Impact1
   m_TagString: FxTemporaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4774,7 +4774,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.535
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4804,7 +4804,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.703
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
