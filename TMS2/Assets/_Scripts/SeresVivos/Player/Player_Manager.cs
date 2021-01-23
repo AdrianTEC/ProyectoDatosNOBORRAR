@@ -9,7 +9,7 @@ public class Player_Manager : MonoBehaviour
     public List<Animator> PlayersANIMATOR;
     public InventoryController InvControl;
     
-    void Start()
+    void Awake()
     {
         Players= GameObject.FindGameObjectsWithTag("Player").ToList();
         PlayersEQUIPMENT = getComponentInList<Equipment>(Players);

@@ -1,4 +1,5 @@
 ﻿using System;
+using _Scripts._Generales;
 using UnityEngine;
 
 public class InventoryController : MonoBehaviour
@@ -29,6 +30,7 @@ public class InventoryController : MonoBehaviour
         bool newstate = !inventoryDisplay.GetBool(Open);
         inventoryDisplay.SetBool(Open,newstate);
         //! hay que considerar el current player, solo para pruebas!!!
+        GameInfo.InventoryIsOpen = newstate;
         if(!newstate) 
             PM.PlayersANIMATOR[0].speed=1;
         else 

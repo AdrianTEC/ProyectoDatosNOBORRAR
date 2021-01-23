@@ -380,9 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fb5834abee27e4ca0c7ce3c972b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushConstant: 0
-  damage: 0
-  bullet: {fileID: 6398992186977493881, guid: f9f59ae646bed4247ad3732f68c9a8a1, type: 3}
+  pushConstant: 2
+  damage: 4
+  bullet: {fileID: 7939359008441048697, guid: 5432aa3c444212248871772e2983ef68, type: 3}
   pointer: {fileID: 3389836332818710659}
   shotTime: 0.2
 --- !u!82 &8285300802555649558

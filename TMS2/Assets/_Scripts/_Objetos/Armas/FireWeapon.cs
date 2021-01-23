@@ -25,6 +25,11 @@ public class FireWeapon :Weapon
         _audioSource.Play();
         Invoke( "canfireagain",shotTime);    
         GameObject bulletInstance=Instantiate(bullet);
+        
+        LazyBullet bulletInfo = bulletInstance.GetComponent<LazyBullet>();
+        bulletInfo.damage = damage;
+        bulletInfo.pushConstant = pushConstant;
+            
         bulletInstance.transform.position = pointer.position;
         bulletInstance.transform.forward = pointer.forward;
     }
