@@ -29,7 +29,7 @@ public class Movement : Player
         {
             //bool doublePress=DoubleTapKey();
             //if(!doublePress) 
-                KeyPulsation();
+            KeyPulsation();
             GravityAction();
         }
 
@@ -153,12 +153,12 @@ public class Movement : Player
             if (A) direction += -Vector3.right;
             if (S) direction += -Vector3.forward;
             if (D) direction +=  Vector3.right;
-            
+
             Move(direction,velocidad);
         }
         else
             //_animator.SetBool(MOVING, false);
-            _animator.SetFloat("Walking",0);
+            _animator.SetFloat("Speed",0);
         if (E) Interactuar();
         
     }
@@ -166,7 +166,10 @@ public class Movement : Player
     #region Gravedad
     void GravityAction()
     {
-        if(controller.isGrounded) return;
+        if(controller.isGrounded)
+        {
+            return;
+        }
         controller.Move(Vector3.down * (gravity * Time.deltaTime));
     }  
     #endregion
