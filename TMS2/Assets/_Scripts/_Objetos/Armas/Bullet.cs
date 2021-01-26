@@ -72,7 +72,6 @@ public class Bullet : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("detectado: " +other.tag + "autodirgido: "+following.Contains(other.tag));
 		if (following.Contains(other.tag))
 		{
 			target = other.transform;

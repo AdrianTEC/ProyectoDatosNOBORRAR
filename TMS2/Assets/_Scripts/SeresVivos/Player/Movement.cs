@@ -16,6 +16,7 @@ public class Movement : Player
         
         private Vector3 forward, right;
 
+
         private void Start()
         {
             var transform1 = Camera.main.transform;

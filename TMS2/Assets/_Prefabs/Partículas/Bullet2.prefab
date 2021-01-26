@@ -68,7 +68,7 @@ MonoBehaviour:
   damage: 5
   ignoreCollisions:
   - enemy
-  force: 900
+  force: 2300
   rb: {fileID: 6290161075075511488}
   following: []
 --- !u!96 &7886811198854985792

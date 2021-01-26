@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 50
-  explosion: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  explosion: {fileID: 1452636876243392923, guid: ca1e87d9cb4512d4888e92a151ab40aa,
+    type: 3}
   rb: {fileID: 7939359008441048703}
 --- !u!114 &7602199969220667283
 MonoBehaviour:

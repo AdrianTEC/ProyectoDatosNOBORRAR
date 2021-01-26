@@ -7,11 +7,17 @@ using TMPro;
 public class PlayerFlightControl : MonoBehaviour
 {
 	public GameObject actual_model; //"Ship GameObject", "Point this to the Game Object that actually contains the mesh for the ship. Generally, this is the first child of the empty container object this controller is placed in."
+	[Header("WeaponSystem")]
 	public Transform weapon_hardpoint_1; //"Weapon Hardpoint", "Transform for the barrel of the weapon"
 	public GameObject bullet; //"Projectile GameObject", "Projectile that will be fired from the weapon hardpoint."
+
+	[Header("Visualization")]
 	
 	public TextMeshProUGUI Velocidad;
 	public TextMeshProUGUI VelocidadRelativa;
+	
+	[Header("Movement")]
+
 	public float aceleracion=0.5f;
 	
 	//"Core Movement", "Controls for the various speeds for different operations."
@@ -141,7 +147,11 @@ public class PlayerFlightControl : MonoBehaviour
 		Velocidad.text =TotalSpeed.ToString();
 		VelocidadRelativa.text = relativeSpeed .ToString();
 
-		_audioSource.pitch = currentSpeed * pitchSoundConstant;
+		var newPitch = currentSpeed * pitchSoundConstant;
+		if (newPitch > 3) newPitch = 3;
+		_audioSource.pitch =newPitch ;
+		
+		
 		
 		Color myColor;
 		if (currentSpeed < normal) 

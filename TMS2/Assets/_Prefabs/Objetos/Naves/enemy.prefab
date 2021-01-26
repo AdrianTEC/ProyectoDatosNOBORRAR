@@ -149,7 +149,7 @@ MonoBehaviour:
   type: 1
   weapon_hardpoint_1: {fileID: 4559083631168878486}
   bullet: {fileID: 6290161075070343072, guid: 75e4f41b6eb6f2d44b324b7ce343e5cf, type: 3}
-  life: {fileID: 0}
+  velocity: 100
 --- !u!54 &2426543042672608686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,7 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximunHp: 1
-  currentHp: 1
   canReceiveDamage: 1
   displayer: {fileID: 0}
   death: {fileID: 3499563819715270798}

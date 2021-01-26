@@ -17,14 +17,12 @@ public class PuntoLlegada  : Participants
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("colision");
         if(other.CompareTag("Player"))
             Interactuar();
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("colision");
         if (other.gameObject.CompareTag("Player"))
             Interactuar();
     }
