@@ -9,43 +9,43 @@ public class EnemyImageInRadar : MonoBehaviour
     public GameObject prefab;
     public Image senalador;
     public TextMeshProUGUI texto;
-    private Transform target;
+    private Canvas _canva;
+    private RectTransform CanvasRect;
+    private Camera _camera;
+
     void Start()
     {
-        var PrefabObj= Instantiate(prefab, FindObjectOfType<Canvas>().transform);
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        _camera = Camera.main;
+        _canva = FindObjectOfType<Canvas>();
+        CanvasRect = _canva.GetComponent<RectTransform>();
+        var prefabObj= Instantiate(prefab, _canva.transform);
         
-        senalador = PrefabObj.GetComponent<Image>();
-        texto = PrefabObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        
-        
-
+        senalador=prefabObj.GetComponent<Image>();
+        texto = prefabObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
+      
+        
         Vector3 point = Camera.main.WorldToScreenPoint(transform.position);
 
-        if(point.z>1)
-        {
-            senalador.transform.position = point;
-            int distance = (int) Vector3.Distance(transform.position, target.position);
-            texto.text = distance + "m";
-        }
-        else
-        {
-            texto.text = "";
-        }
+            senalador.rectTransform.anchoredPosition= point;
+          //  int distance = (int) Vector3.Distance(transform.position, target.position);
+           // texto.text = distance + "m";
+       
         
-    
-
-
-
+        
+        
     }
+
+
+
+    
 
     private void OnDestroy()
     {
         if(senalador!=null)
-        Destroy(senalador.gameObject);
+            Destroy(senalador.gameObject);
     }
 }
