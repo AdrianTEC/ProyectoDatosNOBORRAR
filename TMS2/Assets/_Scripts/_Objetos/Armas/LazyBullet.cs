@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class LazyBullet : MonoBehaviour
@@ -9,19 +10,14 @@ public class LazyBullet : MonoBehaviour
     public int damage { set; get; }
     public float pushConstant{ set; get; }
 
-private void Start()
-    {
-        //rb.AddForce(Vector3.forward*velocity,ForceMode.Impulse);
-        rb.velocity=transform.forward*velocity;
 
-    }
 
-    void Update()
-    {
-        //transform.Translate(Vector3.forward * (velocity * Time.deltaTime));
-    }
+private void OnEnable(){
+     rb.velocity=transform.forward*velocity;
 
-    private void OnTriggerEnter(Collider other)
+}
+
+private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet")) return;
         GameObject explosioninstance= Instantiate(explosion);
@@ -32,11 +28,9 @@ private void Start()
             dmi.recibeImpact(damage);
         }
         pushOther(other.gameObject);
-        Destroy(gameObject);
-
-
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-
     private void pushOther(GameObject other)
     {
         Rigidbody rigidbody;

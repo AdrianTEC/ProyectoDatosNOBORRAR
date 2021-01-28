@@ -12,13 +12,14 @@ public class SpaceShipFightBehavior : MonoBehaviour
     [Header("Bullet Info")]
     public int damage=1;
     public int pushConstant=1;
-    
-    
     private bool canFire = true;
-    private audioManager audioM;
+    
+    private AudioSource audioM;
+    private ParticleSystem shootParticles;
     void Start()
     {
-        audioM = GetComponent<audioManager>();
+        audioM = pointer.GetComponent<AudioSource>();
+        shootParticles = pointer.GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -30,11 +31,10 @@ public class SpaceShipFightBehavior : MonoBehaviour
     private void Shoot()
     {
         if(!canFire) return;
-        
         canFire = false;
-        audioM.PlaySoundFor(SoundType.attack);
+        audioM.PlayOneShot(audioM.clip);
         
-        
+        /*
         GameObject bulletInstance=Instantiate(bullet);
         bulletInstance.transform.position = pointer.position;
         bulletInstance.transform.forward = pointer.forward;
@@ -42,6 +42,16 @@ public class SpaceShipFightBehavior : MonoBehaviour
         LazyBullet bulletInfo = bulletInstance.GetComponent<LazyBullet>();
         bulletInfo.damage = damage;
         bulletInfo.pushConstant = pushConstant;
+        */
+        
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("PlayerBullet"); 
+        if (bullet != null) {
+            var transform1 = pointer.transform;
+            bullet.transform.position = transform1.position;
+            bullet.transform.forward  = transform1.forward;
+            bullet.SetActive(true);
+            shootParticles.Play();
+        }
         
         Invoke( "canfireagain",shotTime);    
 

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7939359008441048700}
   - component: {fileID: 7939359008441048703}
   - component: {fileID: 7939359008441048702}
-  - component: {fileID: 7602199969220667283}
+  - component: {fileID: -8487884297657159962}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: PlayerBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   explosion: {fileID: 1452636876243392923, guid: ca1e87d9cb4512d4888e92a151ab40aa,
     type: 3}
   rb: {fileID: 7939359008441048703}
---- !u!114 &7602199969220667283
+--- !u!114 &-8487884297657159962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7939359008441048697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983b87f55e0a684494a96da884ee5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 894ad55332e5c074f93ffc0e3612546b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 3
