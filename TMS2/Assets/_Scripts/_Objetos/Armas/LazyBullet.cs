@@ -7,8 +7,8 @@ public class LazyBullet : MonoBehaviour
     public float velocity;
     public GameObject explosion;
     public Rigidbody rb;
-    public int damage { set; get; }
-    public float pushConstant{ set; get; }
+    public int damage;
+    public float pushConstant;
 
 
 

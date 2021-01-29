@@ -10,7 +10,8 @@ public enum LoopPatrons
     XSin,
     YSin,
     Circular,
-    Square
+    Square,
+    triangle
 }
 public class LoopMovement : MonoBehaviour
 {
