@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LazyBullet : MonoBehaviour
@@ -9,6 +10,7 @@ public class LazyBullet : MonoBehaviour
     public Rigidbody rb;
     public int damage;
     public float pushConstant;
+    public List<string> ignoretags;
 
 
 
@@ -19,7 +21,7 @@ private void OnEnable(){
 
 private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bullet")) return;
+        if (other.CompareTag("Bullet")|| ignoretags.Contains(other.tag)) return;
         GameObject explosioninstance= Instantiate(explosion);
         explosioninstance.transform.position = transform.position;
         DamageInteractuable dmi = other.GetComponent<DamageInteractuable>();

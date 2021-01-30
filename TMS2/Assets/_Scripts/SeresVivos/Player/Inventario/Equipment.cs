@@ -26,7 +26,7 @@ public class Equipment : MonoBehaviour
     public void Posicionar()
     {
         WEAPON.transform.position = ManoDerecha.position;
-        WEAPON.transform.parent = ManoDerecha.parent;
+        WEAPON.transform.parent = ManoDerecha;
         WEAPON.transform.rotation=ManoDerecha.rotation;
         weaponClass = WEAPON.GetComponent<Weapon>();
     }

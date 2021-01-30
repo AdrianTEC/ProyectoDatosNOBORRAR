@@ -5380,6 +5380,8 @@ MonoBehaviour:
   rb: {fileID: 8028264967219824966}
   damage: 1
   pushConstant: 0
+  ignoretags:
+  - enemy
 --- !u!114 &3728788695014700732
 MonoBehaviour:
   m_ObjectHideFlags: 0

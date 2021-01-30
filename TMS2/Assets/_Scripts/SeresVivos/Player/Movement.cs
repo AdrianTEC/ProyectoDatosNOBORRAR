@@ -102,7 +102,7 @@ public class Movement : Player
             var SHIFT = Input.GetKey(KeyCode.LeftShift);
             if (SHIFT)
             {
-                speed *= 2;
+                speed *= 1.5f;
                 _animator.SetFloat("Speed",2) ;
             }
             else
@@ -110,8 +110,6 @@ public class Movement : Player
                 _animator.SetFloat("Speed",1) ;
 
             }
-            //_animator.SetBool(MOVING, true);
-            _animator.SetFloat("Walking",1);
             IsometricMove(dir,speed);
         }
 

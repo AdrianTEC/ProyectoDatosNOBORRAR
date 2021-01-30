@@ -18,7 +18,6 @@ namespace _Scripts._Objetos.Armas
             //tempSlash.transform.parent = transform;
             tempSlash.transform.position = hitPosition.position;
             tempSlash.transform.forward = hitPosition.forward;
-            tempSlash.transform.rotation = hitPosition.rotation;
           
 
         }

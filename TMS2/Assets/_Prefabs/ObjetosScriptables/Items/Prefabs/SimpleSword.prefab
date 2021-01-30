@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushConstant: 500
   damage: 1
-  slash: {fileID: 1325946384517998, guid: 5780397c4f996c7459460943119cf734, type: 3}
+  slash: {fileID: 2161694499454934993, guid: 1f87823f4d5a9b84e8ea629c888796dd, type: 3}
   hitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   hitPosition: {fileID: 2483327541985985672}
 --- !u!114 &1166349879822324625
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686a818483abb2043b7cddbc8b301c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myType: 1
   gizmoSize: 0.1
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!65 &3057544953360659849
