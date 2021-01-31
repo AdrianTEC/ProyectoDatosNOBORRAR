@@ -5382,6 +5382,7 @@ MonoBehaviour:
   pushConstant: 0
   ignoretags:
   - enemy
+  - TriggerIgnore
 --- !u!114 &3728788695014700732
 MonoBehaviour:
   m_ObjectHideFlags: 0

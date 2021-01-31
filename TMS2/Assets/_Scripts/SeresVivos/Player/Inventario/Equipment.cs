@@ -15,7 +15,7 @@ public class Equipment : MonoBehaviour
     private void Start()
     {
         ic = GameObject.FindWithTag("PLAYER_MANAGER").GetComponent<InventoryController>();
-        if (ManoDerecha.childCount == 1)
+        if (ManoDerecha.childCount >= 1)
         {
             WEAPON = ManoDerecha.GetChild(0).gameObject;
             Posicionar();

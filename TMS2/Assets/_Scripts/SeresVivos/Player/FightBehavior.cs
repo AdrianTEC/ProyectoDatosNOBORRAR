@@ -2,34 +2,40 @@ using _Scripts._Generales;
 using _Scripts._Objetos.Armas;
 using UnityEngine;
 
-public class FightBehavior : MonoBehaviour
-{
-    public Animator _anim;
-    private Equipment _equipment;
-    private static readonly int Attack = Animator.StringToHash("Attack");
+namespace _Scripts.SeresVivos.Player{
+    public class FightBehavior : MonoBehaviour{
+        public Animator anim;
+        private Equipment equipment;
+        private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int FireAttack = Animator.StringToHash("FireAttack");
+        private static readonly int Speed = Animator.StringToHash("Speed");
 
 
-    void Start()
-    {
-        _equipment = GetComponent<Equipment>();
-    }
+        private void Start(){
+            equipment = GetComponent<Equipment>();
+        }
 
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Mouse0 ) && !GameInfo.InventoryIsOpen)
-        {
-            if (_equipment.weaponClass is MeleeWeapon)
-            {
-                if(_anim.GetInteger(Attack)==0)
-                {
-                    _anim.SetInteger(Attack, 1);
-                    _anim.Play(Attack);
+        private void Update(){
+            
+            if(equipment.weaponClass==null||GameInfo.InventoryIsOpen) return;
+            
+            if (Input.GetKey(KeyCode.Mouse0 )){
+                
+                if (equipment.weaponClass is MeleeWeapon){
+                    if (anim.GetInteger(Attack) != 0 ||anim.GetFloat(Speed)>1) return;
+                    anim.SetInteger(Attack, 1);
+                    anim.Play(Attack);
+                }
+                else{
+                    anim.SetBool(FireAttack,true);
                 }
             }
-            else
-            {
-                _equipment.weaponClass.Attack();
+            else{
+                if (equipment.weaponClass is FireWeapon){
+                    anim.SetBool(FireAttack,false);
+
+                }
             }
         }
     }

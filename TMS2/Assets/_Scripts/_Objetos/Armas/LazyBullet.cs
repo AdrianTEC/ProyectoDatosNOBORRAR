@@ -16,8 +16,12 @@ public class LazyBullet : MonoBehaviour
 
 private void OnEnable(){
      rb.velocity=transform.forward*velocity;
-
 }
+
+private void Start(){ 
+    rb.velocity=transform.forward*velocity;
+}
+
 
 private void OnTriggerEnter(Collider other)
     {

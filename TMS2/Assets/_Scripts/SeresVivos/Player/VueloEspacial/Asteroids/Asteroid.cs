@@ -13,11 +13,7 @@ public class Asteroid : MonoBehaviour , DamageInteractuable
     {
         var res=Instantiate(residuo);
         res.transform.position = transform.position;
-        foreach (Transform VARIABLE in res.transform)
-        {
-            Vector3 dir= new Vector3(Random.Range(-1, 1),Random.Range(-1, 1),Random.Range(-1, 1))*expForce;
-           VARIABLE.GetComponent<Rigidbody>().AddForce(dir*expForce,ForceMode.VelocityChange);
-        }
+
         Destroy(gameObject);
 
     }
@@ -26,4 +22,5 @@ public class Asteroid : MonoBehaviour , DamageInteractuable
     {
         BreakRock();
     }
+    
 }

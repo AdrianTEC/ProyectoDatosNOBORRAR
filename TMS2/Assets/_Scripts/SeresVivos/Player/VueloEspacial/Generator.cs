@@ -4,6 +4,7 @@ public enum TypesOfGeneration
 {
     spherical,
     point,
+    longitudinal
 }
 
 public enum OverTimeGeneration
@@ -23,6 +24,7 @@ public class Generator : MonoBehaviour
     public int cuantity;
     public GameObject[] prefabs;
     public int maximunRadio;
+    public int longitude; //only for longitudinal generation
 
     void Start()
     {
@@ -36,6 +38,9 @@ public class Generator : MonoBehaviour
                 break;
             case TypesOfGeneration.point:
                 generateOnOrigin();
+                break;
+            case  TypesOfGeneration.longitudinal:
+                generateLongitudinal();
                 break;
 
         }
@@ -80,7 +85,44 @@ public class Generator : MonoBehaviour
         cuantity--;
         Invoke("generateSpherical",Time);
     }
-    
- 
+
+
+    private void generateLongitudinal(){
+        Vector3 centre = transform.position;
+        
+        if (cuantity <= 0) return;
+        for (int z= 0; z< longitude; z++){
+         
+            for (int y = 0; y < maximunRadio; y++){
+        
+                for (int x = 0; x < maximunRadio; x++){
+                    if(cuantity<=0)
+                        break;
+
+                    int value=120;
+                    float zsep = Random.Range(-value,value);
+                    float ysep = Random.Range(-value,value);
+                    float xsep = Random.Range(-value,value);
+                    
+                    
+                    GameObject ast= Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)] );
+                    ast.transform.position = centre+ new Vector3(x*xsep,y*ysep,z*zsep);
+                    ast.transform.parent= transform;
+                    cuantity--;
+                    
+                    
+                    
+                } 
+                
+            }
+            
+            
+            
+            
+        }
+
+
+}
+
 }
 

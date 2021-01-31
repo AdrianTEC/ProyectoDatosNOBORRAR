@@ -22,9 +22,15 @@ public class IA_DistaceAttack : MonoBehaviour{
 
     private void Start(){
         player = GameObject.FindWithTag("Player").transform;
+    }
+
+    private void OnEnable(){
         InvokeRepeating("shoot",shootTime,shootTime);
     }
 
+    private void OnDisable(){
+        CancelInvoke();
+    }
 
     public void prepareShoot(){
         transform.LookAt(player.position+player.forward*targetOffset);
@@ -72,5 +78,8 @@ public class IA_DistaceAttack : MonoBehaviour{
     private void canShootAgain(){
         canShoot = true;
     }
-    
+
+    private void OnDestroy(){
+        Destroy(transform.parent.gameObject);
+    }
 }
