@@ -1,31 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _Scripts.Player.VueloEspacial.Flight;
+﻿
+using System;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class SpaceShipDead : Death
 {
 
     public GameObject target;
     public GameObject explosion;
-    public PlayerFlightControl control;
-    public CameraFlightFollow cameraControl;
-    public CustomPointer pointer;
+    private Animator transition;
     public AudioSource audioSource;
+    private LevelLoader levelLoader;
+
+    private void Start(){
+        transition = GameObject.FindWithTag("MapTransition").GetComponent<Animator>();
+        transition.Play("RoomTransition");
+        levelLoader = transition.GetComponent<LevelLoader>();
+
+    }
+
     public override void act()
     {
-        Instantiate(explosion).transform.position = target.transform.position;
-        Destroy(target);
-        control.enabled = false;
-        pointer.enabled = false;
-        cameraControl.enabled = false;
-        audioSource.enabled = false;
         Invoke("load",3);
+        Instantiate(explosion).transform.position = target.transform.position;
+        //Destroy(target);
+        target.SetActive(false);
+
+        audioSource.enabled = false;
+        
+    }
+
+    private void OnDisable(){
+        Invoke("load",3);
+ 
+    }
+
+    private void toGameOverScreen(){
+        levelLoader.LoadLevelAsync("GameOver");
     }
 
     public void load()
     {
-        LevelLoader.LoadLevel("GameOver");
+        transition.Play("Closed");
+        float duration;
+        duration = transition.GetCurrentAnimatorStateInfo(0).length;
+        Invoke(nameof(toGameOverScreen),duration/2);
+
     }
+    
+    
+ 
+    
+    
 }
 

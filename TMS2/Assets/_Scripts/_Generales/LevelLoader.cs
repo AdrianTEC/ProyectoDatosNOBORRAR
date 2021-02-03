@@ -1,8 +1,10 @@
 ﻿
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class LevelLoader
+public  class LevelLoader :MonoBehaviour
 {
    public static string nextLevel;
    /// <summary>
@@ -15,4 +17,19 @@ public static class LevelLoader
 
       SceneManager.LoadScene("Loading");
    }
+
+   private static IEnumerator LoadLevelAsyncAux(string Sname){
+      AsyncOperation operation= SceneManager.LoadSceneAsync(Sname);
+      while (operation.isDone==false){
+         SceneManager.LoadScene(Sname);
+         yield return null;
+         
+      }
+   }
+
+   public  void LoadLevelAsync(string name){
+      StartCoroutine(LoadLevelAsyncAux(name));
+
+   }
+ 
 }

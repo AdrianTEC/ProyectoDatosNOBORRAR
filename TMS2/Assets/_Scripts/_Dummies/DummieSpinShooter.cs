@@ -12,7 +12,7 @@ public class DummieSpinShooter : MonoBehaviour{
     
     void Start()
     {
-        GetComponent<Rigidbody>().AddTorque(transform.up*velocity);    
+        GetComponent<Rigidbody>().AddTorque(transform.forward*velocity);    
         InvokeRepeating(nameof(shoot),.1f,timeBetweenShoots);
     }
 
@@ -23,7 +23,7 @@ public class DummieSpinShooter : MonoBehaviour{
         if (instance == null) return;
 
         instance.transform.position = transform.position;
-        instance.transform.forward = transform.forward;
+        instance.transform.forward = transform.up;
         instance.SetActive(true);
         
     }

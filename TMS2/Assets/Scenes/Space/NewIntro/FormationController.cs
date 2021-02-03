@@ -4,14 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum FormationTypes{
-    
-    Sphere,
-    Single,
-    Triangle,
-    Spin
-    
-}
+
 
 /// <summary>
 /// The FormationController.

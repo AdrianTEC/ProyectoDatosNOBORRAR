@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 
 public class DestructionDeath : Death
@@ -14,4 +15,6 @@ public class DestructionDeath : Death
         Instantiate(cadaver, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
+  
 }

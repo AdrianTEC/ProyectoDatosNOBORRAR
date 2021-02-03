@@ -15,8 +15,9 @@ public class ActivateOnDistance : MonoBehaviour{
 
     void Update()
     {
-        Debug.Log("dist: ");
-        Debug.Log(Vector3.Distance(transform.position, player.position));
+    //      Debug.Log(Vector3.Distance(transform.position, player.position));
+    if(!player) return;
+
         
         if (Vector3.Distance(transform.position, player.position) < distance ){
             foreach (GameObject target in targets){

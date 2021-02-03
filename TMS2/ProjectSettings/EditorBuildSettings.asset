@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sustanciales/GameOver.unity
     guid: a7e522c9caa34f944a590b759867ba3c
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Sustanciales/MenuPrincipal.unity
     guid: 06f05c52cd6752c448ddfde0dadfa1b3
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Space/InsideShip.unity
     guid: cc939af4a17f9554897a7b28c9c25d92
+  - enabled: 1
+    path: Assets/Scenes/Space/NewIntro/IntroBattle.unity
+    guid: 6a1a5c47b55048e49ae25309be914367
   m_configObjects: {}
