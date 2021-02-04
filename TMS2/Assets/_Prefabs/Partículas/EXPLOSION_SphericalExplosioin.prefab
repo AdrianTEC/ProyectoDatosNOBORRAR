@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7170618960073372754}
   - component: {fileID: 6831496047515389908}
   m_Layer: 0
-  m_Name: SphericalExplosioin
+  m_Name: EXPLOSION_SphericalExplosioin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

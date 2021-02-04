@@ -26,7 +26,7 @@ namespace _Scripts._Objetos.Armas
         {
             if(!DettectCollisions||other.CompareTag("Player")) return;
             Instantiate(hitParticle).transform.position = hitPosition.position;
-            DamageInteractuable dmi = other.GetComponent<DamageInteractuable>();
+            IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
             if (dmi!=null)
             {
                 dmi.recibeImpact(damage);

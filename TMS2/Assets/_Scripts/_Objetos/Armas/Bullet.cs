@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts;
 using UnityEngine;
 
 
@@ -58,7 +59,7 @@ public class Bullet : MonoBehaviour {
 			GameObject exp = Instantiate(explo);
 			exp.transform.position = transform.position;
 
-			DamageInteractuable interactuable = col.gameObject.GetComponent<DamageInteractuable>();
+			IDamageInteractuable interactuable = col.gameObject.GetComponent<IDamageInteractuable>();
 			if (interactuable != null)
 				interactuable.recibeImpact(damage);
 

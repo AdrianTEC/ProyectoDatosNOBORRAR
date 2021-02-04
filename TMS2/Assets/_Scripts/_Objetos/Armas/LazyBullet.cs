@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using _Scripts;
 using UnityEngine;
 
 public class LazyBullet : MonoBehaviour
@@ -28,7 +29,7 @@ private void OnTriggerEnter(Collider other)
         if (other.CompareTag("Bullet")|| ignoretags.Contains(other.tag)) return;
         GameObject explosioninstance= Instantiate(explosion);
         explosioninstance.transform.position = transform.position;
-        DamageInteractuable dmi = other.GetComponent<DamageInteractuable>();
+        IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
         if (dmi!=null)
         {
             dmi.recibeImpact(damage);

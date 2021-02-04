@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7238769016981482862}
-  - component: {fileID: 6720848414977700776}
   - component: {fileID: 1582367691818995525}
   - component: {fileID: 8361979912886957573}
+  - component: {fileID: 8897258988835242811}
+  - component: {fileID: 5473286456609635350}
   m_Layer: 0
   m_Name: Asteroide
   m_TagString: Untagged
@@ -34,20 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6720848414977700776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798757066812935507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b495a751606c6844db66d16addcbab4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  residuo: {fileID: 7673157414906820508, guid: e6eeedb75c8f89249adb86ccdbfffc84, type: 3}
-  expForce: 11
 --- !u!65 &1582367691818995525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77,6 +64,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8897258988835242811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798757066812935507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ae96ea73399f64e95405a14108ece8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximunHp: 1
+  canReceiveDamage: 1
+  displayer: {fileID: 0}
+  death: {fileID: 5473286456609635350}
+  timeOfInmunity: 0
+--- !u!114 &5473286456609635350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798757066812935507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bdc1dcaebd5e14d993d8031ab7e65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cadaver: {fileID: 7673157414906820508, guid: e6eeedb75c8f89249adb86ccdbfffc84, type: 3}
 --- !u!1 &8894275246428498343
 GameObject:
   m_ObjectHideFlags: 0

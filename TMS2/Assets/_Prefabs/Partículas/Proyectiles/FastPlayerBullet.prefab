@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2686603948866651684}
   - component: {fileID: 2686603948866651685}
   - component: {fileID: 4706827623902328509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FastPlayerBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 6792793481934106264}
   - component: {fileID: 6743491188166263662}
   - component: {fileID: 9153713628514522482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

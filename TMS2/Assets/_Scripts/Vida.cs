@@ -1,52 +1,60 @@
 ﻿using System;
+using _Scripts._Generales;
 using UnityEngine;
 
-public class Vida : MonoBehaviour, DamageInteractuable
-{
-    public int maximunHp;
-    private int currentHp;
-    public bool canReceiveDamage=true;
-    
-    public VidaDisplayer displayer ;
-    public Death death;
-    public float timeOfInmunity;
-
-    private void Start()
+namespace _Scripts{
+    public class Vida : MonoBehaviour, IDamageInteractuable
     {
-        currentHp = maximunHp;
-    }
+        public int maximunHp;
+        private int currentHp;
+        public bool canReceiveDamage=true;
+        private ExtraBehavior extraBehavior;
+        public VidaDisplayer displayer ;
+        public Death death;
+        public float timeOfInmunity;
+        private audioManager audioManager;
 
-    public int CurrentHP { 
-        set
+        private void Start()
         {
-            if (currentHp>value) //recibi dano
-            {
-                if (!canReceiveDamage) return;
-                canReceiveDamage = false;
-                Invoke("SetToReceiveDamage",timeOfInmunity);
-            }
-            currentHp = value;
-            if(displayer!=null)
-                displayer.modifyVisuals(currentHp,maximunHp);
-            if(currentHp<=0)
-                death.act();
+            currentHp = maximunHp;
+            extraBehavior = GetComponent<ExtraBehavior>();
+            audioManager  = GetComponent<audioManager>();
         }
-        get => currentHp;
-    }
+
+        private int CurrentHp { 
+            set
+            {
+                if (currentHp>value) //recibi dano
+                {
+                    if (!canReceiveDamage) return;
+                    canReceiveDamage = false;
+                    extraBehavior?.act();
+                    audioManager?.PlaySoundFor(SoundType.damage);
+                    Invoke(nameof(setToReceiveDamage),timeOfInmunity);
+                }
+                currentHp = value;
+                if(displayer!=null)
+                    displayer.modifyVisuals(currentHp,maximunHp);
+                if(currentHp<=0)
+                    death.act();
+            }
+            get => currentHp;
+        }
    
-    public void recibeImpact(int damage)
-    {
-        CurrentHP -= damage;
-    }
+        public void recibeImpact(int damage)
+        {
+            CurrentHp -= damage;
+        }
 
 
-    private void SetToReceiveDamage()
-    {
-        canReceiveDamage = true;
+        private void setToReceiveDamage()
+        {
+            canReceiveDamage = true;
+        }
     }
-}
-public interface DamageInteractuable
-{
+    public interface IDamageInteractuable
+    {
 	
-    void recibeImpact(int damage);
+        void recibeImpact(int damage);
+    }
 }

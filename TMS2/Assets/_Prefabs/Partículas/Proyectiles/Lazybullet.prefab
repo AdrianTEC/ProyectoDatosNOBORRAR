@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6398992186977493886}
   - component: {fileID: 6873615708031556243}
   - component: {fileID: 3233960746994841291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lazybullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -130,6 +130,9 @@ MonoBehaviour:
   velocity: 50
   explosion: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   rb: {fileID: 6398992186977493887}
+  damage: 0
+  pushConstant: 0
+  ignoretags: []
 --- !u!114 &6873615708031556243
 MonoBehaviour:
   m_ObjectHideFlags: 0
