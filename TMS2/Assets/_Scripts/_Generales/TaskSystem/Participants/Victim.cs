@@ -1,19 +1,25 @@
-﻿using _Scripts.TaskSystem.Tasks;
-
-public class Victim : Participants
-{
-    public override void Avisar()
+﻿namespace _Scripts._Generales.TaskSystem.Participants{
+    public class Victim : _Scripts.TaskSystem.Tasks.Participants
     {
-        task.TellSomething();
-    }
+        private bool quitting;
 
-    public override void Interactuar()
-    {
-        Avisar();
-    }
+        public override void Avisar()
+        {
+            task.TellSomething();
+        }
 
-    private void OnDestroy()
-    {
-        Interactuar();
+        public override void Interactuar()
+        {
+            Avisar();
+        }
+
+        private void OnApplicationQuit() {
+            quitting = true;
+        }
+        private void OnDestroy()
+        {
+            if(!quitting)
+                Interactuar();
+        }
     }
 }

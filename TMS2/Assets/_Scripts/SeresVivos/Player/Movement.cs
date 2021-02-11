@@ -186,13 +186,13 @@ namespace _Scripts.SeresVivos.Player{
 
         private void move(Vector3 dir, float speed){
             bool shift = Input.GetKey(KeyCode.LeftShift);
-            if (shift&& (!_animator.GetBool("FireAttack") && _animator.GetFloat("Attack") == 0)){
+            if (shift&& (!_animator.GetBool("FireAttack") && _animator.GetInteger("Attack") == 0)){
                 
                 speed *= multiplicator;
-                _animator.SetFloat(Speed, 2);
+                _animator.SetFloat(Speed, 1);
             }
             else{
-                _animator.SetFloat(Speed, 1);
+                _animator.SetFloat(Speed, .5f);
             }
 
             isometricMove(dir, speed);

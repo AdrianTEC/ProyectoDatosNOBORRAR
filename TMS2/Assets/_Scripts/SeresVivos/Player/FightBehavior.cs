@@ -28,7 +28,7 @@ namespace _Scripts.SeresVivos.Player{
                     anim.Play(Attack);
                 }
                 else{
-                    anim.SetBool(FireAttack,true);
+                    equipment.weaponClass.Attack();
                 }
             }
             else{

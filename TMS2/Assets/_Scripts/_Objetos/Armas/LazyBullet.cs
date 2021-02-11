@@ -12,7 +12,8 @@ public class LazyBullet : MonoBehaviour
     public int damage;
     public float pushConstant;
     public List<string> ignoretags;
-
+    public bool destroyOnImpact = true;
+    
 
 
 private void OnEnable(){
@@ -27,16 +28,17 @@ private void Start(){
 private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet")|| ignoretags.Contains(other.tag)) return;
+        
         GameObject explosioninstance= Instantiate(explosion);
         explosioninstance.transform.position = transform.position;
         IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
-        if (dmi!=null)
-        {
-            dmi.recibeImpact(damage);
-        }
+        dmi?.recibeImpact(damage);
+
         pushOther(other.gameObject);
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
+        if (destroyOnImpact) Destroy(gameObject);
+        else gameObject.SetActive(false);
+
+            
     }
     private void pushOther(GameObject other)
     {

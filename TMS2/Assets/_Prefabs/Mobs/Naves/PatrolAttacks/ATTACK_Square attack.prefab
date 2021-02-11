@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4676178374518926025}
   - component: {fileID: 4676178374518926030}
   - component: {fileID: 2720854183054301916}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ATTACK_Square attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4880,3 +4880,4 @@ MonoBehaviour:
   damage: 1
   ignoreTags:
   - enemy
+  multipleCollisions: 0

@@ -24,6 +24,7 @@ public class Generator : MonoBehaviour
     public int cuantity;
     public GameObject[] prefabs;
     public int maximunRadio;
+    public bool randomRotation;
     public int longitude; //only for longitudinal generation
 
     void Start()
@@ -73,15 +74,12 @@ public class Generator : MonoBehaviour
 
         var pos = transform.position;
         
-        
-        
-        
-        
         Vector3 Pos= new Vector3(Random.Range(pos.x-maximunRadio,pos.x+maximunRadio),Random.Range(pos.y-maximunRadio,pos.y+maximunRadio),Random.Range(pos.z-maximunRadio,pos.z+maximunRadio));
         
-        GameObject ast= Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)]);
+        GameObject ast= Instantiate(prefabs[Random.Range(0, prefabs.Length )]);
         ast.transform.position = Pos;
         ast.transform.parent = transform;
+        if(randomRotation) ast.transform.rotation= Quaternion.Euler(Random.Range(0,90),Random.Range(0,90),Random.Range(0,90));
         cuantity--;
         Invoke("generateSpherical",Time);
     }

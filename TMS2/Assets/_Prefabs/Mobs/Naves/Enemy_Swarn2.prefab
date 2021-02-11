@@ -194,17 +194,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceEnemy1
       objectReference: {fileID: 0}
-    - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
-        type: 3}
-      propertyPath: attack
-      value: 
-      objectReference: {fileID: 841983300034412562, guid: 1fd6bc914d019334ea9aa54e07ba94a6,
-        type: 3}
-    - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
-        type: 3}
-      propertyPath: shootTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aac77e9b4fc961b4b97b120b7097e116, type: 3}
 --- !u!4 &7418650843600433230 stripped
@@ -289,7 +278,12 @@ PrefabInstance:
     - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
         type: 3}
       propertyPath: shootTime
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
+        type: 3}
+      propertyPath: bulletChildOfOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aac77e9b4fc961b4b97b120b7097e116, type: 3}
@@ -375,7 +369,12 @@ PrefabInstance:
     - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
         type: 3}
       propertyPath: shootTime
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025893216409437827, guid: aac77e9b4fc961b4b97b120b7097e116,
+        type: 3}
+      propertyPath: bulletChildOfOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aac77e9b4fc961b4b97b120b7097e116, type: 3}

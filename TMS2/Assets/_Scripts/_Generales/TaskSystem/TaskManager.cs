@@ -8,30 +8,30 @@ public class TaskManager : MonoBehaviour
     
     public TextMeshProUGUI tituloMesh;
     public TextMeshProUGUI DefinitionMesh;
-    public List<GameTask> tareas;
+    public List<GameTask> tasks;
 
     public GameTask currentTask;
 
     private void Start()
     {
-        Next();
+        next();
     }
 
-    public void Next()
+    public void next()
     {
         Debug.Log("siguienteTarea");
-        currentTask = tareas[0];
-        tareas.RemoveAt(0);
-        Visualize();
+        if (tasks.Count <= 0) return;
+        currentTask = tasks[0];
+        tasks.RemoveAt(0);
+        visualize();
     }
 
-    public void AddNew(GameTask tarea)
-    {
-        tareas.Add(tarea);
-        Next();
+    public void addNew(GameTask task){
+        tasks.Add(task);
+        next();
     }
-    public void Visualize()
-    {
+
+    private void visualize(){
         if(currentTask==null) return;
         tituloMesh.text = currentTask.taskName;
         DefinitionMesh.text = currentTask.definition;

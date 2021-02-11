@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4481961924204022092}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ATTACK_RotadorDoble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4481961925017915354}
   - component: {fileID: 4481961925017915352}
   - component: {fileID: 4481961925017915355}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: 'Rotator '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4481961925439712077}
   - component: {fileID: 4481961925439712067}
   - component: {fileID: 4481961925439712066}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

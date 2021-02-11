@@ -31,7 +31,7 @@ namespace _Scripts.TaskSystem.Tasks
             {
                 recompensa.Act();
             }
-            taskManager.Next();
+            taskManager.next();
         }
 
         public abstract void TellSomething();

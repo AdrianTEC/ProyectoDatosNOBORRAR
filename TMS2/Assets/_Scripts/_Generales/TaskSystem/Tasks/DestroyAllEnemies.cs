@@ -13,7 +13,7 @@ namespace _Scripts.TaskSystem.Tasks
         public  override void TellSomething()
         {
             participantsLen--;
-            if (participantsLen <= 0)
+            if (participantsLen == 0)
                 CompleteTask();
             
         }

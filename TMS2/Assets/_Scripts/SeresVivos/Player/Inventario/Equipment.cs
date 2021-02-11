@@ -10,10 +10,10 @@ public class Equipment : MonoBehaviour
     public Weapon weaponClass;
     public int WEAPONID;
     public Transform  ManoDerecha;
+    private Animator animator;
 
-
-    private void Start()
-    {
+    private void Start(){
+        animator =transform.GetChild(0).GetComponent<Animator>();
         ic = GameObject.FindWithTag("PLAYER_MANAGER").GetComponent<InventoryController>();
         if (ManoDerecha.childCount >= 1)
         {
@@ -27,8 +27,16 @@ public class Equipment : MonoBehaviour
     {
         WEAPON.transform.position = ManoDerecha.position;
         WEAPON.transform.parent = ManoDerecha;
-        WEAPON.transform.rotation=ManoDerecha.rotation;
+        WEAPON.transform.forward=ManoDerecha.forward;
         weaponClass = WEAPON.GetComponent<Weapon>();
+        if (weaponClass is FireWeapon){
+            Debug.Log("fireW");
+            animator.SetLayerWeight(1,1);
+        }
+        else{
+            animator.SetLayerWeight(1,0);
+
+        }
     }
     public  void Equipar(ItemObject objeto)
     {

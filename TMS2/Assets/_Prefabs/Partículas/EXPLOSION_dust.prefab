@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3167271717874537856}
   - component: {fileID: 4791645332158268783}
   - component: {fileID: 7805133601211467524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4873,7 +4873,7 @@ GameObject:
   - component: {fileID: 2122217885216595344}
   - component: {fileID: 804391990814848495}
   - component: {fileID: 4923618008089056265}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9736,7 +9736,7 @@ GameObject:
   - component: {fileID: 7324446636223518573}
   - component: {fileID: 3433315132084749147}
   - component: {fileID: 7303753719084371077}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14599,8 +14599,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7600822405213903698}
   - component: {fileID: 3281997922947839331}
-  m_Layer: 0
-  m_Name: residuo
+  m_Layer: 10
+  m_Name: EXPLOSION_dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14644,7 +14644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9112832372592918669}
   - component: {fileID: 3376875737394849011}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SphericalExplosioin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5395,6 +5395,8 @@ MonoBehaviour:
   pushConstant: 0
   ignoretags:
   - TriggerIgnore
+  - Player
+  destroyOnImpact: 1
 --- !u!114 &-8487884297657159962
 MonoBehaviour:
   m_ObjectHideFlags: 0

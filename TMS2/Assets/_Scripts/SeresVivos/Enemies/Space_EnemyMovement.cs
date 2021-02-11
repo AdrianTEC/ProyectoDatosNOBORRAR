@@ -18,6 +18,7 @@ public class Space_EnemyMovement : MonoBehaviour{
     }
 
     void Update(){
+        if(target==null) return;
         Transform parent = target.parent;
         Vector3 targetPos = parent.position +parent.forward*distanceFromTarget+parent.up*yOffset;
         transform.position= Vector3.SmoothDamp(transform.position,targetPos, ref velocity, smoothTime);

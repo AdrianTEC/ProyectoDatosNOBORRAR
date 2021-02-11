@@ -92,10 +92,10 @@ GameObject:
   - component: {fileID: 7122394702478827361}
   - component: {fileID: -2206745270983061548}
   - component: {fileID: 1166349879822324625}
-  - component: {fileID: 3057544953360659849}
-  - component: {fileID: 140490975038096873}
+  - component: {fileID: 3291157832819927668}
+  - component: {fileID: 6200395869797312613}
   m_Layer: 0
-  m_Name: SimpleSword
+  m_Name: Weapon_SimpleSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,16 +108,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7122394702478827360}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: 0, z: -0.00538}
-  m_LocalScale: {x: 10.676, y: 10.676, z: 10.676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6605197006277375665}
   - {fileID: 3947917267786043184}
   - {fileID: 2483327541985985672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-2206745270983061548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +133,9 @@ MonoBehaviour:
   pushConstant: 500
   damage: 1
   slash: {fileID: 2161694499454934993, guid: 1f87823f4d5a9b84e8ea629c888796dd, type: 3}
-  hitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   hitPosition: {fileID: 2483327541985985672}
+  hitParticle: {fileID: 1452636876243392923, guid: ca1e87d9cb4512d4888e92a151ab40aa,
+    type: 3}
 --- !u!114 &1166349879822324625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   myType: 1
   gizmoSize: 0.1
   gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!65 &3057544953360659849
+--- !u!65 &3291157832819927668
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,12 +159,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7122394702478827360}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5005237, y: 0.12535393, z: 1.2856172}
-  m_Center: {x: 0.007343054, y: 0.09886402, z: -0.96794313}
---- !u!54 &140490975038096873
+  m_Size: {x: 0.37, y: 0.28, z: 0.71}
+  m_Center: {x: 0, y: 0, z: -0.71}
+--- !u!54 &6200395869797312613
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

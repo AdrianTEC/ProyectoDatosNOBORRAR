@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1922083260944367738}
   - component: {fileID: 7170618960073372754}
   - component: {fileID: 6831496047515389908}
-  m_Layer: 0
+  - component: {fileID: 6461154013811134146}
+  m_Layer: 10
   m_Name: EXPLOSION_SphericalExplosioin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4829,13 +4830,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a176f590aad4ca646b72ad1752ca3717, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.211
+  m_Volume: 0.275
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 162
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4913,6 +4914,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6461154013811134146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697190381343567041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983b87f55e0a684494a96da884ee5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
 --- !u!1 &2336290476626340904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4924,7 +4938,7 @@ GameObject:
   - component: {fileID: 1564687003407465546}
   - component: {fileID: 6896944034150836348}
   - component: {fileID: 1535567687908566946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9787,7 +9801,7 @@ GameObject:
   - component: {fileID: 7881556696281986743}
   - component: {fileID: 8879565343817588424}
   - component: {fileID: 3767119935460917038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14649,7 +14663,7 @@ GameObject:
   - component: {fileID: 6622300509449518759}
   - component: {fileID: 3633300888654589512}
   - component: {fileID: 2036238680179420195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

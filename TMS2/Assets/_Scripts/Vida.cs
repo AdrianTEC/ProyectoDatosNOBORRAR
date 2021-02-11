@@ -33,10 +33,12 @@ namespace _Scripts{
                     Invoke(nameof(setToReceiveDamage),timeOfInmunity);
                 }
                 currentHp = value;
-                if(displayer!=null)
-                    displayer.modifyVisuals(currentHp,maximunHp);
-                if(currentHp<=0)
-                    death.act();
+                
+                if(displayer!=null)displayer.modifyVisuals(currentHp,maximunHp);
+                
+                if (currentHp > 0 ) return;
+                CancelInvoke();
+                death.act();
             }
             get => currentHp;
         }

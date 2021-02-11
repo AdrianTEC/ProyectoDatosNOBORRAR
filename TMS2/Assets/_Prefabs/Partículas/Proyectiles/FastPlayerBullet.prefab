@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99330c0d414305409dd9938b881eafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 150
+  velocity: 200
   explosion: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   rb: {fileID: 2686603948866651684}
   damage: 1
@@ -84,6 +84,7 @@ MonoBehaviour:
   ignoretags:
   - Player
   - TriggerIgnore
+  destroyOnImpact: 1
 --- !u!114 &4706827623902328509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894ad55332e5c074f93ffc0e3612546b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 5
 --- !u!1 &8236153449496639878
 GameObject:
   m_ObjectHideFlags: 0
