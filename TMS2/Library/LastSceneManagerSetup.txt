@@ -1,5 +1,6 @@
 sceneSetups:
-- path: Assets/Scenes/Space/NewIntro/IntroBattle.unity
+- path: C:/Users/adrii/OneDrive/Escritorio/Dialogue-System-master/Dialogue-System-master/Dialogue
+    System/Assets/Main.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

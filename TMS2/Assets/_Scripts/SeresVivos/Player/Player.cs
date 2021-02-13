@@ -22,15 +22,14 @@ public abstract class Player : MonoBehaviour
     {
         RaycastHit hit;
         var dist = 4;
-        var inicio = body.position+ new Vector3(0,1,0);
+        var inicio = body.position;
         var final =  body.forward * dist;
         
         Debug.DrawRay(inicio,final);
 
-        if (Physics.Raycast(inicio,final, out hit, 1))
-        {
-            Debug.Log(hit.collider.name);
-            hit.collider.SendMessage("interactuar");
+        if (Physics.Raycast(inicio,final, out hit, 1)){
+            if(hit.transform.gameObject.CompareTag("interactuable"))
+                hit.collider.SendMessage("interactuar");
         }
     
         

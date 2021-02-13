@@ -17,6 +17,8 @@ TagManager:
   - MiniMap
   - TriggerIgnore
   - PostProcessing
+  - electrical
+  - interactuable
   layers:
   - Default
   - TransparentFX
