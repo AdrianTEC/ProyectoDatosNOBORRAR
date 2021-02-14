@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts._Generales;
 using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
@@ -28,6 +29,7 @@ public class EnemyIA : MonoBehaviour
 
     void Update()
     {
+     
         if( !Target) {
             foreach (var player in players) {
                 if (Vector3.Distance(player.transform.position, transform.position) < MinAproach) {

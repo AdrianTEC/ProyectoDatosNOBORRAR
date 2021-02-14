@@ -1,3 +1,4 @@
+using _Scripts._Generales;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,17 +20,26 @@ public class Following : MonoBehaviour
 
     public void WalkTo(float speed)
     {
-        _agent.speed =speed ;
-        if (speed<=0)
-        {
-            _animator.SetBool(Walking,false);
-            return;
+        if(GameInfo.gameIsPaused|| GameInfo.InventoryIsOpen){
+            _agent.isStopped = true;
+
         }
+        else{
+            _agent.isStopped = false;
+
+            _agent.speed =speed ;
+            if (speed<=0)
+            {
+                _animator.SetBool(Walking,false);
+                return;
+            }
         
         
-        Vector3 targetPos = Target.transform.position;
-        _agent.SetDestination(targetPos);
-        _animator.SetBool(Walking,true);
+            Vector3 targetPos = Target.transform.position;
+            _agent.SetDestination(targetPos);
+            _animator.SetBool(Walking,true);
+        }
+     
 
 
     }

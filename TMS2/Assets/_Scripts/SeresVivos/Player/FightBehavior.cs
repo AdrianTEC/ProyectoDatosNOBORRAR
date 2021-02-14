@@ -18,7 +18,7 @@ namespace _Scripts.SeresVivos.Player{
 
         private void Update(){
             
-            if(equipment.weaponClass==null||GameInfo.InventoryIsOpen) return;
+            if(equipment.weaponClass==null||GameInfo.InventoryIsOpen|| GameInfo.gameIsPaused) return;
             
             if (Input.GetKey(KeyCode.Mouse0 )){
                 

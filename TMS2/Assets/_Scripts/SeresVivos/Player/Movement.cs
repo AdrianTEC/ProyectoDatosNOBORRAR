@@ -1,5 +1,6 @@
 ﻿#region
 
+using _Scripts._Generales;
 using UnityEngine;
 
 #endregion
@@ -36,7 +37,10 @@ namespace _Scripts.SeresVivos.Player{
         }
 
         private void FixedUpdate(){
+            if(GameInfo.InventoryIsOpen || GameInfo.gameIsPaused) return;
             //bool doublePress=DoubleTapKey();
+            
+            
             //if(!doublePress) 
             keyPulsation();
             gravityAction();

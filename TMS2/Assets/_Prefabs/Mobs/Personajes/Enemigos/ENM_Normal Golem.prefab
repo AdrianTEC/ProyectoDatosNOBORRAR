@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  MaxAproach: 0
+  MaxAproach: 3
   MinAproach: 15
-  WalkSpeed: 5
+  WalkSpeed: 2
   canFollow: 0
 --- !u!114 &2628652073385545698
 MonoBehaviour:

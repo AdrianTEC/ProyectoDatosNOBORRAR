@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts._Generales;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,12 +8,14 @@ using UnityEngine;
 public class IA_DistaceAttack : MonoBehaviour{
 
     public Transform pointer;
-    public float shootTime    = 1.0f;
-    public float lookAtTargetTime = 0.1f;    
+    public float shootTime = 1.0f;
+    public float lookAtTargetTime = 0.1f;
     public GameObject attack;
-    public bool bulletChildOfOrigin=false;
+    public bool bulletChildOfOrigin = false;
     public float distanceOffset;
-    private Transform player;
+    public bool needFaceTheTarget = true;
+
+        private Transform player;
     private bool canShoot =true;
     private List<Transform> dots;
 
@@ -20,20 +23,24 @@ public class IA_DistaceAttack : MonoBehaviour{
         player = GameObject.FindWithTag("Player").transform;
     }
     private void OnEnable(){
-        InvokeRepeating("shoot",shootTime,shootTime);
-        InvokeRepeating("looAt",shootTime,lookAtTargetTime);
+        InvokeRepeating("shoot",1,shootTime);
+        InvokeRepeating("looAt",1,lookAtTargetTime);
     }
     private void OnDisable(){
         CancelInvoke();
     }
 
     public void looAt(){
+        if(GameInfo.gameIsPaused|| GameInfo.InventoryIsOpen) return;
+
         var transform1 = player.transform;
         transform.LookAt(transform1.position+ transform1.forward*distanceOffset);
     }
     private void shoot(){
-
-        if (Vector3.Dot(transform.forward, player.forward)>-0.90F) return;
+        if(GameInfo.gameIsPaused|| GameInfo.InventoryIsOpen) return;
+        
+        if(needFaceTheTarget)
+            if (Vector3.Dot(transform.forward, player.forward)>-0.90F) return;
             
         if(!canShoot) return;
         canShoot = false;

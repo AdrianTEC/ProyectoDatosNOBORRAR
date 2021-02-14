@@ -10,6 +10,10 @@ public class ActivableDoor : Activable{
         active = state;
     }
 
+    public override void switchState(){
+        setActive(!active);
+    }
+
     private void Start(){
         target = transform.GetChild(0);
     }

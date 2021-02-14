@@ -7,5 +7,7 @@ public abstract class Activable : MonoBehaviour{
     public bool active;
 
     public abstract void setActive(bool state);
+    public abstract void switchState();
+
     
 }

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Equipment : MonoBehaviour
@@ -25,9 +26,10 @@ public class Equipment : MonoBehaviour
 
     public void Posicionar()
     {
-        WEAPON.transform.position = ManoDerecha.position;
         WEAPON.transform.parent = ManoDerecha;
-        WEAPON.transform.forward=ManoDerecha.forward;
+        WEAPON.transform.localPosition = Vector3.zero;
+
+        WEAPON.transform.localRotation= quaternion.Euler(0,0,0);
         weaponClass = WEAPON.GetComponent<Weapon>();
         if (weaponClass is FireWeapon){
             Debug.Log("fireW");

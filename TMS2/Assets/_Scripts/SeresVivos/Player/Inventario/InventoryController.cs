@@ -31,10 +31,15 @@ public class InventoryController : MonoBehaviour
         inventoryDisplay.SetBool(Open,newstate);
         //! hay que considerar el current player, solo para pruebas!!!
         GameInfo.InventoryIsOpen = newstate;
-        if(!newstate) 
-            PM.PlayersANIMATOR[0].speed=1;
-        else 
-            PM.PlayersANIMATOR[0].speed=0;
+        GameInfo.gameIsPaused = newstate;
+        if(!newstate){
+            PM.PlayersANIMATOR[0].speed = 1;
+        }
+        else{
+            PM.PlayersANIMATOR[0].speed = 0;
+
+
+        }
     
         
         
