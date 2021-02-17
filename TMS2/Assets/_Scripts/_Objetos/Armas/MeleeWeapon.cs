@@ -15,12 +15,17 @@ namespace _Scripts._Objetos.Armas
 
         public override void Attack()
         {
-            GameObject tempSlash=Instantiate(slash);
+            //GameObject tempSlash=Instantiate(slash);
             //tempSlash.transform.parent = transform;
-            tempSlash.transform.position = hitPosition.position;
-            tempSlash.transform.forward = hitPosition.forward;
+            //tempSlash.transform.position = hitPosition.position;
+            //tempSlash.transform.forward = hitPosition.forward;
+            slash.SetActive(true);
         }
 
+        public void stopAttack(){
+            slash.SetActive(false);
+
+        }
         private void OnCollisionEnter(Collision other){
             if(DettectCollisions)
                 Instantiate(hitParticle).transform.position =other.contacts[0].point;

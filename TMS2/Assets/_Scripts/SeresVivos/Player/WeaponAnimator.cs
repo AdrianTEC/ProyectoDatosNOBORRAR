@@ -20,7 +20,7 @@ public class WeaponAnimator : MonoBehaviour
     public void enableAttacks()
     {
         if(equipment.weaponClass is MeleeWeapon)
-            ((MeleeWeapon) equipment.weaponClass).DettectCollisions = true;
+            ((MeleeWeapon) equipment.weaponClass).Attack();
         else{
             equipment.weaponClass.Attack();
         }
@@ -28,7 +28,7 @@ public class WeaponAnimator : MonoBehaviour
 
     public void stopAttacks()
     {
-        ((MeleeWeapon) equipment.weaponClass).DettectCollisions = false;
+        ((MeleeWeapon) equipment.weaponClass).stopAttack();
 
     }
 }
