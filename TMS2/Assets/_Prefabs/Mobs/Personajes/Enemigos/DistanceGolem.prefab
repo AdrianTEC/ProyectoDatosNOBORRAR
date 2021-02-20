@@ -4077,8 +4077,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8131096, z: 1.380595}
-  m_Center: {x: 5.090966e-15, y: 0.71, z: -0.19029754}
+  m_Size: {x: 1, y: 1.3712306, z: 1.380595}
+  m_Center: {x: 5.090966e-15, y: 0.93093944, z: -0.19029754}
 --- !u!54 &8975523050983881176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6040,3 +6040,4 @@ MonoBehaviour:
   bulletChildOfOrigin: 0
   distanceOffset: 0
   needFaceTheTarget: 0
+  attackDistance: 10

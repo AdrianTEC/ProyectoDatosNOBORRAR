@@ -12,7 +12,8 @@ public enum SoundType
     dead,
     walking,
     jump,
-    attack
+    attack,
+    config
 }
 [Serializable]
 public struct Sonido

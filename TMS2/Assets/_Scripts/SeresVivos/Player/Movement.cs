@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using _Scripts._Generales;
 using UnityEngine;
 
@@ -17,12 +18,13 @@ namespace _Scripts.SeresVivos.Player{
 
         private readonly float pushPower = 2.0f;
         private float doubleTapTime;
-
+        
         private string lastKeyPressed = "";
         public float dodgeDistance = 150;
-
+        public bool apuntando;
         private Vector3 forward, right;
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private audioManager manager;
 
 
         private void Start(){
@@ -31,17 +33,22 @@ namespace _Scripts.SeresVivos.Player{
                 forward = transform1.forward;
             }
 
+            manager = GetComponent<audioManager>();
             forward.y = 0;
             forward = Vector3.Normalize(forward);
             right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         }
 
+        private void Update(){
+            OptionalKeyPulsation();
+        }
+
         private void FixedUpdate(){
             if(GameInfo.InventoryIsOpen || GameInfo.gameIsPaused) return;
             //bool doublePress=DoubleTapKey();
-            
-            
             //if(!doublePress) 
+            if(apuntando)
+                rotationsByMousePosition();           
             keyPulsation();
             gravityAction();
         }
@@ -86,14 +93,23 @@ namespace _Scripts.SeresVivos.Player{
 
         #region Keys
 
+        private void OptionalKeyPulsation(){
+            bool e = Input.GetKey(KeyCode.E);
+            bool tab = Input.GetKeyDown(KeyCode.Tab);
+            if (tab){
+                apuntando = !apuntando;
+                manager.PlaySoundFor(SoundType.config);
+            }
+            if (e) Interactuar();
+        }
         private void keyPulsation(){
             bool w = Input.GetKey(KeyCode.W);
             bool a = Input.GetKey(KeyCode.A);
             bool s = Input.GetKey(KeyCode.S);
             bool d = Input.GetKey(KeyCode.D);
-            bool e = Input.GetKey(KeyCode.E);
+  
 
-
+          
             if (w || a || s || d){
                 Vector3 direction = new Vector3(0, 0, 0);
                 if (w) direction += Vector3.forward;
@@ -108,8 +124,7 @@ namespace _Scripts.SeresVivos.Player{
             {
                 _animator.SetFloat(Speed, 0);
             }
-
-            if (e) Interactuar();
+     
         }
 
         #endregion
@@ -182,8 +197,8 @@ namespace _Scripts.SeresVivos.Player{
 
             Transform transform1 = transform;
 
-
-            transform1.forward = heading;
+            if(!apuntando)
+                transform1.forward = heading;
             controller.Move((rightMovement + upMovement) * (speed * Time.deltaTime));
         }
 

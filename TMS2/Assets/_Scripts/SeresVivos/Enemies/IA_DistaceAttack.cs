@@ -14,8 +14,8 @@ public class IA_DistaceAttack : MonoBehaviour{
     public bool bulletChildOfOrigin = false;
     public float distanceOffset;
     public bool needFaceTheTarget = true;
-
-        private Transform player;
+    public float attackDistance = 10000;
+    private Transform player;
     private bool canShoot =true;
     private List<Transform> dots;
 
@@ -43,6 +43,7 @@ public class IA_DistaceAttack : MonoBehaviour{
             if (Vector3.Dot(transform.forward, player.forward)>-0.90F) return;
             
         if(!canShoot) return;
+        if(Vector3.Distance(player.position,transform.position)>attackDistance) return;
         canShoot = false;
         if (player == null) return;
         
