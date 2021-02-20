@@ -30,7 +30,7 @@ public class EnemyIA : MonoBehaviour
     void Update()
     {
      
-        if( !Target) {
+        if( !Target ) {
             foreach (var player in players) {
                 if (Vector3.Distance(player.transform.position, transform.position) < minAproach) {
                     Target = player;

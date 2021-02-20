@@ -20,6 +20,7 @@ public class Following : MonoBehaviour
 
     public void WalkTo(float speed)
     {
+        if(!_agent.isActiveAndEnabled) return;
         if(GameInfo.gameIsPaused|| GameInfo.InventoryIsOpen){
             _agent.isStopped = true;
 
