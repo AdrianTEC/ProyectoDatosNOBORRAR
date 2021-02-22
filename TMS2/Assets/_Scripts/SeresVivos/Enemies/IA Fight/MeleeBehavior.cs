@@ -54,6 +54,10 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
             skipBullet(col.gameObject);
     }
 
+    public void tellAboutExitCollision(Collider col){
+        throw new NotImplementedException();
+    }
+
     public void tellAboutCollision(Collision col){
         if(col.transform.CompareTag("Player"))
             attack(col.gameObject);

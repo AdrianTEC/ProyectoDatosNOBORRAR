@@ -10,6 +10,12 @@ public class Rotator : MonoBehaviour, Interacuable{
     private int currentRotation;
     private float[] rotations ={0, 90, 180, 270};
     private bool rotating;
+    private AudioSource audioSource;
+
+    private void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update(){
         if(!rotating) return;
 
@@ -28,6 +34,7 @@ public class Rotator : MonoBehaviour, Interacuable{
 
     public void interactuar(){
         if (rotating) return;
+        audioSource.Play();
         currentRotation++;
         rotating = true;
 

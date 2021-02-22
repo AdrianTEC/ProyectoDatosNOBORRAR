@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts._Generales;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Spawner_Door : MonoBehaviour{
+public class Spawner_Door : MonoBehaviour,ComposedCollider{
     
     public Transform door;
     public Transform spawnPoint;
     public Transform exitPoint;
     public List<GameObject> prefabs;
     public int maxInstances;
+    [HideInInspector]
+    public bool canGenerate;
 
     public  Vector3 doorOffset;
     private Vector3 velocity= Vector3.zero;
@@ -33,13 +36,11 @@ public class Spawner_Door : MonoBehaviour{
 
     public void close(){
  
-        Debug.Log("close");
         keepAsking = true;
         opening = false;
     }
 
     public void open(){
-        Debug.Log("open");
         NavMeshHit closestHit;
         
         if( NavMesh.SamplePosition(  spawnPoint.position, out closestHit, 5000, 1 ) ){
@@ -49,17 +50,14 @@ public class Spawner_Door : MonoBehaviour{
             maxInstances--;
             instanceNav.enabled = true;
             instanceNav.SetDestination(exitPoint.position);
-
         }
-
-             
         keepAsking = true;
         opening = true;
     }
     
 
     void Update(){
-      
+        if(!canGenerate) return;
         if (opening){
             
             if(Vector3.Distance(door.localPosition,doorOffset)<=distanceTolerance){
@@ -81,5 +79,18 @@ public class Spawner_Door : MonoBehaviour{
            else moveDoor(Vector3.zero);
         }
 
+    }
+
+    public void tellAboutCollision(Collider col){
+        if (col.CompareTag("Player")) canGenerate = true;
+        
+    }
+
+    public void tellAboutExitCollision(Collider col){
+        if (col.CompareTag("Player")) canGenerate = false;
+    }
+
+    public void tellAboutCollision(Collision col){
+        throw new System.NotImplementedException();
     }
 }

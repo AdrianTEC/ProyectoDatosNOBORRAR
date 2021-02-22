@@ -6,7 +6,11 @@ public class ActivableDoor : Activable{
     public float smoothTime;
     private Transform target;
     private Vector3 velocity = Vector3.zero;
+
+    private float distanceTolerance=0.0000001f;
+
     public override void setActive(bool state){
+
         active = state;
     }
 
@@ -18,11 +22,17 @@ public class ActivableDoor : Activable{
         target = transform.GetChild(0);
     }
 
+    public void moveDoor(Vector3 dir){
+        target.localPosition = Vector3.SmoothDamp(target.localPosition, dir, ref velocity, smoothTime);
+
+    }
     private void Update(){
-        if (active)
-            target.localPosition = Vector3.SmoothDamp(target.localPosition, openPosition, ref velocity, smoothTime);
+        if (active){
+            moveDoor(openPosition);
+        }
         else 
-            target.localPosition = Vector3.SmoothDamp(target.localPosition, Vector3.zero, ref velocity, smoothTime);
+            moveDoor(Vector3.zero);
+
     }       
 
 

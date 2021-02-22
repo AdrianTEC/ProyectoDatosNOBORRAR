@@ -190,7 +190,7 @@ namespace _Scripts.SeresVivos.Player{
             controller.Move(transform1.forward * (dodgeDistance * Time.deltaTime));
         }
 
-        private void isometricMove(Vector3 dir, float speed){
+        public void isometricMove(Vector3 dir, float speed){
             Vector3 rightMovement = right * (speed * Time.deltaTime * dir.x);
             Vector3 upMovement = forward * (speed * Time.deltaTime * dir.z);
             Vector3 heading = Vector3.Normalize(rightMovement + upMovement);

@@ -134,6 +134,9 @@ MonoBehaviour:
   ignoretags:
   - enemy
   - TriggerIgnore
+  - electrical
+  - interactuable
+  destroyOnImpact: 1
 --- !u!114 &2888317786846494634
 MonoBehaviour:
   m_ObjectHideFlags: 0

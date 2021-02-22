@@ -22,5 +22,9 @@ namespace _Scripts._Generales{
             Father.tellAboutCollision(other);
 
         }
+
+        private void OnTriggerExit(Collider other){
+            Father.tellAboutExitCollision(other);
+        }
     }
 }

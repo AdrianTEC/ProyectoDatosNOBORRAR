@@ -52,9 +52,11 @@ public class DialogueManager : MonoBehaviour {
 					option.text = option.textInAction;
 					option.textInAction = tempText;
 					
+					StopAllCoroutines();
+					dialogueText.text = dialogue.sentences[0];
+					newOption.GetComponent<TextMeshProUGUI>().text = option.text;
 					option.target.switchState();
-					EndDialogue();
-					Destroy(newOption);
+					
 				});
 
 			}
@@ -71,6 +73,8 @@ public class DialogueManager : MonoBehaviour {
 
 		DisplayNextSentence();
 	}
+
+	
 	private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
 	{
 		EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -103,11 +107,16 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	void EndDialogue()
+	public void EndDialogue()
 	{
 		StopAllCoroutines();
 		canvas.enabled = false;
 		Time.timeScale = 1;
+		if (optionsBox){
+			foreach (Transform buttom in optionsBox){
+				Destroy(buttom.gameObject);
+			}
+		}
 
 		open = false;
 		GameInfo.gameIsPaused = false;

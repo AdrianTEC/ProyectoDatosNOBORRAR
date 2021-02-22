@@ -73,6 +73,8 @@ MonoBehaviour:
   ignoretags:
   - Player
   - TriggerIgnore
+  - electrical
+  - interactuable
   destroyOnImpact: 1
 --- !u!114 &9151691280589434043
 MonoBehaviour:

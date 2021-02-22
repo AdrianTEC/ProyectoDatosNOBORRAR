@@ -3,6 +3,7 @@ using UnityEngine;
 namespace _Scripts._Generales{
     public interface ComposedCollider{
         public void tellAboutCollision(Collider col);
+        public void tellAboutExitCollision(Collider col);
         public void tellAboutCollision(Collision col);
     }
 }
