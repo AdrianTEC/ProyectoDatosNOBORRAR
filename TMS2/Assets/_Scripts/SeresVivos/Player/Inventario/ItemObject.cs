@@ -4,7 +4,8 @@ public enum ItemType
 {
     Shield,
     Weapon,
-    Default
+    Default,
+    Bullet
 }
 
 public enum Attributes

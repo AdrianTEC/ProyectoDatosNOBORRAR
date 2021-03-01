@@ -41,8 +41,8 @@ MonoBehaviour:
     - ID: -1
       item:
         Name: 
-        Id: 0
-        type: 0
+        Id: -1
+        type: 3
         buffs: []
       amount: 0
     - ID: -1

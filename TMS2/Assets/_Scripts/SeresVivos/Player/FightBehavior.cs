@@ -1,6 +1,7 @@
 using _Scripts._Generales;
 using _Scripts._Objetos.Armas;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.SeresVivos.Player{
     public class FightBehavior : MonoBehaviour{
@@ -10,6 +11,7 @@ namespace _Scripts.SeresVivos.Player{
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int FireAttack = Animator.StringToHash("FireAttack");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        public Image indicadorDisparo;
 
 
         private void Start(){

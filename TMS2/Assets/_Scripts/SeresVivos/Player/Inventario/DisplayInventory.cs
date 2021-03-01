@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class DisplayInventory : MonoBehaviour
 {
     private InventoryController ic;
-    public MouseItem mouseItem = new MouseItem();
+    private MouseItem mouseItem = new MouseItem();
     public GameObject inventoryPrefab;
     public InventoryObject inventory;
     public int X_START;
@@ -24,10 +24,7 @@ public class DisplayInventory : MonoBehaviour
     {
         ic = GameObject.FindWithTag("PLAYER_MANAGER").GetComponent<InventoryController>();
         CreateSlots();
-    }
-    void Update()
-    {
-        UpdateSlots();
+        InvokeRepeating(nameof(updateSlots),1,.5f);
     }
     
     
@@ -39,8 +36,9 @@ public class DisplayInventory : MonoBehaviour
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
         for (int i = 0; i < inventory.Container.Items.Length; i++)
         {
-            var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-            var id = inventory.Container.Items[i];
+            GameObject obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+            InventorySlot id = inventory.Container.Items[i];
+            
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             
             AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
@@ -52,7 +50,7 @@ public class DisplayInventory : MonoBehaviour
             itemsDisplayed.Add(obj, inventory.Container.Items[i]);
         }
     }
-    public void UpdateSlots()
+    public void updateSlots()
     {
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
         {
