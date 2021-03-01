@@ -15,7 +15,7 @@ public enum LoopPatrons
 }
 public class LoopMovement : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     public LoopPatrons patron;
     public float maxDistance;  //for squares this number is the diagonal, for circles the ratio, for sens the limits 
 
