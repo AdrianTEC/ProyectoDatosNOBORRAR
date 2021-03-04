@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 7867671293838535119}
   - component: {fileID: 4681394349848317032}
   - component: {fileID: 4444509646057328978}
+  - component: {fileID: 6568502464137430169}
+  - component: {fileID: 91395174880019513}
+  - component: {fileID: 4368106503635579835}
   m_Layer: 0
   m_Name: hojas
   m_TagString: Untagged
@@ -616,6 +619,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171794186788650476}
   m_Mesh: {fileID: 0}
+--- !u!65 &6568502464137430169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171794186788650476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9458976, y: 2.9578922, z: 1.7320504}
+  m_Center: {x: -0.82665664, y: 0.5210539, z: -0.00000023841864}
+--- !u!114 &91395174880019513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171794186788650476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051028ecb0a60314c8ba1ee9573a7016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 4368106503635579835}
+  animator: {fileID: 8900456686626080746}
+  audioSource: {fileID: 0}
+--- !u!54 &4368106503635579835
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171794186788650476}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5358541170712438760
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +673,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5358541170712438755}
   - component: {fileID: 8900456686626080746}
-  - component: {fileID: 8971334612603627830}
   m_Layer: 0
   m_Name: arbol
   m_TagString: Untagged
@@ -663,25 +709,12 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ae441c76b4103474193a624815375865, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &8971334612603627830
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358541170712438760}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.03096, y: 3.3679664, z: 1.9976377}
-  m_Center: {x: -0.9552994, y: 0.29772294, z: -0.02250126}
 --- !u!1 &5358541171058662196
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +727,8 @@ GameObject:
   - component: {fileID: 5358541171058662192}
   - component: {fileID: 5358541171058662193}
   - component: {fileID: 5358541171058662194}
+  - component: {fileID: 1318781727790701127}
+  - component: {fileID: 7244585581623721616}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1705,3 +1740,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358541171058662196}
   m_Mesh: {fileID: 0}
+--- !u!114 &1318781727790701127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358541171058662196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051028ecb0a60314c8ba1ee9573a7016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 0}
+  animator: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!54 &7244585581623721616
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358541171058662196}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

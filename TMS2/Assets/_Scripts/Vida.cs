@@ -43,7 +43,7 @@ namespace _Scripts{
             get => currentHp;
         }
    
-        public void recibeImpact(int damage)
+        public void recibeImpact(int damage,attackTypes attacktype)
         {
             CurrentHp -= damage;
         }
@@ -56,7 +56,7 @@ namespace _Scripts{
     }
     public interface IDamageInteractuable
     {
-	
-        void recibeImpact(int damage);
+	    
+        void recibeImpact(int damage, attackTypes attacktype);
     }
 }

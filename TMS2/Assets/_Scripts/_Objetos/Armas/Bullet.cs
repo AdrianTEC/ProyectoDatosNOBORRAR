@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour {
 
 			IDamageInteractuable interactuable = col.gameObject.GetComponent<IDamageInteractuable>();
 			if (interactuable != null)
-				interactuable.recibeImpact(damage);
+				interactuable.recibeImpact(damage,attackTypes.fuego);
 
 			Destroy(gameObject);
 		}

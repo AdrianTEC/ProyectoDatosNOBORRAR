@@ -14,7 +14,7 @@ public class ParticleBullet : MonoBehaviour{
         if( ignoreTags.Contains(other.tag) ) return;
             IDamageInteractuable damageInteractuable = other.GetComponent<IDamageInteractuable>();
             if (damageInteractuable != null){
-                damageInteractuable.recibeImpact(damage);
+                damageInteractuable.recibeImpact(damage,attackTypes.fuego);
             }
      
     }

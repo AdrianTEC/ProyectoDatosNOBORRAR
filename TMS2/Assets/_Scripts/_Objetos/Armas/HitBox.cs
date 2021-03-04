@@ -1,6 +1,10 @@
 using _Scripts;
 using UnityEngine;
 
+public enum attackTypes{
+    cortante,
+    fuego
+}
 public class HitBox : MonoBehaviour
 {
     public Equipment equipment;
@@ -14,7 +18,7 @@ public class HitBox : MonoBehaviour
         IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
         if (dmi!=null)
         {
-            dmi.recibeImpact(equipment.weaponClass.damage);
+            dmi.recibeImpact(equipment.weaponClass.damage,attackTypes.cortante);
         }
         pushOther(other.gameObject);
 

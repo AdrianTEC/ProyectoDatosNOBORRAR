@@ -32,7 +32,7 @@ private void OnTriggerEnter(Collider other)
         GameObject explosioninstance= Instantiate(explosion);
         explosioninstance.transform.position = transform.position;
         IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
-        dmi?.recibeImpact(damage);
+        dmi?.recibeImpact(damage,attackTypes.fuego);
 
         pushOther(other.gameObject);
         if (destroyOnImpact) Destroy(gameObject);
