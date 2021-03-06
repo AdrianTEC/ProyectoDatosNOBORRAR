@@ -25,7 +25,7 @@ public class Plants : MonoBehaviour, IDamageInteractuable{
                 rigidbody.useGravity = true;
                 rigidbody.AddTorque(transform.forward*2000);
                 rigidbody.GetComponent<Collider>().enabled = false;
-                Invoke(nameof(disapear),1);
+                Invoke(nameof(disapear),1); 
         }
     }
 
