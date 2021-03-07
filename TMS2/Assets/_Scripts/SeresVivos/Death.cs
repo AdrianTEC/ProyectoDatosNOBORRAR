@@ -9,7 +9,10 @@ public abstract class Death : MonoBehaviour
     public  abstract void  act();
     public bool canDie = true;
 
-    public void Start(){
+    private void Awake(){
         canDie = true;
+
     }
+
+  
 }

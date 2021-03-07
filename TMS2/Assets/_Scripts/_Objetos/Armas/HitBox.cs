@@ -12,8 +12,8 @@ public class HitBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         if(!canDettectCols) return;
-        Invoke(nameof(dettectAgain),0.01f);
-        canDettectCols = false;
+        //Invoke(nameof(dettectAgain),0.01f);
+        //canDettectCols = false;
         if(other.CompareTag("Player")) return;
         IDamageInteractuable dmi = other.GetComponent<IDamageInteractuable>();
         if (dmi!=null)

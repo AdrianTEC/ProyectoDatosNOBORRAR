@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051028ecb0a60314c8ba1ee9573a7016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
+  rb: {fileID: 0}
   animator: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!54 &7244585581623721616
@@ -1799,6 +1799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051028ecb0a60314c8ba1ee9573a7016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 4957720215307100665}
+  rb: {fileID: 4957720215307100665}
   animator: {fileID: 8900456686626080746}
   audioSource: {fileID: 0}

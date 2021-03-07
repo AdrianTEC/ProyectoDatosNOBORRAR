@@ -538,6 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051028ecb0a60314c8ba1ee9573a7016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 2814359799184750907}
+  rb: {fileID: 2814359799184750907}
   animator: {fileID: 0}
   audioSource: {fileID: 0}

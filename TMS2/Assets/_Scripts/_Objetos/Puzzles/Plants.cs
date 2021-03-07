@@ -6,7 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Plants : MonoBehaviour, IDamageInteractuable{
-    public Rigidbody rigidbody;
+    public Rigidbody rb;
     public Animator animator;
     public AudioSource audioSource;
 
@@ -21,10 +21,10 @@ public class Plants : MonoBehaviour, IDamageInteractuable{
                 animator.enabled = false;
             }
           
-                rigidbody.constraints = RigidbodyConstraints.None;
-                rigidbody.useGravity = true;
-                rigidbody.AddTorque(transform.forward*2000);
-                rigidbody.GetComponent<Collider>().enabled = false;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.useGravity = true;
+                rb.AddTorque(transform.forward*2000);
+                rb.GetComponent<Collider>().enabled = false;
                 Invoke(nameof(disapear),1); 
         }
     }
