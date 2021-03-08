@@ -1,32 +1,33 @@
-﻿#region
-
-using System;
+﻿
 using _Scripts._Generales;
 using UnityEngine;
 
-#endregion
 
 namespace _Scripts.SeresVivos.Player{
     public class Movement : global::Player{
         
-        
-        #region Atributos
-
+        [Header("movement constants")]
         public int velocidad;
         public float multiplicator;
         public int gravity;
+        public float propulseSpeed;
 
         private readonly float pushPower = 2.0f;
         private float doubleTapTime;
         
-        private string lastKeyPressed = "";
-        public float dodgeDistance = 150;
+        private string lastKeyPressed = "null";
         public bool apuntando;
+        
+        private bool propulsed;
+        private Vector3 propulsedDir;
+        
+        
         private Vector3 forward, right;
         private static readonly int Speed = Animator.StringToHash("Speed");
         private audioManager manager;
-
-
+        //-------------------------------------------------->
+        //-------------------------------------------------->
+        //-------------------------------------------------->
         private void Start(){
             if (Camera.main is{ }){
                 Transform transform1 = Camera.main.transform;
@@ -40,26 +41,156 @@ namespace _Scripts.SeresVivos.Player{
         }
 
         private void Update(){
-            OptionalKeyPulsation();
+            optionalKeyPulsation();
+            if (_animator.GetInteger("Attack")==0) doubleTapKey();
         }
 
         private void FixedUpdate(){
             if(GameInfo.InventoryIsOpen || GameInfo.gameIsPaused) return;
-            //bool doublePress=DoubleTapKey();
-            //if(!doublePress) 
-            if(apuntando)
-                rotationsByMousePosition();           
+            
+           
+            if (apuntando) rotationsByMousePosition();
+            if (propulsed) dodge(propulsedDir,propulseSpeed);
+            
+            
             keyPulsation();
             gravityAction();
         }
+        //-------------------------------------------------->
+        //-------------------------------------------------->
+        //-------------------------------------------------->
 
-        #endregion
         
-        
-        
-        
-        #region Empuje
 
+
+
+
+        private void optionalKeyPulsation(){
+            bool e = Input.GetKey(KeyCode.E);
+            bool tab = Input.GetKeyDown(KeyCode.Tab);
+            if (tab){
+                apuntando = !apuntando;
+                manager.PlaySoundFor(SoundType.config);
+            }
+            if (e) Interactuar();
+        }
+        /// <summary>
+        /// dettects wasd pulsation
+        /// </summary>
+        private void keyPulsation(){
+            bool w = Input.GetKey(KeyCode.W);
+            bool a = Input.GetKey(KeyCode.A);
+            bool s = Input.GetKey(KeyCode.S);
+            bool d = Input.GetKey(KeyCode.D);
+            if (w || a || s || d){
+                Vector3 direction = new Vector3(0, 0, 0);
+                if (w) direction += Vector3.forward;
+                if (a) direction += -Vector3.right;
+                if (s) direction += -Vector3.forward;
+                if (d) direction += Vector3.right;
+                move(direction, velocidad);
+            }
+            else
+                _animator.SetFloat(Speed, 0);
+        }
+        
+        
+        
+        /// <summary>
+        /// verifies if double key was succes
+        /// </summary>
+        /// <param name="keyName"></param>
+        /// <param name="direction"></param>
+        /// <returns></returns>
+        private bool auxDoubleTapKey(string keyName, Vector3 direction){
+            Debug.Log(keyName +"  "+ lastKeyPressed +"   "  + (Time.time - doubleTapTime));
+
+            if (Time.time < doubleTapTime+ .9f && lastKeyPressed.Equals(keyName)){
+                lastKeyPressed = Random.Range(0,100).ToString();
+                isometricDodgeMove(direction);
+                return true;
+            }
+            doubleTapTime = Time.time;
+            lastKeyPressed = keyName;
+            return false;
+        }
+        
+        
+        
+        /// <summary>
+        /// dettects Double Keys
+        /// </summary>
+        /// <returns></returns>
+        private bool doubleTapKey(){
+            bool doublePressed= false;
+            bool w = Input.GetKeyDown(KeyCode.W);
+            bool a = Input.GetKeyDown(KeyCode.A);
+            bool s = Input.GetKeyDown(KeyCode.S);
+            bool d = Input.GetKeyDown(KeyCode.D);
+            if(w||a||s||d){
+                
+                
+                if (w) doublePressed      = auxDoubleTapKey("W", Vector3.forward);
+                else if (a) doublePressed = auxDoubleTapKey("A", -Vector3.right);
+                else if (s) doublePressed = auxDoubleTapKey("S", -Vector3.forward);
+                else if (d) doublePressed = auxDoubleTapKey("D", Vector3.right);
+                
+
+            }
+            return doublePressed;
+        }
+
+
+
+
+        private void isometricDodgeMove(Vector3 dir){
+            _animator.Play("roll");
+            propulsedDir = transform.forward ;
+            propulsed = true;
+            Invoke(nameof(stopPropulstion),.5f);
+        }
+
+        public void isometricMove(Vector3 dir, float speed){
+            Vector3 rightMovement = right * (speed * Time.deltaTime * dir.x);
+            Vector3 upMovement = forward * (speed * Time.deltaTime * dir.z);
+            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+
+            Transform transform1 = transform;
+
+            if(!apuntando)
+                transform1.forward = heading;
+            controller.Move((rightMovement + upMovement) * (speed * Time.deltaTime));
+        }
+
+        public void dodge(Vector3 dir, float speed){
+            controller.Move(dir* (speed * Time.deltaTime));
+        }
+
+        private void move(Vector3 dir, float speed){
+            bool shift = Input.GetKey(KeyCode.LeftShift);
+            if (shift&& (!_animator.GetBool("FireAttack") && _animator.GetInteger("Attack") == 0)){
+                speed *= multiplicator;
+                _animator.SetFloat(Speed, 1);
+            }
+            else
+                _animator.SetFloat(Speed, .5f);
+            isometricMove(dir, speed);
+        }
+        
+        
+        
+        /// <summary>
+        /// emulate gravity
+        /// </summary>
+        private void gravityAction(){
+            if (controller.isGrounded) return;
+            controller.Move(Vector3.down * (gravity * Time.deltaTime));
+        }
+        
+        /// <summary>
+        /// Controls push other objects
+        /// </summary>
+        /// <param name="hit"></param>
         private void OnControllerColliderHit(ControllerColliderHit hit){
             Rigidbody body = hit.collider.attachedRigidbody;
 
@@ -70,10 +201,10 @@ namespace _Scripts.SeresVivos.Player{
             body.velocity = pushDir * pushPower;
         }
 
-        #endregion
 
-        #region MouseRotation
-
+        /// <summary>
+        /// rotates the player lo mousePosition
+        /// </summary>
         private void rotationsByMousePosition(){
             if (Camera.main is{ }){
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -89,134 +220,37 @@ namespace _Scripts.SeresVivos.Player{
             }
         }
 
-        #endregion
-
-        #region Keys
-
-        private void OptionalKeyPulsation(){
-            bool e = Input.GetKey(KeyCode.E);
-            bool tab = Input.GetKeyDown(KeyCode.Tab);
-            if (tab){
-                apuntando = !apuntando;
-                manager.PlaySoundFor(SoundType.config);
-            }
-            if (e) Interactuar();
+        private void stopPropulstion(){
+            propulsed = false;
         }
-        private void keyPulsation(){
-            bool w = Input.GetKey(KeyCode.W);
-            bool a = Input.GetKey(KeyCode.A);
-            bool s = Input.GetKey(KeyCode.S);
-            bool d = Input.GetKey(KeyCode.D);
-  
+        
+        
+    }
+}
 
-          
-            if (w || a || s || d){
-                Vector3 direction = new Vector3(0, 0, 0);
-                if (w) direction += Vector3.forward;
-                if (a) direction += -Vector3.right;
-                if (s) direction += -Vector3.forward;
-                if (d) direction += Vector3.right;
-
-                move(direction, velocidad);
-            }
-            else
-                //_animator.SetBool(MOVING, false);
-            {
-                _animator.SetFloat(Speed, 0);
-            }
-     
-        }
-
-        #endregion
-
-        #region Gravedad
-
-        private void gravityAction(){
-            if (controller.isGrounded) return;
-            controller.Move(Vector3.down * (gravity * Time.deltaTime));
-        }
-
-        #endregion
-
-
-
-        #region Movimiento
-
-        private bool auxDoubleTapKey(string keyName, Vector3 direction){
+/*
+       private bool auxDoubleTapKey(string keyName, Vector3 direction){
             if (Time.time < doubleTapTime + 1.5f && lastKeyPressed.Equals(keyName)){
-                lastKeyPressed = "";
+                lastKeyPressed = "null";
                 isometricDodgeMove(direction);
                 return true;
             }
-
             lastKeyPressed = keyName;
             return false;
         }
 
-        public bool doubleTapKey(){
-            bool doublePressed = false;
+        private bool doubleTapKey(){
+            bool doublePressed= false;
             bool w = Input.GetKeyDown(KeyCode.W);
             bool a = Input.GetKeyDown(KeyCode.A);
             bool s = Input.GetKeyDown(KeyCode.S);
             bool d = Input.GetKeyDown(KeyCode.D);
-
-            switch (w){
-                case false when !a && !s && !d:
-                    return false;
-                case true:
-                    doublePressed = auxDoubleTapKey("W", Vector3.forward);
-                    break;
-                default:
-                {
-                    if (a) doublePressed = auxDoubleTapKey("A", -Vector3.right);
-                    else if (s) doublePressed = auxDoubleTapKey("S", -Vector3.forward);
-                    else doublePressed = auxDoubleTapKey("D", Vector3.right);
-                    break;
-                }
-            }
-
+          
+            if (w) doublePressed = auxDoubleTapKey("W", Vector3.forward);
+            if (a) doublePressed = auxDoubleTapKey("A", -Vector3.right);
+            if (s) doublePressed = auxDoubleTapKey("S", -Vector3.forward);
+            if (d) doublePressed = auxDoubleTapKey("D", Vector3.right);
             doubleTapTime = Time.time;
-
             return doublePressed;
         }
-
-        private void isometricDodgeMove(Vector3 dir){
-            Vector3 rightMovement = right * (dodgeDistance * Time.deltaTime * dir.x);
-            Vector3 upMovement = forward * (dodgeDistance * Time.deltaTime * dir.z);
-            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-            Transform transform1 = transform;
-            transform1.forward = heading;
-            //transform.Translate(Vector3.forward*4);
-            controller.Move(transform1.forward * (dodgeDistance * Time.deltaTime));
-        }
-
-        public void isometricMove(Vector3 dir, float speed){
-            Vector3 rightMovement = right * (speed * Time.deltaTime * dir.x);
-            Vector3 upMovement = forward * (speed * Time.deltaTime * dir.z);
-            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-
-            Transform transform1 = transform;
-
-            if(!apuntando)
-                transform1.forward = heading;
-            controller.Move((rightMovement + upMovement) * (speed * Time.deltaTime));
-        }
-
-
-        private void move(Vector3 dir, float speed){
-            bool shift = Input.GetKey(KeyCode.LeftShift);
-            if (shift&& (!_animator.GetBool("FireAttack") && _animator.GetInteger("Attack") == 0)){
-                
-                speed *= multiplicator;
-                _animator.SetFloat(Speed, 1);
-            }
-            else{
-                _animator.SetFloat(Speed, .5f);
-            }
-
-            isometricMove(dir, speed);
-        }
-
-        #endregion
-    }
-}
+*/

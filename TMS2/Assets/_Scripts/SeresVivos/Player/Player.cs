@@ -8,7 +8,7 @@ public abstract class Player : MonoBehaviour
     protected string MOVING = "caminando";
     protected string ATACK  = "ataque";
     protected string INJURED = "injured";
-    private Transform body;
+    protected Transform body;
 
     private void Awake()
     {

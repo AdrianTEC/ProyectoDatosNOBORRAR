@@ -9,14 +9,11 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
     public string[] attacks;
     public string[] defenses;
 
-    public float attackRate;
     public bool antiBullets;
-    public string antiBulletAttack;
-    public Vector3 offset;
-    public float attackDistance;
     private Animator animator;
-    
+    public float attackRate=1;
     private bool attacking;
+    private bool canAttack=true;
     private string currentAnim;
     
     void Start(){
@@ -30,16 +27,29 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
         }
     }
 
+    /// <summary>
+    /// Verifica si se sigue en estado de ataque
+    /// </summary>
+    /// <param name="obj"></param>
     void attack(GameObject obj){
         verifyIfAtacking();
-        if(attacking) return;
+        if(attacking || !canAttack) return;
         attacking = true;
+        canAttack = false;
+        
+        Invoke(nameof(canAttackAgain),attackRate);
+        
         transform.LookAt(obj.transform);
         int rNumber = Random.Range(0, attacks.Length);
         
         currentAnim = attacks[rNumber];
         animator.Play(currentAnim);
     }
+
+    public void canAttackAgain(){
+        canAttack = true;
+    }
+    
     void skipBullet(GameObject obj){
         verifyIfAtacking();
         if(attacking) return;
@@ -50,12 +60,12 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
     public void tellAboutCollision(Collider col){
         if(col.CompareTag("Player"))
             attack(col.gameObject);
-        if (col.CompareTag("Bullet"))
+        if (antiBullets && col.CompareTag("Bullet"))
             skipBullet(col.gameObject);
     }
 
     public void tellAboutExitCollision(Collider col){
-        throw new NotImplementedException();
+        
     }
 
     public void tellAboutCollision(Collision col){
