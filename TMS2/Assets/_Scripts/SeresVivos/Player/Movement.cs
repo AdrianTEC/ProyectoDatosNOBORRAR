@@ -103,7 +103,6 @@ namespace _Scripts.SeresVivos.Player{
         /// <param name="direction"></param>
         /// <returns></returns>
         private bool auxDoubleTapKey(string keyName, Vector3 direction){
-            Debug.Log(keyName +"  "+ lastKeyPressed +"   "  + (Time.time - doubleTapTime));
 
             if (Time.time < doubleTapTime+ .9f && lastKeyPressed.Equals(keyName)){
                 lastKeyPressed = Random.Range(0,100).ToString();

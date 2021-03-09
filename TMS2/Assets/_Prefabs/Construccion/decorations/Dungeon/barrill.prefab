@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 607016656653110047}
   - component: {fileID: 546894413595749815}
   - component: {fileID: 8646686035914824667}
+  - component: {fileID: 155297858169238189}
   m_Layer: 0
   m_Name: barrill
   m_TagString: Untagged
@@ -3354,3 +3355,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDie: 1
   cadaver: {fileID: 1604864279575065660, guid: 02ec8d068ee6e2e48a5c0aadd18659a5, type: 3}
+--- !u!114 &155297858169238189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607016656653110040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bba3ade1bde9f84ea378b08c367a302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useScreenBlood: 0
+  animator: {fileID: 0}

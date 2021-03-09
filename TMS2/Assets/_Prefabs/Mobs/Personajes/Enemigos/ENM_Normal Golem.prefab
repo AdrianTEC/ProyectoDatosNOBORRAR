@@ -1468,7 +1468,7 @@ GameObject:
   - component: {fileID: 5495902117356557420}
   - component: {fileID: 7710927794125517763}
   - component: {fileID: 2276698444780919827}
-  - component: {fileID: 4688408469337936167}
+  - component: {fileID: 5681329936755481387}
   m_Layer: 0
   m_Name: ENM_Normal Golem
   m_TagString: enemy
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   canReceiveDamage: 1
   displayer: {fileID: 0}
   death: {fileID: 635860335648435814}
-  timeOfInmunity: 0
+  timeOfInmunity: 0.3
 --- !u!114 &635860335648435814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,8 +1552,10 @@ MonoBehaviour:
   attacks:
   - Golem-A2
   - Golem-A1
+  - Golem-A1
   defenses: []
   antiBullets: 0
+  attackRate: 3
 --- !u!114 &8262892589993904483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,7 +1852,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4688408469337936167
+--- !u!114 &5681329936755481387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1859,11 +1861,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5495902117356557421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63b402fe1dadacf4f92a93895ed5ad21, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bba3ade1bde9f84ea378b08c367a302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shake_decay: 0.1
-  shake_intensity: 0.3
+  useScreenBlood: 0
+  animator: {fileID: 5495902117356557422}
 --- !u!1 &8318464321566724406
 GameObject:
   m_ObjectHideFlags: 0
