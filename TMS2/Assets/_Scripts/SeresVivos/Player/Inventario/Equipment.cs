@@ -33,10 +33,10 @@ public class Equipment : MonoBehaviour
         weaponClass = WEAPON.GetComponent<Weapon>();
         if (weaponClass is FireWeapon){
             Debug.Log("fireW");
-            animator.SetLayerWeight(1,1);
+            animator.SetLayerWeight(2,1);
         }
         else{
-            animator.SetLayerWeight(1,0);
+            animator.SetLayerWeight(2,0);
 
         }
     }

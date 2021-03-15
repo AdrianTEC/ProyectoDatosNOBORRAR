@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sustanciales/GameOver.unity
-    guid: a7e522c9caa34f944a590b759867ba3c
-  - enabled: 1
     path: Assets/Scenes/Sustanciales/MenuPrincipal.unity
     guid: 06f05c52cd6752c448ddfde0dadfa1b3
   - enabled: 1
+    path: Assets/Scenes/Sustanciales/GameOver.unity
+    guid: a7e522c9caa34f944a590b759867ba3c
+  - enabled: 1
     path: Assets/Scenes/Sustanciales/Loading.unity
     guid: 95fcad90e2128c947bf7d40543fc51a6
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Space/Intro.unity
-    guid: 0d16aa938289b1e468bd7c0f204cc520
-  - enabled: 1
-    path: Assets/Scenes/Space/SpaceIntro/Inside/InsideShip.unity
+    path: Assets/Scenes/InsideShip.unity
     guid: cc939af4a17f9554897a7b28c9c25d92
   - enabled: 1
     path: Assets/Scenes/Space/SpaceIntro/IntroBattle.unity

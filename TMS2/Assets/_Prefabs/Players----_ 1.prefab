@@ -1086,7 +1086,7 @@ MonoBehaviour:
   velocidad: 15
   multiplicator: 1.5
   gravity: 9
-  dodgeDistance: 200
+  propulseSpeed: 15
   apuntando: 0
 --- !u!114 &4572201014202726272
 MonoBehaviour:
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   velocidad: 15
   multiplicator: 0
   gravity: 9
-  dodgeDistance: 150
+  propulseSpeed: 0
   apuntando: 0
 --- !u!143 &4572201014299980973
 CharacterController:
@@ -1530,7 +1530,7 @@ GameObject:
   - component: {fileID: 4572201014565535188}
   m_Layer: 0
   m_Name: CM vcam1
-  m_TagString: Untagged
+  m_TagString: Cinemachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

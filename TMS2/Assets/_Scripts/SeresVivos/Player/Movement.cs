@@ -7,11 +7,11 @@ namespace _Scripts.SeresVivos.Player{
     public class Movement : global::Player{
         
         [Header("movement constants")]
-        public int velocidad;
+        public float velocidad=0.1f;
         public float multiplicator;
-        public int gravity;
+        public float gravity;
         public float propulseSpeed;
-
+        public float maxTimeForDoubleTap = 1f;
         private readonly float pushPower = 2.0f;
         private float doubleTapTime;
         
@@ -25,6 +25,10 @@ namespace _Scripts.SeresVivos.Player{
         private Vector3 forward, right;
         private static readonly int Speed = Animator.StringToHash("Speed");
         private audioManager manager;
+
+        private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int FireAttack = Animator.StringToHash("FireAttack");
+
         //-------------------------------------------------->
         //-------------------------------------------------->
         //-------------------------------------------------->
@@ -42,7 +46,7 @@ namespace _Scripts.SeresVivos.Player{
 
         private void Update(){
             optionalKeyPulsation();
-            if (_animator.GetInteger("Attack")==0) doubleTapKey();
+            if (_animator.GetInteger(Attack)==0) doubleTapKey();
         }
 
         private void FixedUpdate(){
@@ -93,25 +97,23 @@ namespace _Scripts.SeresVivos.Player{
             else
                 _animator.SetFloat(Speed, 0);
         }
-        
-        
-        
+
+
         /// <summary>
         /// verifies if double key was succes
         /// </summary>
         /// <param name="keyName"></param>
         /// <param name="direction"></param>
         /// <returns></returns>
-        private bool auxDoubleTapKey(string keyName, Vector3 direction){
+        private void auxDoubleTapKey(string keyName, Vector3 direction){
 
-            if (Time.time < doubleTapTime+ .9f && lastKeyPressed.Equals(keyName)){
+            if (Time.time < doubleTapTime+ maxTimeForDoubleTap && lastKeyPressed.Equals(keyName)){
                 lastKeyPressed = Random.Range(0,100).ToString();
                 isometricDodgeMove(direction);
-                return true;
+                return;
             }
             doubleTapTime = Time.time;
             lastKeyPressed = keyName;
-            return false;
         }
         
         
@@ -120,23 +122,25 @@ namespace _Scripts.SeresVivos.Player{
         /// dettects Double Keys
         /// </summary>
         /// <returns></returns>
-        private bool doubleTapKey(){
-            bool doublePressed= false;
+        private void doubleTapKey(){
             bool w = Input.GetKeyDown(KeyCode.W);
             bool a = Input.GetKeyDown(KeyCode.A);
             bool s = Input.GetKeyDown(KeyCode.S);
             bool d = Input.GetKeyDown(KeyCode.D);
-            if(w||a||s||d){
-                
-                
-                if (w) doublePressed      = auxDoubleTapKey("W", Vector3.forward);
-                else if (a) doublePressed = auxDoubleTapKey("A", -Vector3.right);
-                else if (s) doublePressed = auxDoubleTapKey("S", -Vector3.forward);
-                else if (d) doublePressed = auxDoubleTapKey("D", Vector3.right);
-                
-
+            switch (w){
+                case false when !a && !s && !d:
+                    return;
+                case true:
+                    auxDoubleTapKey("W", Vector3.forward);
+                    break;
+                default:
+                {
+                    if (a) auxDoubleTapKey("A", -Vector3.right);
+                    else if (s) auxDoubleTapKey("S", -Vector3.forward);
+                    else if (d) auxDoubleTapKey("D", Vector3.right);
+                    break;
+                }
             }
-            return doublePressed;
         }
 
 
@@ -144,30 +148,35 @@ namespace _Scripts.SeresVivos.Player{
 
         private void isometricDodgeMove(Vector3 dir){
             _animator.Play("roll");
-            propulsedDir = transform.forward ;
+            
+            Vector3 rightMovement = right * (  dir.x);
+            Vector3 upMovement = forward * (  dir.z);
+            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+            propulsedDir = heading;
             propulsed = true;
             Invoke(nameof(stopPropulstion),.5f);
         }
 
         public void isometricMove(Vector3 dir, float speed){
-            Vector3 rightMovement = right * (speed * Time.deltaTime * dir.x);
-            Vector3 upMovement = forward * (speed * Time.deltaTime * dir.z);
+            Vector3 rightMovement = right * (speed  * dir.x);
+            Vector3 upMovement = forward * (speed* dir.z);
             Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
             Transform transform1 = transform;
 
             if(!apuntando)
                 transform1.forward = heading;
-            controller.Move((rightMovement + upMovement) * (speed * Time.deltaTime));
+            
+            controller.Move((rightMovement + upMovement) * (speed ));
         }
 
         public void dodge(Vector3 dir, float speed){
-            controller.Move(dir* (speed * Time.deltaTime));
+            controller.Move(dir* (speed ));
         }
 
         private void move(Vector3 dir, float speed){
             bool shift = Input.GetKey(KeyCode.LeftShift);
-            if (shift&& (!_animator.GetBool("FireAttack") && _animator.GetInteger("Attack") == 0)){
+            if (shift&& (!_animator.GetBool(FireAttack) && _animator.GetInteger(Attack) == 0)){
                 speed *= multiplicator;
                 _animator.SetFloat(Speed, 1);
             }
@@ -183,7 +192,7 @@ namespace _Scripts.SeresVivos.Player{
         /// </summary>
         private void gravityAction(){
             if (controller.isGrounded) return;
-            controller.Move(Vector3.down * (gravity * Time.deltaTime));
+            controller.Move(Vector3.down * (gravity ));
         }
         
         /// <summary>
@@ -191,13 +200,13 @@ namespace _Scripts.SeresVivos.Player{
         /// </summary>
         /// <param name="hit"></param>
         private void OnControllerColliderHit(ControllerColliderHit hit){
-            Rigidbody body = hit.collider.attachedRigidbody;
+            Rigidbody attachedRigidbody = hit.collider.attachedRigidbody;
 
-            if (body == null || body.isKinematic) return;
+            if (attachedRigidbody == null || attachedRigidbody.isKinematic) return;
             if (hit.moveDirection.y < -0.3) return;
 
             Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-            body.velocity = pushDir * pushPower;
+            attachedRigidbody.velocity = pushDir * pushPower;
         }
 
 
@@ -226,30 +235,3 @@ namespace _Scripts.SeresVivos.Player{
         
     }
 }
-
-/*
-       private bool auxDoubleTapKey(string keyName, Vector3 direction){
-            if (Time.time < doubleTapTime + 1.5f && lastKeyPressed.Equals(keyName)){
-                lastKeyPressed = "null";
-                isometricDodgeMove(direction);
-                return true;
-            }
-            lastKeyPressed = keyName;
-            return false;
-        }
-
-        private bool doubleTapKey(){
-            bool doublePressed= false;
-            bool w = Input.GetKeyDown(KeyCode.W);
-            bool a = Input.GetKeyDown(KeyCode.A);
-            bool s = Input.GetKeyDown(KeyCode.S);
-            bool d = Input.GetKeyDown(KeyCode.D);
-          
-            if (w) doublePressed = auxDoubleTapKey("W", Vector3.forward);
-            if (a) doublePressed = auxDoubleTapKey("A", -Vector3.right);
-            if (s) doublePressed = auxDoubleTapKey("S", -Vector3.forward);
-            if (d) doublePressed = auxDoubleTapKey("D", Vector3.right);
-            doubleTapTime = Time.time;
-            return doublePressed;
-        }
-*/

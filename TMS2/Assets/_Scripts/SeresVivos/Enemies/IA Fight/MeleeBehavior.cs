@@ -10,6 +10,7 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
     public string[] defenses;
 
     public bool antiBullets;
+    public bool lookAtTarget = true;
     private Animator animator;
     public float attackRate=1;
     private bool attacking;
@@ -38,8 +39,8 @@ public class MeleeBehavior : MonoBehaviour, ComposedCollider{
         canAttack = false;
         
         Invoke(nameof(canAttackAgain),attackRate);
-        
-        transform.LookAt(obj.transform);
+        if(lookAtTarget)
+            transform.LookAt(obj.transform);
         int rNumber = Random.Range(0, attacks.Length);
         
         currentAnim = attacks[rNumber];
