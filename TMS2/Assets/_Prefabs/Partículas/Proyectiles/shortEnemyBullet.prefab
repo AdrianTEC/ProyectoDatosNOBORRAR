@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 7474581574658659240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 132.47778, y: 0.839, z: 24.849081}
-  m_LocalScale: {x: 0.5319639, y: 0.5319639, z: 0.5319639}
+  m_LocalScale: {x: 1.1058998, y: 1.1058998, z: 1.1058998}
   m_Children:
   - {fileID: 5032472204578983079}
   m_Father: {fileID: 0}
@@ -146,11 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99330c0d414305409dd9938b881eafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 25
+  velocity: 11
   explosion: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   rb: {fileID: 7474581574658659246}
   damage: 1
   pushConstant: 0
+  multipleCollisions: 0
   ignoretags:
   - enemy
   - TriggerIgnore
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894ad55332e5c074f93ffc0e3612546b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
+  time: 3
 --- !u!65 &1773882024162401676
 BoxCollider:
   m_ObjectHideFlags: 0

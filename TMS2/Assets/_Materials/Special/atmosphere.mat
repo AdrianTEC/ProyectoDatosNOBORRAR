@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: atmosphere
+  m_Shader: {fileID: -6465566751694194690, guid: 2a33b881bb0215f45ba28241fdd51c7e,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_267FBC57:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1C76D4D2: 0
+    - Vector1_52C1B11B: 1.5
+    - Vector1_6D67ACF3: 0
+    - Vector1_C060A0B1: 0
+    m_Colors:
+    - Color_27FDBFF6: {r: 1, g: 1, b: 1, a: 0}
+    - Color_40adba6842cf4344adae672da4b384a5: {r: 0, g: 0.9543433, b: 1, a: 0}
+    - Color_F8E59086: {r: 1, g: 0.8818743, b: 0, a: 0}
+  m_BuildTextureStacks: []

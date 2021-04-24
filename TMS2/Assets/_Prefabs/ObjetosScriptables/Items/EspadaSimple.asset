@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EspadaSimple
   m_EditorClassIdentifier: 
   Id: 1
-  uiDisplay: {fileID: 21300000, guid: 1d9b45ac0ee67194ba2022d364948492, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 7408db4208f02cf4ba9979b1e345483a, type: 3}
   prefab: {fileID: 7122394702478827360, guid: b3bbce556e8cdf14ea5fea95e7adccab, type: 3}
   type: 2
   description: Espada Sencilla

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead4a0ba98439224b90af0c640716479, type: 3}
+  m_Name: llave
+  m_EditorClassIdentifier: 
+  Id: 3
+  uiDisplay: {fileID: 21300000, guid: a8f9ea07189cd5844b60f6c85be09610, type: 3}
+  prefab: {fileID: 0}
+  type: 4
+  description: una llave simple
+  buffs: []

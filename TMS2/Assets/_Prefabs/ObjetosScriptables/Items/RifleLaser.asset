@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RifleLaser
   m_EditorClassIdentifier: 
   Id: 2
-  uiDisplay: {fileID: 21300000, guid: 7731cfbfb50c29148a95fd751ed5bf06, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 909f3dd8f521bb846b43f5a18e4233bc, type: 3}
   prefab: {fileID: 2563404468271661514, guid: 64a212ab454981e4483ac6ce951978e8, type: 3}
   type: 2
   description: "Rifle laser de la armada espacial de patitos, lanza cargas el\xE9ctricas"

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7170618960073372754}
   - component: {fileID: 6831496047515389908}
   - component: {fileID: 6461154013811134146}
+  - component: {fileID: 2916303137686536056}
   m_Layer: 10
   m_Name: EXPLOSION_SphericalExplosioin
   m_TagString: Untagged
@@ -4830,7 +4831,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a176f590aad4ca646b72ad1752ca3717, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.275
+  m_Volume: 0.091
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4927,6 +4928,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 2
+--- !u!114 &2916303137686536056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697190381343567041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bba3ade1bde9f84ea378b08c367a302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useScreenBlood: 0
+  animator: {fileID: 0}
+  SlowDownLenght: 0.1
 --- !u!1 &2336290476626340904
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: d1f565b918444184b90a7a64ccffaa65, type: 2}
   Container:
     Items:
-    - ID: 2
+    - ID: -1
       item:
         Name: RifleLaser
         Id: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
           min: 0
           max: 0
       amount: 1
-    - ID: 1
+    - ID: -1
       item:
         Name: EspadaSimple
         Id: 1
@@ -41,8 +41,8 @@ MonoBehaviour:
     - ID: -1
       item:
         Name: 
-        Id: -1
-        type: 3
+        Id: 0
+        type: 0
         buffs: []
       amount: 0
     - ID: -1
