@@ -23,7 +23,7 @@ namespace _Scripts._Generales.Camera{
         }
 
         private void OnDestroy(){
-            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
+//            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
         }
 
         private void shakeCamera()

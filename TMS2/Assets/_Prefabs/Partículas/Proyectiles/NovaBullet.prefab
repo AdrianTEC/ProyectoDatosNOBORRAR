@@ -133,8 +133,9 @@ MonoBehaviour:
   velocity: 40
   explosion: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   rb: {fileID: 4092443001123994652}
-  damage: 1
+  damage: 100
   pushConstant: 0
+  multipleCollisions: 0
   ignoretags:
   - Player
   - TriggerIgnore

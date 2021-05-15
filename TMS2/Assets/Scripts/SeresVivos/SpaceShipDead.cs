@@ -25,8 +25,8 @@ public class SpaceShipDead : Death
         Instantiate(explosion).transform.position = target.transform.position;
         //Destroy(target);
         target.SetActive(false);
-
-        audioSource.enabled = false;
+        if(audioSource)
+            audioSource.enabled = false;
         
     }
 
